@@ -1,0 +1,138 @@
+<nav class="navbar navbar-default" style="margin-top: -21px;border-top: 0px;height:50px;background-color:#005da2; border-radius:0px; border: 0px" ng-hide="hideSecondBar">
+    <div class="container-fluid unselectable-text" style="margin-bottom: 0px;">
+	<div class="navbar-header"></div>
+	<div class="collapse navbar-collapse" style="text-align: center;">
+	    <ul class="nav navbar-nav" style="display: inline-block;float: none;">
+		<li class="custom-nav" ui-sref-active='custom-nav-active' ng-repeat="tab in syncTabs" ng-if="(!tab.isAdminTab)||(isAdmin && tab.isAdminTab)">
+		    <a style="color: white;font-weight: bold;padding-bottom: 5px;font-size: smaller;" href="#" ui-sref="{{tab.ref}}">
+			<i class="fa {{tab.icon}} fa-2x" aria-hidden="true"></i> {{tab.name}}
+		    </a>
+		</li>
+	    </ul>
+	</div>
+    </div>
+</nav>
+
+
+
+   
+
+
+
+<div class="row" ng-hide="hideSelectionBar">
+  <div class="col-md-12" style="text-align: center;">
+    <div style="text-align: center;display:inline-block">
+<!-- 	<label>Release type</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.releaseType" ng-change="releaseTypeSelected()">
+<!-- 	  <option value="" selected="selected">Release type</option> -->
+	  <option data-hidden="true" value="">Release type</option>
+	  <option value="unreleased">unreleased</option>
+	  <option value="released">released</option>
+	</select>
+    </div>
+
+    <div  style="text-align: center;display:inline-block">
+<!-- 	<label>Project</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	  <option data-hidden="true" value="">Select Project</option>
+	  <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	<label>unit</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedUnit" ng-change="unitSelected()">
+	  <option data-hidden="true" value="">Select unit</option>
+	  <option ng-repeat="unit in data.projectUnits track by $index" ng-value="unit">{{unit}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	<label>user</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedUser" ng-change="userSelected()">
+	  <option data-hidden="true" value="">Select user</option>
+	  <option ng-repeat="user in data.projectUsers track by $index" ng-value="user">{{user}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	<label>run_id</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedRunid" ng-change="runidSelected()">
+	  <option data-hidden="true" value="">Select run_id</option>
+	  <option ng-repeat="runid in data.projectRunids track by $index" ng-value="runid">{{runid}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	<label>stage</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedStage" ng-change="stageSelected()">
+	  <option data-hidden="true" value="">Select stage</option>
+	  <option ng-repeat="stage in data.projectStages track by $index" ng-value="stage">{{stage}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	<label>date</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedDate" ng-change="saveSynthizesPick()">
+	  <option data-hidden="true" value="">Select date</option>
+	  <option ng-repeat="date in data.projectDates track by $index" ng-value="date">{{date}}</option>
+	</select>
+    </div>
+
+
+    <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	<label>Core</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedCore" ng-change="coreSelected()">
+	  <option data-hidden="true" value="">Select Core</option>
+	  <option ng-repeat="core in data.projectCores track by $index" ng-value="core">{{core}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	<label>RTL</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedRtl" ng-change="rtlSelected()">
+	  <option data-hidden="true" value="">Select RTL</option>
+	  <option ng-repeat="rtl in data.projectCoreRTLS track by $index" ng-value="rtl">{{rtl}}</option>
+	</select>
+    </div>
+    <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	<label>Synthesis</label></br> -->
+	<select class="selectPicker" data-width="150px" ng-model="data.selectedRelease" ng-change="saveSynthizesPick()">
+<!-- 	  <option data-hidden="true">Pick One</option> -->
+	  <option data-hidden="true" value="">Select Synthesis</option>
+	  <option ng-repeat="release in data.projectCoreReleases track by $index" ng-value="release">{{release}}</option>
+	</select>
+    </div>
+<!--</br>
+{{data.projectCoreReleases}}</br>
+{{data.selectedRelease}}-->
+<!--     <button type="button" class="btn btn-primary" ng-click="saveSynthizesPick()">Save pick</button> -->
+    <a href="" ng-click="copyReleasePath()" title="Copy release url"><i class="far fa-copy"></i></a>
+<!--     <button type="button" class="btn btn-info" ng-click="copyReleasePath()">Copy</button> -->
+<!--     <button type="button" class="btn btn-info" ng-click="compareReleases()">Compare</button> -->
+
+<!--     <button type="button" class="btn btn-primary" ng-click="fetchTimingInfo()">Fetch</button> -->
+<!--    <button ng-if="isAdmin" type="button" class="btn btn-danger" ng-click="hideProject()">HIDE</button>
+    <button ng-if="isAdmin" type="button" class="btn btn-danger" ng-click="deleteProject()">DELETE</button>-->
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="{{mainClass}} ui-view-container" ng-class="{'ui-view-container-loading' : loadingState}"  >
+    <div ui-view="content" class="slide"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+{
+  "name": "web_api",
+  "version": "1.0.0",
+  "description": "RESTful web api",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install --save pm2",
+    "start": "node ./node_modules/.bin/pm2-runtime server.js -i max"
+  },
+  "author": "rsakhnin",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.16.2",
+    "express-session": "^1.16.2",
+    "http-proxy": "^1.17.0",
+    "intel-generate-secret": "git://github.intel.com/intc/generate-secret",
+    "isso": "git://github.intel.com/securitydev/node-isso#prepixi",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.12",
+    "nodemailer": "^5.1.1",
+    "package.json": "^2.0.1",
+    "pm2": "^2.10.4",
+    "request": "^2.88.0",
+    "requests": "^0.3.0"
+  },
+  "engines": {
+    "node": "10.18.1",
+    "npm": "6.5.0"
+  }
+}

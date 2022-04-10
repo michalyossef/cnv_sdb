@@ -1,0 +1,368 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20191211.153247.129992.0.001.json",
+    "dumpEventTime": "2019-12-11T15:32:47Z",
+    "dumpEventTimeStamp": "1576071167619",
+    "processId": 129992,
+    "cwd": "/nfs/iil/stod/stod177vs/w.rsakhnin.100/big_data/server",
+    "commandLine": [
+      "../../libs/node_compiled_11.15.0/bin/node",
+      "server.js"
+    ],
+    "nodejsVersion": "v11.15.0",
+    "glibcVersionRuntime": "2.11.3",
+    "glibcVersionCompiler": "2.12",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "11.15.0",
+      "v8": "7.0.276.38-node.19",
+      "uv": "1.27.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.37.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "3.0.101-108.87-default",
+    "osVersion": "#1 SMP Fri Feb 22 16:42:57 UTC 2019 (10e85a8)",
+    "osMachine": "x86_64",
+    "host": "icsl10090"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000a702fd",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x000000000095ccb3",
+      "symbol": "node::OnFatalError(char const*, char const*) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3dbde",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3de14",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f3ce52",
+      "symbol": " [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f3cf58",
+      "symbol": "v8::internal::Heap::CheckIneffectiveMarkCompact(unsigned long, double) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f49678",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f4a18b",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f4cec1",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f170f4",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x00000000011cd3fe",
+      "symbol": "v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*) [../../libs/node_compiled_11.15.0/bin/node]"
+    },
+    {
+      "pc": "0x00000ca3a534fc5d",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 1525239808,
+    "totalCommittedMemory": 1518745400,
+    "usedMemory": 1404670648,
+    "availableMemory": 16382096,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 42224,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 28398016,
+        "capacity": 16498688,
+        "used": 2682792,
+        "available": 13815896
+      },
+      "old_space": {
+        "memorySize": 1479741440,
+        "committedMemory": 1479309416,
+        "capacity": 1393810144,
+        "used": 1393204152,
+        "available": 605992
+      },
+      "code_space": {
+        "memorySize": 2097152,
+        "committedMemory": 1673504,
+        "capacity": 1406176,
+        "used": 1406176,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1585152,
+        "committedMemory": 1584896,
+        "capacity": 1004880,
+        "used": 1004880,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 7737344,
+        "committedMemory": 7737344,
+        "capacity": 7817272,
+        "used": 6339128,
+        "available": 1478144
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 73.8806,
+    "kernelCpuSeconds": 1.37208,
+    "cpuConsumptionPercent": 96.4778,
+    "maxRss": 1652633600,
+    "pageFaults": {
+      "IORequired": 4,
+      "IONotRequired": 573851
+    },
+    "fsActivity": {
+      "reads": 2808,
+      "writes": 0
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 30.1219,
+    "kernelCpuSeconds": 0.560035,
+    "cpuConsumptionPercent": 39.3358,
+    "fsActivity": {
+      "reads": 2808,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "REMOTEHOST": "",
+    "LESSKEY": "/etc/lesskey.bin",
+    "MODULE_VERSION_STACK": "3.2.10-i01",
+    "SSH2_AUTH_SOCK": "",
+    "NNTPSERVER": "news.intel.com",
+    "MANPATH": "/usr/local/man:/usr/share/man:/usr/man:/opt/lsb/man:/opt/quest/man:/usr/intel/man:/usr/share/man:/usr/local/man:/usr/man:/opt/lsb/man:/opt/quest/man",
+    "INFODIR": "/usr/local/info:/usr/share/info:/usr/info",
+    "VNCDESKTOP": "Xvnc: rsakhnin on ivnc0157:4",
+    "RTLD_DEEPBIND": "0",
+    "KDE_MULTIHEAD": "false",
+    "USER_ITOOLS": "/nfs/iil/home/rsakhnin/.itools",
+    "HOSTNAME": "icsl10090.iil.intel.com",
+    "SSH2_TTY": "",
+    "__NB_LOG_FILE": "/dev/null",
+    "__NB_QUEUE": "iil_interactive",
+    "SHELL": "/usr/intel/bin/tcsh",
+    "HOST": "icsl10090",
+    "__NB_RUNNING_ON_DYNAMIC_WSM": "false",
+    "TERM": "xterm",
+    "FVWM_USERDIR": "/nfs/iil/home/rsakhnin",
+    "PSETUP_SITE_DEF": "/nfs/iil/proj/wpdh/da01/psetup/siteDefs/siteDef:/p/com/env/psetup/prod/siteDefs/siteDef",
+    "__NB_CLASS": "(tool) && (SLES11)",
+    "KONSOLE_DBUS_SERVICE": ":1.1523",
+    "GTK2_RC_FILES": "/etc/gtk-2.0/gtkrc::/nfs/iil/home/rsakhnin/.gtkrc-2.0-qtengine:/nfs/iil/home/rsakhnin/.gtkrc-2.0:/nfs/iil/disks/home22/rsakhnin/.kde4/share/config/gtkrc-2.0",
+    "GS_LIB": "/nfs/iil/home/rsakhnin/.fonts",
+    "GTK_RC_FILES": "/etc/gtk/gtkrc:/nfs/iil/home/rsakhnin/.gtkrc::/nfs/iil/disks/home22/rsakhnin/.kde4/share/config/gtkrc",
+    "EC_ENV_PROJ": "default",
+    "LM_PROJECT": "IS_RSAKHNIN_UNKN",
+    "MORE": "-sl",
+    "QT_HOME_DIR": "/usr/share/desktop-data",
+    "WINDOWID": "44705049",
+    "QTDIR": "/usr/lib/qt3",
+    "__NB_JOBID": "iil_ion.548853711",
+    "OS": "linux",
+    "EC_SITE": "iil",
+    "KDE_FULL_SESSION": "true",
+    "USER": "rsakhnin",
+    "GROFF_NO_SGR": "yes",
+    "EC_DFLT_GRP": "cdj",
+    "GROUP": "intelall",
+    "JRE_HOME": "/usr/lib64/jvm/jre",
+    "LS_COLORS": "no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:",
+    "SSH2_CLIENT": "",
+    "MYSQL_HISTFILE": "/dev/null",
+    "CSHRCREAD": "true",
+    "__NB_MODE": "interactive",
+    "XNLSPATH": "/usr/share/X11/nls",
+    "ENV": "/etc/bash.bashrc",
+    "PSETUP_TOOLRC": "/nfs/iil/proj/wpdh/da01/psetup/toolrc",
+    "__NB_QSLOT": "pds/highmem/sles11sp4",
+    "HOSTTYPE": "x86_64-linux",
+    "FROM_HEADER": "",
+    "SESSION_MANAGER": "local/ivnc0157:@/tmp/.ICE-unix/15711,unix/ivnc0157:/tmp/.ICE-unix/15711",
+    "PAGER": "less",
+    "CSHEDIT": "emacs",
+    "__NB_POOL": "iil_ion",
+    "XDG_CONFIG_DIRS": "/etc/xdg",
+    "MINICOM": "-c on",
+    "MAIL": "/var/mail/rsakhnin",
+    "MODULE_VERSION": "3.2.10-i01",
+    "PATH": "/nfs/iil/stod/stod177vs/w.rsakhnin.100/libs/cpp/bin:/nfs/iil/stod/stod177vs/w.rsakhnin.100/libs/node-v10.13.0-linux-x64/bin:/usr/intel/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin/X11:/usr/X11R6/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/usr/lib/qt3/bin:/opt/kde3/bin:/usr/local/bin:.",
+    "SSH_AA_SOCK": "",
+    "CPU": "x86_64",
+    "JAVA_BINDIR": "/usr/lib64/jvm/jre/bin",
+    "__NB_HOME": "/nfs/iil/disks/iil_gen_adm_netbatch/install/8.3.8_0924_05",
+    "LC_COLLATE": "C",
+    "PWD": "/nfs/iil/stod/stod177vs/w.rsakhnin.100/big_data/server",
+    "INPUTRC": "/etc/inputrc",
+    "JAVA_HOME": "/usr/lib64/jvm/jre",
+    "EDITOR": "/bin/vi",
+    "__NB_CLASSRESERVATION": "int_users=1,cores=1,int_memory=12,memory=12,int_cores=1",
+    "LANG": "en_US.UTF-8",
+    "SSH2_AGENT_PID": "",
+    "KDE_SESSION_UID": "11634678",
+    "PYTHONSTARTUP": "/etc/pythonstart",
+    "__NB_SUBMIT_PWD": "/nfs/iil/disks/home22/rsakhnin",
+    "TZ": "Israel",
+    "LOADEDMODULES": "",
+    "WASH_LIST": "-g cdj -n mwg_sntk intelall mwg_vlsi c28lpiil mwg_wwa cnv_28nm p1273iil cnv_1273 gnss5kg c16 c16iil trx16prg c28hpcpiil cnv_16ff ipdbg mwg smartiug rfdpllg nb_session_iil_ion.501482325",
+    "KONSOLE_DBUS_SESSION": "/Sessions/30",
+    "HOME": "/nfs/iil/home/rsakhnin",
+    "COLORFGBG": "0;15",
+    "SHLVL": "7",
+    "VNCSESSION": "1",
+    "LESS_ADVANCED_PREPROCESSOR": "no",
+    "OSTYPE": "linux",
+    "KDE_SESSION_VERSION": "4",
+    "LANGUAGE": "",
+    "EC_OU": "iil",
+    "XCURSOR_THEME": "Industrial",
+    "LS_OPTIONS": "-N --color=tty -T 0",
+    "VENDOR": "unknown",
+    "__NB_TIMES_RESTARTED": "0",
+    "LESS": "-M -I -R",
+    "LOGNAME": "rsakhnin",
+    "G_FILENAME_ENCODING": "@locale,UTF-8,ISO-8859-1,CP1252",
+    "MACHTYPE": "x86_64",
+    "CVS_RSH": "ssh",
+    "__NB_INTERACTIVE_SESSIONID": "iil_ion.548853711",
+    "XDG_DATA_DIRS": "/usr/local/share:/usr/share:/etc/opt/kde3/share:/opt/kde3/share:/usr/share/gnome",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:abstract=/tmp/dbus-CXyCeytni4,guid=180f0f4c2a27c02d521b8d455cf24195",
+    "MODULESHOME": "/p/inway_arch/tools/opensource/Modules/3.2.10-i01",
+    "HOSTYPE": "x86-64_linux_sles11",
+    "VER": "sles11",
+    "LESSOPEN": "lessopen.sh %s",
+    "IWRAPPER_DEPTH": "1,1575891701",
+    "ARCH": "x86-64",
+    "USE_FAM": "",
+    "INFOPATH": "/usr/intel/pkgs/info/LATEST:/usr/local/info:/usr/share/info:/usr/info",
+    "DISPLAY": "ivnc0157.iil.intel.com:4.0",
+    "PROFILEHOME": "",
+    "QT_PLUGIN_PATH": "/nfs/iil/home/rsakhnin/.kde4/lib64/kde4/plugins/:/usr/lib64/kde4/plugins/",
+    "__NB_USER_LOG_FILE": "/dev/null",
+    "LESSCLOSE": "lessclose.sh %s %s",
+    "EC_UNAME": "Linux_3.0.101-108.87-default_x86_64",
+    "EC_SITECODE": "IS",
+    "PSETUP_BASEDIR": "/p/com/env/psetup/prod",
+    "G_BROKEN_FILENAMES": "1",
+    "NBM_ID": "",
+    "EC_ENV_ROOT": "/usr/intel/common/pkgs/eclogin/1.0",
+    "MODULESBEGINENV": "~/.modulesbeginenv",
+    "JAVA_ROOT": "/usr/lib64/jvm/jre",
+    "COLORTERM": "1",
+    "_": "/usr/intel/bin/tcsh",
+    "MODULEPATH": "/nfs/site/proj/inway_local/modulefiles/eda:/nfs/site/proj/inway/etc/modulefiles/eda:/nfs/site/proj/inway/etc/modulefiles/prog:/nfs/site/proj/inway/etc/modulefiles/tools:/nfs/site/proj/inway/toolconf/modulefiles"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 32768,
+      "hard": 32768
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 4096,
+      "hard": 8192
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "/lib64/libdl.so.2",
+    "/lib64/librt.so.1",
+    "/usr/lib64/libstdc++.so.6",
+    "/lib64/libm.so.6",
+    "/lib64/libgcc_s.so.1",
+    "/lib64/libpthread.so.0",
+    "/lib64/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}

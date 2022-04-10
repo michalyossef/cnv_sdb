@@ -1,0 +1,75 @@
+<div class="home_main_container container-fluid" id="homeContainer">
+
+
+  <div class="modal app-modal-window" style="margin:auto;overflow-y:auto;display:block" modal="data.showReportModal" ng-show="data.showReportModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showReportModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	  <label> Subject: </label> </br> <input type="text" ng-model="data.mailSubject"> </input></br>
+	  <label> Info: </label> </br> <textarea ng-model="data.mailBody"> </textarea></br>
+<!-- 	  <button type="button" class="btn btn-success" ng-click="sendMail();">Send report</button> -->
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showReportModal = false;">Close</button>
+	  <button type="button" ng-if="data.showBugReport" class="btn btn-success" ng-click="sendBugMail();">Send report</button>
+	  <button type="button" ng-if="data.showIdeaReport" class="btn btn-success" ng-click="sendIdeaMail();">Send report</button>
+
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+<!--     <div style="margin-top: 30px;" class="well"> -->
+  <h3 style="text-align:center">Welcome to CNV web</h3>
+
+  <div>
+
+    <a href="" ng-click="data.showReportModal = true;data.showBugReport = true;data.showIdeaReport = false;" title="Report a bug"><i class="fas fa-bug"></i></a>
+    <a href="" ng-click="data.showReportModal = true;data.showBugReport = false;data.showIdeaReport = true;" title="Suggest a feature"><i class="far fa-lightbulb"></i></a>
+
+    <h4>Latest updates:</h4>
+
+    <ol>
+      <li>New synthesis tab which include all synthesis such as area/leakage/timing/summary</li>
+      <li>Power- inside compare user can see the difference in percentage between releases</li>
+      <li>Power- fixed dropdown list bugs</li>
+      <li>Power- added table below the cell's details, to see children total power</li>
+      <li>Floorplan prototype inside summary</li>
+      <li>Area- added Cell distrubtion and macro...</li>
+      <li>Home- Created this page</li>
+    </ol> 
+
+  </div>
+<!--     </div> -->
+
+
+  <div style="margin-top: 30px;" class="well">
+    <h4>Tabs description:</h4>
+    <table class="table table-bordered">
+      <tr>
+	<th>Tab name</th>
+	<th>Description</th>
+      </tr>
+      <tbody ng-repeat="tab in tabs">
+	<tr>
+	  <td><a href="#" ui-sref="{{tab.ref}}">{{tab.name}}</a></td>
+	  <td>{{tab.description}}</td>
+	</tr>
+	<tr ng-if="tab.name=='Synthesis'" ng-repeat="synTab in syncTabs">
+	  <td style="padding-left: 40px;"><a href="#" ui-sref="{{synTab.ref}}">{{synTab.name}}</a></td>
+	  <td>{{synTab.description}}</td>
+	</tr>
+      </tbody>
+    </table>
+      
+
+  </div>
+
+</div>

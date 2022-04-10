@@ -1,0 +1,182 @@
+<div class="project_main_container" id="projectContainer">
+
+
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;padding-right:0px; padding-left: 0px">
+      <div style="text-align: center;display:inline-block">
+	  <label>Project</label></br>
+	  <select class="selectPicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" ng-if="data.selectedProject">
+	<div class="col-md-12">
+	    <div id="fullChip" class="collapse in" style="width:100%">
+	      <table class="table table-bordered">
+		<thead>
+		  <tr>
+		    <th colspan="10" style="text-align:center">
+			{{data.selectedProject}} FullChip
+		    </th>
+		  </tr>
+		  <tr>
+		    <th colspan="3" style="text-align:center">
+			Release info
+		    </th>
+		    <th colspan="3" style="text-align:center">
+			Area
+		    </th>
+		    <th colspan="1" style="text-align:center">
+			Leakage
+		    </th>
+		    <th colspan="3" style="text-align:center">
+			Timing - SYSTEM_SLOW
+		    </th>
+		  </tr>
+		  <tr>
+		    <th>Core</th>
+		    <th>RTL</th>
+		    <th>Synthesis</th>
+		    <th>K gates</th>
+		    <th>K byte</th>
+		    <th>Cell count</th>
+		    <th>stdcell</th>
+		    <th>wns</th>
+		    <th>tns</th>
+		    <th>fep</th>
+		  </tr>
+		</thead>
+		<tbody>
+		    <tr style="background-color:#0071c599">
+		      <td>FullChip</td>
+		      <td></td>
+		      <td></td>
+		      <td>{{getAreaKgStdcellTotal() | number:2}}</td>
+		      <td>{{getAreaKbMemoryTotal() | number:2}}</td>
+		      <td>{{getAreaCellcountTotal() | number:2}}</td>
+		      <td><!--{{getLeakageTotalCurrent() | number:2}}--></td>
+		      <td></td>
+ 		      <td></td> 
+ 		      <td></td>
+		    </tr>
+		</tbody>
+		<tbody>
+		    <tr ng-repeat="core in data.projectCoresList track by $index">
+		      <td>{{core}}</td>
+		      <td>
+			<select class="selectPicker" data-width="250px" ng-model="data.selectedReleases[$index].rtl" ng-change="rtlSelected($index)">
+			  <option ng-repeat="rtl in getRtlByCores(core) track by $index" ng-value="rtl">{{rtl}}</option>
+			</select>
+		      </td>
+		      <td>
+			<select class="selectPicker" data-width="250px" ng-model="data.selectedReleases[$index].release" ng-change="releaseSelected($index)">
+			  <option ng-repeat="release in getReleasesByCores(core, data.selectedReleases[$index].rtl) track by $index" ng-value="release">{{release}}</option>
+			</select>
+
+			<a ng-if="data.selectedReleases[$index].area_exists" ng-href="#!/{{getRleasePath('area',$index)}}" target="_blank" title="Area info"><i class="fa fa-image"></i></a>
+			<a ng-if="data.selectedReleases[$index].leakage_exists" ng-href="#!/{{getRleasePath('leakage',$index)}}" target="_blank" title="Leakage info"><i class="fa fa-tint"></i></a>
+			<a ng-if="data.selectedReleases[$index].timing_exists" ng-href="#!/{{getRleasePath('timing',$index)}}" target="_blank" title="Timing info"><i class="fa fa-clock"></i></a>
+			<a ng-href="#!/{{getRleasePath('summary',$index)}}" target="_blank" title="Summary info"><i class="fa fa-file-alt"></i></a>
+			<a ng-if="data.excelsPath[data.selectedReleases[$index].release]" href="" ng-click="getExcelPath(data.excelsPath[data.selectedReleases[$index].release])" title="Excel file"><i class="fa fa-file-excel"></i></a>
+
+		      </td>
+		      <td>{{data.selectedReleases[$index].area_release_info.total_std.area / 1000 / (data.selectedReleases[$index].area_release_info.G_NAND_EQU_CELL) | number:2}}</td>
+		      <td>{{data.selectedReleases[$index].area_release_info.total_memory.KB | number:2}}</td>
+		      <td>{{getAreaCellcount(data.selectedReleases[$index].area_release_info) | number:2}}</td>
+		      <td>
+
+			<div class="progress" ng-attr-title="{{data.selectedReleases[$index].leakage_release_info.summary}}">
+			  <div ng-repeat="value in data.selectedReleases[$index].leakage_release_info.values track by $index" class="progress-bar" role="progressbar" ng-style="{'width': value +'%', 'background-color': data.selectedReleases[$parent.$index].leakage_release_info.pieColors[$index].borderColor}">{{data.selectedReleases[$parent.$index].leakage_release_info.labels[$index]}}</div>
+			</div>
+
+<!-- 			{{data.selectedReleases[$index].leakage_release_info.total_current | number:2}} -->
+		      </td>
+		      <td>
+			{{data.selectedReleases[$index].timing_release_info.wns | number:2}}
+		      </td>
+		      <td>
+			{{data.selectedReleases[$index].timing_release_info.tns | number:2}}
+		      </td>
+		      <td>
+			{{data.selectedReleases[$index].timing_release_info.fep | number:2}}
+		      </td>
+<!-- 		      <td>{{data.selectedReleases[$index].area_release_info.macro.area | number:2}}</td> -->
+		    </tr>
+		</tbody>
+	      </table>
+	    </div>
+	</div>
+  </div>
+
+
+
+<!--  <div class="row" ng-if="data.selectedProject == 'sup20-a0' || data.selectedProject == 'sup20-z0'">
+	<div class="col-md-12">
+	      <iframe width="560" height="315" src="https://www.youtube.com/embed/ubvYQxTXO3U?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+  </div>-->
+
+<!--
+  <div class="row" ng-if="data.selectedProject">
+	<div class="col-md-12">
+	    <div id="fullChip" class="collapse in" style="width:100%">
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th colspan="6" style="text-align:center">
+			{{data.selectedProject}} FullChip
+		    </th>
+		  </tr>
+		  <tr>
+		    <th colspan="3" style="text-align:center">
+
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Area
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Leakage
+		    </th>
+		  </tr>
+		  <tr>
+		    <th>Core</th>
+		    <th>RTL</th>
+		    <th>Synthesis</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total memory size (KB)</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total stdcell Current  [uA]</th>
+		    <th>Total memory stdby (mode) [uA]</th>
+		  </tr>
+		</thead>
+		<tbody>
+		    <tr style="background-color:#0db9f0">
+		      <td>FullChip</td>
+		      <td></td>
+		      <td></td>
+		      <td>{{getKgStdcellTotal() | number:2}}</td>
+		      <td>{{getKbMemoryTotal() | number:2}}</td>
+		    </tr>
+		</tbody>
+		<tbody ng-repeat="order in data.projectAreaFullchipConfig.order track by $index">
+		    <tr ng-repeat="n in [].constructor(order.count) track by $index">
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].core}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].rtl_name}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].release_name}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].total_std.area / 1000 / (data.projectAreaFullchipCores[$parent.$index].G_NAND_EQU_CELL) | number:2}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].total_memory.KB | number:2}}</td>
+		      <td>{{getStdCurrentTotalValue(data.projectLeakageFullchipCores[$parent.$index]) | number:2}}</td>
+		      <td>{{getStdCurrentTotalValue(data.projectLeakageFullchipCores[$parent.$index]) | number:2}}</td>
+		    </tr>
+		</tbody>
+	      </table>
+	    </div>
+	</div>
+  </div>
+-->
+
+</div>

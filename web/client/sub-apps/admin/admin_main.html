@@ -1,0 +1,788 @@
+<div class="admin_main_container container-fluid" id="adminContainer">
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showPrimitivesModal" ng-show="data.showPrimitivesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="btn btn-success" ng-click="data.showPrimitivesModal = false;keepPrimivites();">Keep</button>
+	  <button type="button" class="close" ng-click="data.showPrimitivesModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	    <input type="file" id="primitiveFile" ng-model="primitiveFile"  
+		onchange="angular.element(this).scope().importPrimitives(event)" style="display:none"/>
+
+	    <div excel-export export-data="getPrimitivesToExport()" file-name="{{getPrimitivesFileName()}}"></div>
+
+	    <button type="button" class="btn btn-info" ng-click="triggetUploadPrimitivesFile()">Import</button>
+	  <div style="width:100%; overflow:auto">
+	    <table id="primitivesTable" class="table">
+	      <thead>
+		<tr>
+		  <th>name</th>
+		  <th ng-repeat="primitiveMeta in data.tempPrimitivesMetaData track by $index">{{primitiveMeta}}</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="primitive in data.tempPrimtives track by $index">
+		  <td>
+		    {{primitive.name}}
+		  </td>
+		  <td ng-repeat="primitiveMeta in data.tempPrimitivesMetaData track by $index">
+		    <div ng-if="checkIfTypeNumber(primitive.meta[primitiveMeta])">
+		      <input type="number" ng-model="primitive.meta[primitiveMeta]" ng-value="primitive.meta[primitiveMeta]"></input>
+		    </div>
+		    <div ng-if="!checkIfTypeNumber(primitive.meta[primitiveMeta])">
+		      <input type="text" ng-model="primitive.meta[primitiveMeta]" ng-value="primitive.meta[primitiveMeta]"></input>
+		    </div>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </div>
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showPrimitivesModal = false;keepPrimivites();">Keep</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showPrimitivesModal = false;">Discard</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showEditInstancePath" ng-show="data.showEditInstancePath">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showEditInstancePath = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	  <h2>Map {{data.pickedCore}}-{{data.pickedCluster}} hierarchy to the following instance path:</h2>
+
+
+	  <label>Available Core</label></br>
+	  <select data-width="150px" ng-model="data.selectedLeakageCore" ng-change="coreSelectedLeakage()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="core in data.cores track by $index" ng-value="core">{{core}}</option>
+	  </select>
+
+	  </br>
+	  Select instance path:</br>
+	  <select class="selectpicker" data-live-search="true" ng-model="data.selectedMapInstance">
+	    <option ng-repeat="availableInstance in data.availableInstances track by $index" ng-value="availableInstance">{{availableInstance.level}} {{availableInstance.name}} {{availableInstance.instance}}</option>
+	  </select>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="keepInstancePathChanges();">Keep</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showEditInstancePath = false;">Discard</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showSetPVTModal" ng-show="data.showSetPVTModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showSetPVTModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	  <label> Process: </label> <input type="text" ng-model="data.powerInfo.projectPowerInfo.process"> </input></br>
+	  <label> Voltage: </label> <input type="number" ng-model="data.powerInfo.projectPowerInfo.voltage"> </input> <b>V</b></br>
+	  <label> Temperature: </label> <input type="number" ng-model="data.powerInfo.projectPowerInfo.temperature"> </input> <b>C</b>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showSetPVTModal = false;">done</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.newProjectModal" ng-show="data.newProjectModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <h3>New project</h3>
+	  <button type="button" class="close" ng-click="data.newProjectModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	  <div ng-if="newProject">
+
+	    <label>New project name:</label> <input type="text" ng-model="data.newProjectName"> </input>
+	    <button type="button" class="btn btn-success" ng-click="createNewProject(false);">create</button>
+
+	    
+	  </div>
+
+	  <div ng-if="duplicateProject">
+
+	    <label>Select project to duplicate:</label>
+	    <select ng-model="data.selectedDuplicateProject">
+	      <option value="" selected="selected">Choose</option>
+	      <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	    </select>
+
+	    </br>
+	    <label>New project name:</label> <input type="text" ng-model="data.newProjectName"> </input>
+	    <button type="button" class="btn btn-success" ng-click="createNewProject(true);">duplicate</button>
+
+	  </div>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-danger" ng-click="data.newProjectModal = false;">exit</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showCheckersModal" ng-show="data.showCheckersModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <h3>checkers</h3>
+	  <button type="button" class="close" ng-click="data.showCheckersModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <input type="file" id="checkersFile" ng-model="checkersFile"  
+		onchange="angular.element(this).scope().importCheckers(event)" style="display:none"/>
+
+	    <div excel-export export-data="getCheckersToExport()" file-name="{{getCheckersFileName()}}"></div>
+
+	    <button type="button" class="btn btn-info" ng-click="triggetUploadCheckersFile()">Import</button>
+
+	    <table id="checkersTable" class="table">
+	      <thead>
+		<tr>
+		  <th ng-repeat="title in data.selectedCluster.checkersInfo.titles track by $index">
+		      {{title}}
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="checker in data.selectedCluster.checkersInfo.checkers track by $index">
+		  <th ng-repeat="title in data.selectedCluster.checkersInfo.titles track by $index">
+		      <input type="text" ng-if="title == 'instance'" ng-model="checker[title]"></input>
+		      <input type="text" ng-if="title == 'Mode'" ng-model="checker[title]"></input>
+		      <input type="number" ng-if="title == 'Inaccuracy'" ng-model="checker[title]"></input>
+		      <input type="number" ng-if="title == 'Multiplier'" ng-model="checker[title]"></input>
+		      <input type="number" ng-if="title == 'Adder'" ng-model="checker[title]"></input>
+		      <input type="text" ng-if="title == 'Checker'" ng-model="checker[title]"></input>
+
+<!--		      <span ng-if="title == 'Checker'">
+			<select>
+			  <option ng-repeat="checker in data.powerInfo.checkers track by $index" ng-value="checker" ng-model="checker[title]" selected>{{checker.name}}</option>
+			</select>
+		      </span>-->
+		  </th>
+		</tr>
+	      </tbody>
+	    </table>
+	    <button type="button" class="btn btn-info" ng-click="data.selectedCluster.checkersInfo.checkers.push({})" aria-hidden="true">+</button>
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-danger" ng-click="data.showCheckersModal = false;">exit</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showDefinedCheckersModal" ng-show="data.showDefinedCheckersModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <h3>Defined checkers</h3>
+	  <button type="button" class="close" ng-click="data.showDefinedCheckersModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+	  <div ng-repeat="checker in data.powerInfo.checkers track by $index"> 
+	      <a ng-click="data.powerInfo.checkers.splice($index,1)"><i class="fas fa-user-minus" aria-hidden="true"></i></a>
+	      <label>name: </label> {{checker.name}} <input type="text" ng-if="userId == 'rsakhnin'" ng-model="checker.name"></br>
+	      <label>arguments: </label> 
+		  </br>
+		  <ul>
+		    <li ng-repeat="argument in checker.arguments track by $index">
+		      <span>{{argument}}</span>
+		      <span ng-if="userId == 'rsakhnin'"><input ng-model="checker.arguments[$index]" ng-value="argument"></input><a ng-click="checker.arguments.push('')"><i class="fas fa-user-plus" aria-hidden="true"></i></a><a ng-click="checker.arguments.splice($index,1)"><i class="fas fa-user-minus" aria-hidden="true"></i></a></span>
+		    </li>
+		  </ul></br>
+	      <label>argumentsDef: </label> 
+		  <ul>
+		    <li ng-repeat="argumentDef in checker.argumentsDef track by $index">
+		      <span>{{argumentDef}}</span>
+		      <span ng-if="userId == 'rsakhnin'"><input ng-model="checker.argumentsDef[$index]" ng-value="argumentDef"></input><a ng-click="checker.argumentsDef.push('')"><i class="fas fa-user-plus" aria-hidden="true"></i></a><a ng-click="checker.argumentsDef.splice($index,1)"><i class="fas fa-user-minus" aria-hidden="true"></i></a></span>
+		    </li>
+		  </ul>
+		</br>
+	      <label>function: </label> {{checker.function}} <input type="text" ng-if="userId == 'rsakhnin'" ng-model="checker.function"></br>
+	  </div>
+	<button type="button" ng-click="data.powerInfo.checkers.push({arguments:[],argumentsDef:[]});" class="btn btn-success" ng-if="userId == 'rsakhnin'">Add</button>
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-danger" ng-click="data.showDefinedCheckersModal = false;">exit</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showSetUnitsModal" ng-show="data.showSetUnitsModal">
+    <div class="modal-dialog" style="width: 1500px">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <input type="file" id="unitFile" ng-model="unitFile"  
+	      onchange="angular.element(this).scope().importUnits(event)" style="display:none"/>
+
+	  <div excel-export export-data="getUnitsToExport()" file-name="{{getUnitsFileName()}}"></div>
+
+	  <button type="button" class="btn btn-info" ng-click="triggetUploadUnitsFile()">Import</button>
+
+	  <button type="button" class="close" ng-click="data.showSetUnitsModal = false;" aria-hidden="true">×</button>
+	  </br>
+
+	  <select ng-model="data.tempUnitPrimitiveChange" ng-change="editUnitsOnPrimitiveChange()">
+	    <option value="" selected="selected">Select Primitive</option>
+	    <option ng-repeat="primitive in data.selectedCluster.primitives track by $index" ng-value="primitive">{{primitive.name}}</option>
+	  </select>
+
+	  <select ng-model="data.tempUnitReleaseChange" ng-change="editUnitsOnReleasesChange()">
+	    <option value="" selected="selected">Select Release</option>
+	    <option ng-repeat="release in data.fetchedReleases track by $index" ng-value="release">{{release}}</option>
+	  </select>
+
+
+	</div>
+	<div class="modal-body">
+
+	    <div class="row">
+		  <div class="col-md-3" id="primitive-scrollable-dropdown-menu">
+		      <input type="text" ng-model="data.searchSuggestion"  placeholder="Type cell name" typeahead-on-select="onSelectInstance($item, $model, $label)" uib-typeahead="cell.instance for cell in getInstanceSuggesions($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+		      <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+		      <div ng-show="noResults">
+			<i class="glyphicon glyphicon-remove"></i> No Results Found
+		      </div>
+		  </div>
+	    </div>
+
+
+	    <script type="text/ng-template" id="menu.html">
+	      <ul style="padding-left: 0px;">
+		<li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		  <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		      <input type="checkbox" ng-model="item.isUnit"></input>
+		      <i ng-if="!item.isCluster && ((item.hasChild && !item.show) || (item.children && item.children.length && !item.show))" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		      <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		      <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		      <span ng-click="changeSelectedNode(item,false)" ng-style="item.isUnit && {'background-color':'#4cae4c'} || data.selectedNode._id == item._id && {'background-color':'rgb(151, 189, 214)'}" style="cursor: pointer;">{{item['name']}}</span>
+
+		      <a ng-if="data.selectedInfo.core.name == data.selectedCluster.name" ng-click="toggleUnitToCluster(item)"><i class="fab fa-creative-commons-sa" aria-hidden="true"></i></a>
+
+		      <select ng-if="item.isCluster" ng-model="item.cluster">
+			<option value="" selected="selected">Select Cluster</option>
+			<option ng-repeat="cluster in data.selectedInfo.clusters track by $index" ng-value="cluster">{{cluster.name}}</option>
+		      </select>
+
+
+		  </div>
+
+		  <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+		</li>
+	      </ul>
+	    </script>
+
+	    <div id="treeHier" style="overflow: auto;height:800px;width:400px;display:inline-block" ng-if="!hideTree">
+		<ul style="padding-left: 0px;">
+		  <li ng-repeat="item in data.chart track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		    <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		      <input type="checkbox" ng-model="item.isUnit" ng-disabled="item.level == 1"></input>
+			<i ng-if="!item.isCluster && ((item.hasChild && !item.show) || (item.children && item.children.length && !item.show))" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+			<i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+			<i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+			<span ng-click="changeSelectedNode(item,false)" ng-style="item.isUnit && {'background-color':'#4cae4c'} || data.selectedNode._id == item._id && {'background-color':'rgb(151, 189, 214)'}" style="cursor: pointer;">{{item['name']}}</span>
+
+			<a ng-if="data.selectedInfo.core.name == data.selectedCluster.name" ng-click="toggleUnitToCluster(item)"><i class="fab fa-creative-commons-sa" aria-hidden="true"></i></a>
+
+			<select ng-if="item.isCluster" ng-model="item.cluster">
+			  <option value="" selected="selected">Select Cluster</option>
+			  <option ng-repeat="cluster in data.selectedInfo.clusters track by $index" ng-value="cluster">{{cluster.name}}</option>
+			</select>
+
+
+		    </div>
+
+		    <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+		  </li>
+		</ul>
+	    </div>
+
+
+	    <div style="float:right;display:inline-block">
+		<div ng-repeat="item in data.selectedCluster.units track by $index" ng-style="getEmptySpace(item.level)"> {{item.name}}</div>
+	    </div>
+  
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="toggleInstanceForUnit();saveButtonForUnit();data.showSetUnitsModal = false;">Save</button>
+	  <button type="button" class="btn btn-danger" ng-click="data.showSetUnitsModal = false;">Exit</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showSetVirtualUnitsModal" ng-show="data.showSetVirtualUnitsModal">
+    <div class="modal-dialog" style="width: 1500px">
+      <div class="modal-content">
+	<div class="modal-header">
+
+
+	  <button type="button" class="close" ng-click="data.showSetVirtualUnitsModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+
+	    <script type="text/ng-template" id="menu2.html">
+	      <ul style="padding-left: 0px;">
+		<li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		  <div style="white-space:nowrap;display:inline-block">
+
+		      <input type="text" ng-model="item['name']"></input>
+
+		      <a ng-click="addHierarchyChild(item)"><i class="fas fa-user-plus" aria-hidden="true"></i></a>
+
+		      <a ng-if="data.selectedInfo.core.name == data.selectedCluster.name" ng-click="toggleUnitToCluster(item)"><i class="fab fa-creative-commons-sa" aria-hidden="true"></i></a>
+
+		      <select ng-if="item.isCluster" ng-model="item.cluster">
+			<option value="" selected="selected">Select Cluster</option>
+			<option ng-repeat="cluster in data.selectedInfo.clusters track by $index" ng-value="cluster">{{cluster.name}}</option>
+		      </select>
+
+
+		  </div>
+
+		  <div ng-if="item.children && item.children.length && item.show" ng-include="'menu2.html'"></div>
+		</li>
+	      </ul>
+	    </script>
+
+	    <div id="treeHier" style="overflow: auto;height:800px;width:400px;display:inline-block" ng-if="!hideTree">
+		<ul style="padding-left: 0px;">
+		  <li ng-repeat="item in data.chart track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		    <div style="white-space:nowrap;display:inline-block">
+
+			<input type="text" ng-model="item['name']"></input>
+
+			<a ng-click="addHierarchyChild(item)"><i class="fas fa-user-plus" aria-hidden="true"></i></a>
+
+			<a ng-if="data.selectedInfo.core.name == data.selectedCluster.name" ng-click="toggleUnitToCluster(item)"><i class="fab fa-creative-commons-sa" aria-hidden="true"></i></a>
+
+			<select ng-if="item.isCluster" ng-model="item.cluster">
+			  <option value="" selected="selected">Select Cluster</option>
+			  <option ng-repeat="cluster in data.selectedInfo.clusters track by $index" ng-value="cluster">{{cluster.name}}</option>
+			</select>
+
+
+
+		    </div>
+
+		    <div ng-if="item.children && item.children.length && item.show" ng-include="'menu2.html'"></div>
+		  </li>
+		</ul>
+	    </div>
+
+
+	    <div style="float:right;display:inline-block">
+		<div ng-repeat="item in data.selectedCluster.units track by $index" ng-style="getEmptySpace(item.level)"> {{item.name}}</div>
+	    </div>
+  
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="toggleInstanceForUnit();data.showSetVirtualUnitsModal = false;">Save</button>
+	  <button type="button" class="btn btn-danger" ng-click="data.showSetVirtualUnitsModal = false;">Exit</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow:auto;display:block" modal="data.showTargets" ng-if="data.showTargets">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <div excel-export export-data="getTargetsToExport()" rows-level="getTargetsRows()" file-name="{{getTargetsFileName()}}"></div>
+
+	    <input type="file" id="targetsFile" ng-model="targetsFile"  
+		onchange="angular.element(this).scope().importTargets(event)" style="display:none"/>
+	    <button type="button" class="btn btn-info" ng-click="triggetUploadTargetsFile()">Import</button>
+
+<!--	  <input type="file" id="targetsFile" ng-model="targetsFile"  
+	      onchange="angular.element(this).scope().importTargets(event)" style="display:none"/>
+	  <button type="button" class="btn btn-info" ng-click="triggetUploadTargetsFile()">Import</button>-->
+
+	  <button type="button" class="close" ng-click="data.showTargets = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body" style="overflow: auto;">
+
+	  <table id="targetsTable" class="table">
+	    <thead>
+	      <tr>
+		<th></th>
+		<th ng-repeat="primitive in data.selectedCluster.primitives track by $index">
+		    {{primitive.name}} [uW]
+		</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="unit in data.selectedCluster.units track by $index">
+<!-- 		<th>{{unit.name}}</th> -->
+		<th>
+		    <span ng-style="getEmptySpace(unit.level)">{{unit.level}}){{unit.name}}</span>
+		    <table ng-if="unit.isCluster">
+		      <tr ng-repeat="clusterUnit in unit.cluster.units track by $index">
+			<td>
+			  <span ng-style="getEmptySpace(unit.level+clusterUnit.level-1)">{{unit.level+clusterUnit.level-1}}){{clusterUnit.name}}</span>
+<!-- 			  <span ng-if="unit.isCluster && $index == 0">({{unit.name}})</span> -->
+
+			</td>
+		      </tr>
+		    </table>
+		</th>
+
+		<td ng-repeat="primitive in data.selectedCluster.primitives track by $index">
+
+		    <input ng-if="!unit.isCluster" type="number" ng-if="data.enableEdit" ng-value="data.tempTargets[unit.instance][primitive.name]" ng-model="data.tempTargets[unit.instance][primitive.name]"></input>
+		    <span ng-if="unit.isCluster"><b ng-if="isClusterTotalTarget(unit.cluster, primitive.name)">{{getClusterTotalTarget(unit.cluster, primitive.name)}}</b></span>
+		    <table ng-if="unit.isCluster">
+		      <tr ng-repeat="clusterUnit in unit.cluster.units track by $index"><td><span>{{getTargetValue(unit.cluster, clusterUnit, primitive.name)}}</span></td></tr>
+		    </table>
+
+
+		</td>
+	      </tr>
+	      <tr>
+		<th>Total - cluster</th>
+		<th ng-repeat="primitive in data.selectedCluster.primitives track by $index">
+		    {{calcClusterTarget(primitive.name)}}
+		</th>
+	      </tr>
+	    </tbody>
+	  </table>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="keepTargets();data.showTargets = false;">done</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow:auto;display:block" modal="data.showRelease" ng-show="data.showRelease">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showRelease = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body" style="overflow: auto;">
+
+	<input type="text" ng-model="data.releaseName" placeholder="release name"></input><button type="button" class="btn btn-success" ng-click="releaseSelectedPrimitives();">RELEASE</button>
+	<table id="targetsTable" class="table">
+	  <thead>
+	    <tr>
+	      <th style="width: 500px">Primitives</th>
+	      <th>run id <button ng-click="exportRunIds()">Export run ids</button></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="primitive in data.selectedCluster.primitives track by $index">
+	      <td>{{primitive.name}}</td>
+	      <td>
+		  <select class="powerSelectpicker" data-live-search="true" ng-model="primitive.releaseRun">
+		    <option data-hidden="true" value="">Select run</option>
+		    <option ng-repeat="run in data.possibleRuns track by $index" ng-value="run">{{run.tag}}-{{run.run_id}}</option>
+		  </select>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showRelease = false;">done</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow:auto;display:block" modal="data.showCCList" ng-show="data.showCCList">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCCList = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body" style="overflow: auto;">
+
+	<input type="text" ng-model="data.selectedCluster.ccList" placeholder="user list. (; or , seperator)" style="width:100%"></input>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showCCList = false;">done</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+
+      <div style="text-align: center;display:inline-block">
+	  <label>Project</label></br>
+	  <select class="areaProjectSelectpicker" data-width="150px" ng-model="data.selectedProject">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+
+      <button type="button" class="btn btn-info" ng-click="fetchProjectInfo()">Edit</button>
+      <button type="button" class="btn btn-success" ng-click="data.newProjectModal=true;duplicateProject=false;newProject=true;">Create new project</button>
+      <button type="button" class="btn btn-success">Upload Docea project</button>
+      <button type="button" class="btn btn-success" ng-click="data.newProjectModal=true;duplicateProject=true;newProject=false;">Replicate project</button>
+
+
+    </div>
+  </div>
+
+  <div class="row" ng-if="data.fetchedProjectData">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-success" ng-if="!data.enableEdit" ng-click="data.enableEdit = true;">edit mode</button>
+      <button type="button" class="btn btn-warning" ng-if="data.enableEdit" ng-click="data.enableEdit = false;">view mode</button>
+    </div>
+  </div>
+
+
+    <hr>
+    <div class="row" ng-if="data.fetchedProjectData">
+      <div class="col-md-12">
+	<button type="button" class="btn btn-primary" ng-if="data.enableEdit" ng-click="addCore()">add core</button>
+	<button type="button" class="btn btn-primary" ng-if="data.enableEdit" ng-click="data.showSetPVTModal = true;">set PVT</button>
+	<button type="button" class="btn btn-primary" ng-if="data.enableEdit" ng-click="enableCheckers()">defined checkers</button>
+	<button type="button" class="btn btn-success" ng-if="data.enableEdit" ng-click="saveProjectInfo()">Save</button>
+<!-- 	<button type="button" class="btn btn-primary bt-xs" ng-if="data.enableEdit" ng-click="data.enableReleaseMode = !data.enableReleaseMode;" style="float: right;">{{!data.enableReleaseMode ? 'enable release' : 'disable release'}}</button> -->
+
+      </div>
+    </div>
+    <hr>
+
+  <div class="row" ng-if="data.fetchedProjectData" ng-repeat="info in data.powerInfo.hierarchy track by $index" ng-init="outerIndex=$index">
+
+
+    <div class="col-md-12">
+	<table id="primitivesTable">
+	  <tbody>
+	    <tr>
+	      <td>
+		  <label>{{outerIndex+1}}) core:</label> <a ng-click="deleteCore(outerIndex)" ng-if="data.enableEdit"><i class="fa fa-trash" aria-hidden="true" title="Remove core"></i></a><input type="text" ng-disabled="!data.enableEdit" ng-value="info.core.name" ng-model="info.core.name" ng-change="saveClusterName(info)">
+	      </td>
+	    </tr>
+	    <tr ng-repeat="cluster in info['clusters'] track by $index" ng-init="innerIndex=$index">
+	      <td colspan="2" style="padding-left:20px">
+		  <a ng-if="innerIndex != 0" ng-click="deleteCluster(outerIndex, innerIndex)" ng-if="data.enableEdit"><i class="fa fa-trash" aria-hidden="true" title="Remove cluster"></i></a>
+		  <label>Cluster: </label>
+		    <input ng-if="innerIndex == 0" type="text" ng-model="cluster.name" ng-disabled="true"></input>
+		    <input ng-if="innerIndex != 0" type="text" ng-disabled="!data.enableEdit" ng-value="cluster.name" ng-model="cluster.name">
+		  <select class="areaProjectSelectpicker" ng-if="data.enableEdit" data-width="150px" ng-model="cluster.unit">
+		    <option value="" selected="selected">Select Unit</option>
+		    <option ng-repeat="unit in data.projectAvailableUnits track by $index" ng-value="unit">{{unit}}</option>
+		  </select>
+
+
+		  <button type="button" class="btn btn-info btn-sm" ng-if="data.enableEdit" ng-click="editInstancePath(info, cluster)">instance-path ({{cluster['instancePath'][info.core.name][cluster.name]['mapLevel']}} - ({{cluster['instancePath'][info.core.name][cluster.name]['mapCore']}} - {{cluster['instancePath'][info.core.name][cluster.name]['mapName']}})</button>
+		  <button type="button" class="btn btn-warning btn-sm" ng-if="data.enableEdit" ng-click="editPrimitives(cluster)">primitives ({{cluster.primitives.length}})</button>
+		  <button type="button" class="btn btn-primary btn-sm" ng-if="data.enableEdit" ng-click="editUnits(info, cluster)">Select units</button>
+		  <button type="button" class="btn btn-success btn-sm" ng-if="data.enableEdit" ng-click="editTargets(info, cluster)">Targets</button>
+		  <button type="button" class="btn btn-sm" ng-if="data.enableEdit" ng-click="editCheckers(info, cluster)">Checkers</button>
+		  <button type="button" class="btn btn-danger btn-sm" ng-if="data.enableEdit" ng-click="startRelease(info, cluster)">Release</button>
+		  <button type="button" class="btn btn-info btn-sm" ng-if="data.enableEdit" ng-click="openCCList(info, cluster)">cc-list</button>
+
+
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" style="margin-left:20px"><button type="button" class="btn btn-info" ng-if="data.enableEdit" ng-click="addCluster(outerIndex)" style="margin-left:20px">add cluster</button></td>
+	    </tr>
+	    <tr>
+	      <td><hr></td>
+	    </tr>
+	  </tbody>
+	</table>
+    </div>
+
+
+
+<!--    <div class="col-md-4">
+	Project hierarchy & primitives
+	<table id="primitivesTable">
+	  <tbody>
+	    <tr>
+	      <td>
+		  <a ng-click="deleteCore(outerIndex)" ng-if="data.enableEdit"><i class="fa fa-trash" aria-hidden="true" title="Remove core"></i></a><label>Core: </label><input type="text" ng-disabled="!data.enableEdit" ng-value="info.core" ng-model="data.powerInfo[$index].core">
+	      </td>
+	      <td><button type="button" class="btn btn-warning" ng-if="data.enableEdit" ng-click="editPrimitives($index)">edit primitives ({{info.primitives.length}})</button> </td>
+	    </tr>
+	    <tr ng-repeat="cluster in info['clusters'] track by $index" ng-init="innerIndex=$index">
+	      <td colspan="2" style="padding-left:20px">
+		  <a ng-click="deleteCluster(outerIndex, innerIndex)" ng-if="data.enableEdit"><i class="fa fa-trash" aria-hidden="true" title="Remove cluster"></i></a>
+		  <label>Cluster: </label><input type="text" ng-disabled="!data.enableEdit" ng-value="cluster" ng-model="data.powerInfo[$parent.$index]['clusters'][$index]">
+
+		  <button type="button" class="btn btn-info btn-sm" ng-if="data.enableEdit" ng-click="editInstancePath(info, cluster)">instance-path ({{info['instancePaths'][info.core][cluster]['mapLevel']}} - ({{info['instancePaths'][info.core][cluster]['mapCore']}} - {{info['instancePaths'][info.core][cluster]['mapName']}})</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2" style="margin-left:20px"><button type="button" class="btn btn-info" ng-if="data.enableEdit" ng-click="addCluster(outerIndex)" style="margin-left:20px">add cluster</button></td>
+	    </tr>
+	    <tr>
+	      <td><hr></td>
+	    </tr>
+	  </tbody>
+	</table>
+    </div>-->
+
+<!--    <div class="col-md-8" ng-if="!data.enableReleaseMode">
+	Project targets
+	<table id="targetsTable" class="table">
+	  <thead>
+	    <tr>
+	      <th>Primitives</th>
+	      <th ng-repeat="cluster in info['clusters'] track by $index">
+		  {{cluster}} [uW]
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="primitive in info.primitives track by $index">
+	      <td>{{primitive}}</td>
+	      <td ng-repeat="cluster in info['clusters'] track by $index">
+		  <input type="number" ng-if="data.enableEdit" ng-value="info.targetsInfo[cluster][primitive]" ng-model="info.targetsInfo[cluster][primitive]"></input>
+		  <input type="number" ng-if="!data.enableEdit" ng-value="info.targetsInfo[cluster][primitive]" ng-model="info.targetsInfo[cluster][primitive]" disabled></input>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+    </div>-->
+
+<!--    <div class="col-md-8" ng-if="data.enableReleaseMode">
+	
+	<table id="targetsTable" class="table">
+	  <thead>
+	    <tr>
+	      <th></th>
+	      <th ng-repeat="cluster in info['clusters'] track by $index">
+		 <input type="text" placeholder="input release name" ng-value="info['releaseMeta'][cluster].releaseName" ng-model="info['releaseMeta'][cluster].releaseName"></input>
+
+<button type="button" class="btn btn-success bt-xs" ng-click="releaseSelectedRuns(info, cluster)">release {{info.core}} {{cluster}}</button>
+	      </th>
+	    </tr>
+	    <tr>
+	      <th>Primitives</th>
+	      <th ng-repeat="cluster in info['clusters'] track by $index">
+		  {{cluster}} 
+		  <select class="areaProjectSelectpicker" data-width="150px" ng-if="data.enableReleaseMode" ng-model="info['releaseMeta'][cluster].selectedUnit" ng-change="unitSelectedForCluster(info['releaseMeta'][cluster], info['releaseMeta'][cluster].selectedUnit)">
+		    <option value="" selected="selected">Select Unit</option>
+		    <option ng-repeat="unit in data.projectAvailableUnits track by $index" ng-value="unit">{{unit}}</option>
+		  </select>
+
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="primitive in info.primitives track by $index">
+	      <td>{{primitive}}</td>
+	      <td ng-repeat="cluster in info['clusters'] track by $index">
+
+		  <select class="areaProjectSelectpicker" data-width="150px" ng-if="data.enableReleaseMode" ng-model="info['releaseMeta'][cluster][primitive].releaseRun">
+		    <option value="" selected="selected">Select run</option>
+		    <option ng-repeat="run in info['releaseMeta'][cluster].possibleRuns track by $index" ng-value="run">{{run.tag}}-{{run.run_id}}</option>
+		  </select>
+
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+    </div>-->
+
+
+  </div>
+
+
+
+
+<!--  <div class="row" ng-if="data.fetchedProjectData">
+    <div class="col-md-12">
+      <hr>
+
+      <button type="button" class="btn btn-primary" ng-if="data.enableEdit" ng-click="addCore()">add core</button>
+      <button type="button" class="btn btn-success" ng-if="data.enableEdit" ng-click="saveProjectInfo()">Save</button>
+    </div>
+  </div>-->
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

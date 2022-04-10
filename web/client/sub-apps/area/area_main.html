@@ -1,0 +1,753 @@
+<div class="area_main_container container-fluid" id="areaContainer">
+
+
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showFailedBlocksModal" ng-show="data.showCompareReleasesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCompareReleasesModal = false;" aria-hidden="true">×</button>
+	  <label><h4 class="modal-title">{{data.selectedProject}}-{{data.selectedCore}}-{{data.compareInstance}}</h4></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <div id="header">
+	      <div style="display:inline-block">
+		<select ng-model="data.selectedCompareUnit" ng-change="compareUnitChanged()">
+		  <option ng-repeat="unit in data.compareUnits track by $index" ng-value="unit">{{unit}}</option>
+		</select> 
+	      </div>
+	      <div class="area-compare-checkbox form-check" style="text-align: center;">
+		<label style="display: block;">
+		  <input type="checkbox" ng-checked="chartTypeIsBar" ng-model="chartTypeIsBar"> <span class="label-text">Chart bar</span>
+		</label>
+	      </div>
+	    </div>
+
+
+	    <canvas ng-if="chartTypeIsBar" id="line" class="chart chart-line" chart-data="data.releasesData"
+	    chart-labels="data.chartReleases" chart-series="data.chartSeries" chart-options="chartOptions"
+	    chart-dataset-override="chartDatasetOverride">
+	    </canvas>
+
+
+	    <canvas ng-if="!chartTypeIsBar" id="line" class="chart chart-bar" chart-data="data.releasesData"
+	    chart-labels="data.chartReleases" chart-series="data.chartSeries" chart-options="chartOptions"
+	    chart-dataset-override="chartDatasetOverride">
+	    </canvas>
+
+	    <span id="selectall" ng-click="toggleAllReleasesChart()"><u>{{data.chartSelectAllReleases ? 'Deselect All' : 'Select All'}}</u></span>
+	    <div class="area-compare-checkbox form-check" ng-repeat="project in data.compareProjects track by $index">
+	      <label>{{project}}</label>
+	      <label ng-repeat="release in chartAllReleasesLabelsByProject(project) track by $index" style="display: block;">
+		<input type="checkbox" ng-checked="release['selected']" ng-model="release['selected']" ng-change="toggleRelease()"> <span class="label-text">{{release['project']}}_{{release['name']}}</span>
+	      </label>
+	    </div>
+
+
+	    <div style="text-align: center;display:inline-block">
+		<label>Project</label></br>
+		<select data-width="150px" ng-model="data.selectedCompareProject" ng-change="compareProjectSelected()">
+		  <option value="" selected="selected">Choose</option>
+		  <option ng-repeat="project in data.compareProjectsList track by $index" ng-value="project">{{project}}</option>
+		</select>
+	    </div>
+
+
+	    <div style="text-align: center;display:inline-block">
+		<label>Core</label></br>
+		<select data-width="150px" ng-model="data.selectedCompareCore">
+		  <option value="" selected="selected">Choose</option>
+		  <option ng-repeat="core in data.compareCoresList track by $index" ng-value="core">{{core}}</option>
+		</select>
+	    </div>
+	    <div style="display:inline-block">
+	      <a href="" ng-click="addCustomToCompare()"><i class="fas fa-plus"></i></a>
+	    </div>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showCompareReleasesModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showCellDistModal" ng-show="data.showCellDistModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCellDistModal = false;" aria-hidden="true">×</button>
+	  <label></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+	  <table class="table table-bordered">
+	    <tr>
+	      <th colspan="3">Summary</th>
+	    </tr>
+	    <tr>
+	      <th>Total Count</th>
+	      <th>Total Cell area</th>
+	      <th>Total Area</th>
+	    </tr>
+	    <tr>
+	      <td>{{data.cellDistSummary["sumCount"]}}</td>
+	      <td>{{data.cellDistSummary["sumCellArea"] | number:2}}</td>
+	      <td>{{data.cellDistSummary["sumTotalArea"] | number:2}}</td>
+	    </tr>
+	  </table>
+
+	  <script type = "text/ng-template" id = "rowIndex.html">
+	    <div class="ui-grid-cell-contents">{{row.entity.idx}}</div>
+	  </script>
+
+	  <div id="grid1" ui-grid="data.gridCellDistOptions" class="grid" ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize style="height:800px"></div>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showCellDistModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showCellMacroModal" ng-show="data.showCellMacroModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCellMacroModal = false;" aria-hidden="true">×</button>
+	  <label></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+	  <table class="table table-bordered">
+	    <tr>
+	      <th colspan="3">Summary</th>
+	    </tr>
+	    <tr>
+	      <th>Total area</th>
+	    </tr>
+	    <tr>
+	      <td>{{data.cellMacroSummary["sumTotalArea"]}}</td>
+	    </tr>
+	  </table>
+
+	  <script type = "text/ng-template" id = "rowIndex.html">
+	    <div class="ui-grid-cell-contents">{{row.entity.idx}}</div>
+	  </script>
+
+	  <div id="grid1" ui-grid="data.gridCellMacroOptions" class="grid" ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize style="height:800px"></div>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showCellMacroModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showAdvancedCompareModal" ng-show="data.showAdvancedCompareModal">
+    <div class="modal-dialog" style="width: 70%;">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showAdvancedCompareModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	    <div ng-repeat="cRunid in data.compareRunIds track by $index">
+	      <a ng-show="$index!=0" ng-click="deleteCompareUnrelease($index)"><i class="fa fa-trash" aria-hidden="true" title="Remove this tag"></i></a>
+
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">User</label></br>
+		  <select class="powerCompareTagSelectpicker" data-width="150px" ng-disabled="$index==0" ng-style="$index==0 && {'margin-left': '16px'}" ng-model="cRunid.selectedTag" ng-change="compare_TagSelected($index)">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedUser" selected="selected">{{cRunid.selectedUser}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="tag in data.projectTags track by $index" ng-value="tag">{{tag}}</option>
+		  </select>
+	      </div>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Run ID</label></br>
+		  <select class="powerCompareRunIdsSelectpicker" data-width="150px" ng-disabled="$index==0" ng-model="cRunid.selectedRunid">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedRunid" selected="selected">{{cRunid.selectedRunid}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="runid in cRunid.possibleRunIds track by $index" ng-value="runid">{{runid}}</option>
+		  </select>
+	      </div>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Stage</label></br>
+		  <select class="powerCompareRunIdsSelectpicker" data-width="150px" ng-disabled="$index==0" ng-model="cRunid.selectedRunid">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedRunid" selected="selected">{{cRunid.selectedRunid}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="runid in cRunid.possibleRunIds track by $index" ng-value="runid">{{runid}}</option>
+		  </select>
+	      </div>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">date</label></br>
+		  <select class="powerCompareRunIdsSelectpicker" data-width="150px" ng-disabled="$index==0" ng-model="cRunid.selectedRunid">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedRunid" selected="selected">{{cRunid.selectedRunid}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="runid in cRunid.possibleRunIds track by $index" ng-value="runid">{{runid}}</option>
+		  </select>
+	      </div>
+
+	    </div>
+	    </br>
+	    <a ng-click="data.compareRunIds.push({})"><i class="fas fa-plus-circle" aria-hidden="true" title="Remove this tag"></i></a>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="activateCompareMode();">Done</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showAdvancedCompareModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showAddReleaseCompareModal" ng-show="data.showAddReleaseCompareModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showAddReleaseCompareModal = false;" aria-hidden="true">×</button>
+	  <label></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+	  <div style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareReleaseType" ng-change="advancedCompareReleaseTypeSelected()">
+		<option data-hidden="true" value="">Release type</option>
+		<option value="unreleased">unreleased</option>
+		<option value="released">released</option>
+	      </select>
+	  </div>
+
+	  <div  style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedProject" ng-change="advancedCompareProjectSelected()">
+		<option data-hidden="true" value="">Select Project</option>
+		<option ng-repeat="project in data.advancedCompareProjects track by $index" ng-value="project">{{project}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='unreleased'" style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedUnit" ng-change="advancedCompareUnitSelected()">
+		<option data-hidden="true" value="">Select unit</option>
+		<option ng-repeat="unit in data.advancedCompareProjectUnits track by $index" ng-value="unit">{{unit}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='unreleased'" style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedUser" ng-change="advancedCompareUserSelected()">
+		<option data-hidden="true" value="">Select user</option>
+		<option ng-repeat="user in data.advancedCompareProjectUsers track by $index" ng-value="user">{{user}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='unreleased'" style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedRunid" ng-change="advancedCompareRunidSelected()">
+		<option data-hidden="true" value="">Select run_id</option>
+		<option ng-repeat="runid in data.advancedCompareProjectRunids track by $index" ng-value="runid">{{runid}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='unreleased'" style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedStage" ng-change="advancedCompareStageSelected()">
+		<option data-hidden="true" value="">Select stage</option>
+		<option ng-repeat="stage in data.advancedCompareProjectStages track by $index" ng-value="stage">{{stage}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='unreleased'" style="text-align: center;display:inline-block">
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedDate">
+		<option data-hidden="true" value="">Select date</option>
+		<option ng-repeat="date in data.advancedCompareProjectDates track by $index" ng-value="date">{{date}}</option>
+	      </select>
+	  </div>
+
+
+	  <div ng-if="data.advancedCompareReleaseType=='released'" style="text-align: center;display:inline-block">
+      <!-- 	<label>Core</label></br> -->
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedCore" ng-change="advancedCompareCoreSelected()">
+		<option data-hidden="true" value="">Select Core</option>
+		<option ng-repeat="core in data.advancedCompareProjectCores track by $index" ng-value="core">{{core}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='released'" style="text-align: center;display:inline-block">
+      <!-- 	<label>RTL</label></br> -->
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedRtl" ng-change="advancedCompareRtlSelected()">
+		<option data-hidden="true" value="">Select RTL</option>
+		<option ng-repeat="rtl in data.advancedCompareProjectCoreRTLS track by $index" ng-value="rtl">{{rtl}}</option>
+	      </select>
+	  </div>
+	  <div ng-if="data.advancedCompareReleaseType=='released'" style="text-align: center;display:inline-block">
+      <!-- 	<label>Synthesis</label></br> -->
+	      <select class="" data-width="150px" ng-model="data.advancedCompareSelectedRelease" >
+      <!-- 	  <option data-hidden="true">Pick One</option> -->
+		<option data-hidden="true" value="">Select Synthesis</option>
+		<option ng-repeat="release in data.advancedCompareProjectCoreReleases track by $index" ng-value="release">{{release}}</option>
+	      </select>
+	  </div>
+
+	  <button type="button" class="btn btn-success" ng-click="addReleaseToAdvancedCompare();">Add</button>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showAddReleaseCompareModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div style="text-align: center;display:inline-block">
+	  <label>Project</label></br>
+	  <select class="areaProjectSelectpicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>Core</label></br>
+	  <select class="areaCoreSelectpicker" data-width="150px" ng-model="data.selectedCore" ng-change="coreSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="core in data.projectCores track by $index" ng-value="core">{{core}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>RTL</label></br>
+	  <select class="areaRtlSelectpicker" data-width="150px" ng-model="data.selectedRtl" ng-change="rtlSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="rtl in data.projectCoreRTLS track by $index" ng-value="rtl">{{rtl}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>Synthesis</label></br>
+	  <select class="areaReleaseSelectpicker" data-width="150px" ng-model="data.selectedRelease">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="release in data.projectCoreReleases track by $index" ng-value="release">{{release}}</option>
+	  </select>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="fetchAreaInfo()">Fetch</button>
+      <button type="button" class="btn btn-info" ng-click="compareReleases()">Compare</button>
+
+      <button ng-if="isAdmin" type="button" class="btn btn-danger" ng-click="hideProject()">HIDE</button>
+      <button ng-if="isAdmin" type="button" class="btn btn-danger" ng-click="deleteProject()">DELETE</button>
+
+
+    </div>
+  </div>-->
+
+
+
+<!--  <div class="row" ng-if="data.selectedProject && data.projectFullchipCores && data.projectFullchipConfig">
+	<div class="col-md-12">
+	    <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="collapse" ng-click="showProjectFullChip = !showProjectFullChip" data-target="#fullChip">{{showProjectFullChip ? '+' : '-'}}</button>
+	    <div id="fullChip" class="collapse in" style="width:100%">
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th colspan="4" style="text-align:center">
+			{{data.selectedProject}} FullChip
+		    </th>
+		  </tr>
+		  <tr>
+		    <th>Core</th>
+		    <th>Synthesis</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total memory size (KB)</th>
+		    <th>Total macro area (u2)</th>
+		  </tr>
+		</thead>
+		<tbody>
+		    <tr style="background-color:#0db9f0">
+		      <td>FullChip</td>
+		      <td></td>
+		      <td>{{getKgStdcellTotal() | number:2}}</td>
+		      <td>{{getKbMemoryTotal() | number:2}}</td>
+		      <td>{{getAreaMacroTotal() | number:2}}</td>
+		    </tr>
+		</tbody>
+		<tbody ng-repeat="order in data.projectFullchipConfig.order track by $index">
+		    <tr ng-repeat="n in [].constructor(order.count) track by $index">
+		      <td>{{data.projectFullchipCores[$parent.$index].core}}</td>
+		      <td>{{data.projectFullchipCores[$parent.$index].release_name}}</td>
+		      <td>{{data.projectFullchipCores[$parent.$index].total_std.area / 1000 / (data.projectFullchipCores[$parent.$index].G_NAND_EQU_CELL) | number:2}}</td>
+		      <td>{{data.projectFullchipCores[$parent.$index].total_memory.KB | number:2}}</td>
+		      <td>{{data.projectFullchipCores[$parent.$index].macro.area | number:2}}</td>
+		    </tr>
+		</tbody>
+	      </table>
+	    </div>
+	</div>
+  </div>-->
+
+
+  <div class="row" ng-if="data.noDataInfo">
+      <div class="col-md-12">
+	  <label>No data found !</label>
+      </div>
+  </div>
+
+
+  <div class="row" ng-if="data.showAreaInfo">
+	<div class="col-md-3" id="area-scrollable-dropdown-menu" ng-if="!hideTree">
+	    <input type="text" ng-model="data.searchSuggestion"  placeholder="Type cell name" typeahead-on-select="onSelectInstance($item, $model, $label)" uib-typeahead="cell.instance for cell in getInstanceSuggesions($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+	    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+	    <div ng-show="noResults">
+	      <i class="glyphicon glyphicon-remove"></i> No Results Found
+	    </div>
+	</div>
+  </div>
+
+  <div class="row" ng-if="data.showAreaInfo">
+
+
+    <div>
+      <button ng-if="hideTree" class="circular_button" ng-click="toggleTreeVisibility(false);">></button>
+    </div>
+
+
+    <script type="text/ng-template" id="menu.html">
+      <ul style="padding-left: 0px;">
+	<li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+	  <div class="progress" style="display:inline-block;margin-bottom:0px;width:80px;height:15px">
+	    <div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" role="progressbar" ng-style="getAreaPercentage(item)['style']">
+	      <font color="black">{{getAreaPercentage(item)['value']}}%</font>
+	    </div>
+	  </div>
+
+
+	  <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+	      <i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+	      <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+	      <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+	      <a href="" ng-click="compareReleases(item.instance)"><image src="client/assets/compare.png" style="margin-right:5px;height:25px;width:25px" title="Compare this level"</image></a>
+	      <span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	  </div>
+
+	  <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+	</li>
+      </ul>
+    </script>
+
+    <div id="treeHier" class="col-md-3" style="overflow: auto;padding:10px; height:800px" ng-if="!hideTree">
+	<div style="float: right;margin-top: 50%;">
+	  <button class="circular_button" ng-click="toggleTreeVisibility(true);"><</button>
+	</div>
+
+	<ul style="padding-left: 0px;">
+	  <li ng-repeat="item in data.chart track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+	    <div class="progress" style="display:inline-block;margin-bottom:0px;width:80px;height:15px">
+	      <div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" role="progressbar" ng-style="getAreaPercentage(item)['style']">
+		<font color="black">{{getAreaPercentage(item)['value']}}%</font>
+	      </div>
+	    </div>
+
+	    <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		<i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		<i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		<i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		<a href="" ng-click="compareReleases(item.instance)"><image src="client/assets/compare.png" style="margin-right:5px;height:25px;width:25px" title="Compare this level"></image></a>
+		<span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	    </div>
+
+	    <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+	  </li>
+	</ul>
+    </div>
+
+
+      <div class="ui toggle checkbox" ng-if="data.selectedNode" ng-click="toggleAdvanceCompareMode();">
+	<input type="checkbox" name="public" ng-checked="data.compareMode">
+	<label style="font-weight: bold; font-size: 13px;">{{!data.compareMode ? 'Compare Mode': 'Default Mode'}}</label>
+      </div>
+
+
+      <div id="content" class="col-md-7" ng-if="data.selectedNode && data.compareMode">
+	  <div ng-init="data.advancedCompareSelectedMode = 'KB'">
+	    <input type="radio" name="occurrence" value="KB" ng-model="data.advancedCompareSelectedMode" checked/><label>KB</label>
+	    <input type="radio" name="occurrence" value="KGate" ng-model="data.advancedCompareSelectedMode" /><label>KGate</label>
+	  </div>
+	  <button ng-click="data.showAddReleaseCompareModal = true;"> Add release </button>
+
+<!-- 	  <div excel-export export-data="exportTargetInfo()" rows-merge="getRowsToMerge()" file-name="{{getTargetFileName()}}"></div> -->
+
+	  <div style="overflow:auto">
+
+	    <table class="table table-bordered">
+	      <thead>
+		<tr>
+		  <th>level</th>
+		  <th>name</th>
+		  <th ng-repeat="release in data.advancedCompareReleases track by $index" style="text-align: center;">
+		      <div ng-if="release['releaseType'] == 'released'">
+			<div>{{release['project']}}_{{release['core']}}_{{release['rtl_name']}}</div>
+			<div>{{release['release_name']}}</div>
+		      </div>
+		      <div ng-if="release['releaseType'] == 'unreleased'">
+			<div>{{release['project']}}_{{release['unit']}}_{{release['user']}}</div>
+			<div>{{release['run_id']}}_{{release['stage']}}_{{release['date']}}</div>
+		      </div>
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="node in data.selectedNode.allChildren track by $index">
+		  <th>{{node.level}}</th>
+		  <th>{{node.name}}</th>
+		  <td ng-repeat="release in data.advancedCompareReleases track by $index" style="text-align: center;" ng-style="$index == 0 && getUnitNodeCompareColor(node,release.releaseId)">
+
+		      <div style="display: inline-block;" ng-if="data.advancedCompareSelectedMode == 'KB'">{{data.advancedCompareInfo[release['releaseId']][node.instance]['total_memory'].KB | number:0}}</div>
+		      <div style="display: inline-block;" ng-if="data.advancedCompareSelectedMode == 'KGate'">{{data.advancedCompareInfo[release['releaseId']][node.instance]['total_std']['area'] / 1000 / (data.advancedCompareInfo[release['releaseId']][node.instance].G_NAND_EQU_CELL) | number:0}}</div>
+
+		      <span style="display: inline-block;" ng-if="$index != 0" ng-style="getUnitNodePercantageCompare(node, release , data.advancedCompareReleases[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getUnitNodePercantageCompare(node, release , data.advancedCompareReleases[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			<b>{{getUnitNodePercantageCompare(node, release , data.advancedCompareReleases[0])['str']}}</b>
+		      </span>
+
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </div>
+      </div>
+
+
+    <div id="content" class="col-md-8" ng-if="data.selectedNode && !data.compareMode">
+      <div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-5">
+	    
+	    <div><h3><b>Total Area {{data.currNodeTotal/1000000 | number:3}} mm^2</b></h3></div>
+
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th colspan="3" style="text-align:center">
+		      memory <a href="" ng-if="data.selectedNode['level'] == 1" ng-click="showCellMacroModal('memory')" ng-if="data.cellMacroInfo"> cell memory </a>
+		  </th>
+		</tr>
+		<tr>
+		  <th>Type</th>
+		  <th>KB</th>
+		  <th>area (u2)</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="(key, value) in data.selectedNode['memory'] track by $index">
+		  <th scope="row">{{key}}</th>
+		  <td>{{value['KB']  | number:2}}</td>
+		  <td>{{value['area'] / (data.memPercent /100) | number:2}}</td>
+		</tr>
+	      </tbody>
+	      <tfoot>
+		<tr>
+		  <th>Total</th>
+		  <th style="background-color:yellow">{{data.selectedNode['total_memory']['KB'] | number:2}}</th>
+		  <th>{{data.selectedNode['total_memory']['area']  / (data.memPercent /100) | number:2}}</th>
+		</tr>
+	      </tfoot>
+	    </table>
+
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th colspan="3" style="text-align:center">
+		      stdcell <a ng-if="data.selectedNode['level'] == 1" href="" ng-click="showDistModal()" ng-if="data.cellDistInfo"> cell dist </a>
+		  </th>
+		</tr>
+		<tr>
+		  <th>Type</th>
+		  <th>cell_count</th>
+		  <th>K gates</th>
+		  <th>area (u2)</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="(key, value) in data.selectedNode['stdcell'] track by $index">
+		  <th scope="row">{{key}}</th>
+		  <td>{{value['count']}}</td>
+		  <td>{{(value['area'] / 1000 / (data.selectedNode.G_NAND_EQU_CELL)) | number:2}}</td>
+		  <td>{{value['area'] / (data.stdPercent /100) | number:2}}</td>
+		</tr>
+	      </tbody>
+	      <tfoot>
+		<tr>
+		  <th>Total</th>
+		  <th>{{data.selectedNode['total_std']['count'] | number:2}}</th>
+		  <th style="background-color:yellow">{{data.selectedNode['total_std']['area'] / 1000 / (data.selectedNode.G_NAND_EQU_CELL)  | number:2}}</th>
+		  <th>{{data.selectedNode['total_std']['area'] / (data.stdPercent /100)  | number:2}}</th>
+		</tr>
+	      </tfoot>
+	    </table>
+
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th colspan="3" style="text-align:center;">macro <a ng-if="data.selectedNode['level'] == 1" href="" ng-click="showCellMacroModal('macro')" ng-if="data.cellMacroInfo"> cell macro</a></th> 
+		</tr>
+		<tr>
+		  <th>Type</th>
+		  <th>cell_count</th>
+		  <th>area (u2)</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		  <th scope="row">Macro</th>
+		  <th scope="row">{{data.selectedNode['macro']['count'] | number:2}}</th>
+		  <th scope="row">{{data.selectedNode['macro']['area'] | number:2}}</th>
+	      </tbody>
+	    </table>
+
+	  </div>
+	  <div class="col-md-7">
+
+	    <div style="text-align:center">
+	      <b>memory ultilization (%)</b>
+	      <rzslider rz-slider-model="data.memPercent" rz-slider-options="data.slider.options"></rzslider>
+	    </div>
+	    <div style="text-align:center">
+	      <b>stdcell ultilization (%)</b>
+	      <rzslider rz-slider-model="data.stdPercent" rz-slider-options="data.slider.options"></rzslider>
+	    </div>
+	    </br>
+
+	    <canvas id="chart-pie" class="chart chart-pie"
+	      chart-data="data.pieValues" chart-labels="data.pieLabels" chart-options="data.pieOptions">
+	    </canvas>
+	  </div>
+
+	<div class="row">
+	  <div class="col-md-12">
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th>
+		    <div style="white-space:nowrap;">
+			<div style="display: inline-block;">
+			  level|name
+			</div>
+			<div style="display: inline-block;">
+			  <div class="area-compare-checkbox form-check" style="display: inline-block;">
+			    <label>
+			      <input type="checkbox" ng-checked="data.showArea" ng-model="data.showArea"> <span class="label-text">area</span>
+			    </label>
+			  </div>
+			  <div class="area-compare-checkbox form-check" style="display: inline-block;">
+			    <label>
+			      <input type="checkbox" ng-checked="data.showCount" ng-model="data.showCount"> <span class="label-text">count</span>
+			    </label>
+			  </div>
+			  <div class="area-compare-checkbox form-check" style="">
+			    <label>
+			      <input type="checkbox" ng-checked="data.showKB" ng-model="data.showKB"> <span class="label-text">KB/K gates</span>
+			    </label>
+			  </div>
+			</div>
+		    </div>
+		  </th>
+		  <th ng-if="data.showKB" ng-repeat="(key, value) in data.selectedNode['memory'] track by $index">
+		    memory
+		    {{key}}
+		    (KB)
+		  </th>
+		  <th ng-if="data.showArea" ng-repeat="(key, value) in data.selectedNode['memory'] track by $index">
+		    memory
+		    {{key}}
+		    (area)
+		  </th>
+		  <th ng-if="data.showCount" ng-repeat="(key, value) in data.selectedNode['stdcell'] track by $index">
+		    stdcell
+		    {{key}}
+		    (count)
+		  </th>
+		  <th ng-if="data.showArea" ng-repeat="(key, value) in data.selectedNode['stdcell'] track by $index">
+		    stdcell
+		    {{key}}
+		    (area)
+		  </th>
+		  <th ng-if="data.showKB" ng-repeat="(key, value) in data.selectedNode['stdcell'] track by $index">
+		    stdcell
+		    {{key}}
+		    (K gates)
+		  </th>
+		  <th ng-if="data.showCount">
+		    macro
+		    (count)
+		   </th>
+		  <th ng-if="data.showArea">
+		    macro
+		    (area)
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		  <tr ng-repeat="node in data.selectedNode.currentHierarchy track by $index" ng-style="node._id == data.selectedNode._id && {'background-color':'#0071c599'}">
+		      <td><div style="white-space:nowrap;">{{node['level']}} {{node['name']}}</div></td>
+		      <td ng-if="data.showKB" ng-repeat="(key, value) in node['memory'] track by $index">
+			{{value['KB'] | number:2}}
+		      </td>
+		      <td ng-if="data.showArea" ng-repeat="(key, value) in node['memory'] track by $index">
+			{{value['area']/ (data.memPercent /100) | number:2}}
+		      </td>
+		      <td ng-if="data.showCount" ng-repeat="(key, value) in node['stdcell'] track by $index">
+			{{value['count'] | number:0}}
+		      </td>
+		      <td ng-if="data.showArea" ng-repeat="(key, value) in node['stdcell'] track by $index">
+			{{value['area']/ (data.stdPercent /100) | number:2}}
+		      </td>
+		      <td ng-if="data.showKB" ng-repeat="(key, value) in node['stdcell'] track by $index">
+			{{value['area'] / 1000 / (data.selectedNode.G_NAND_EQU_CELL) | number:2}}
+		      </td>
+		      <td ng-if="data.showCount" ng-if="data.showCount" scope="row">{{node['macro']['count'] | number:2}}</td>
+		      <td ng-if="data.showArea" scope="row">{{node['macro']['area'] | number:2}}</td>
+		  </tr>
+	      </tbody>
+	    </table>
+	  </div>
+	</div>
+
+	
+
+
+<!--	  <div class="col-md-4">
+	  </div>
+	  <div class="col-md-4">
+	  </div>
+	  <div class="col-md-4">
+	  </div>-->
+<!-- 	</div> -->
+
+<!--	<div class="row">
+	  <div class="col-md-2">
+	    Total: <b>{{data.currNodeTotalPercent}}%</b>
+	  </div>
+	  <div class="col-md-10">
+	    <canvas id="chart-pie" class="chart chart-pie"
+	      chart-data="data.pieValues" chart-labels="data.pieLabels" chart-options="data.pieOptions">
+	    </canvas> 
+	  </div>
+	</div>-->
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

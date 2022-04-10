@@ -1,0 +1,295 @@
+<div class="timing_main_container container-fluid" id="timingContainer">
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showGroupsFilterModal" ng-show="data.showGroupsFilterModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showGroupsFilterModal = false;" aria-hidden="true">×</button>
+
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <label>Pick groups</label></br>
+
+	    <select class="timingGroupFilterSelectpicker" data-width="150px" ng-model="data.selectedGroupsFilter" multiple>
+	      <option ng-repeat="group in data.filterGroups track by $index" ng-value="group">{{group}}</option>
+	    </select>
+	
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showGroupsFilterModal = false;filterByGroups();">Filter</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showGroupsFilterModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showSlacksFilterModal" ng-show="data.showSlacksFilterModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showSlacksFilterModal = false;" aria-hidden="true">×</button>
+
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <label>Pick slack range</label></br>
+	    <select class="timingGroupFilterSelectpicker" data-width="150px" ng-model="data.selectedSlacksRange" multiple>
+	      <option ng-repeat="range in data.filterSlackRanges track by $index" ng-value="range">{{range}}</option>
+	    </select>
+	    <select class="timingGroupFilterSelectpicker" data-width="150px" ng-model="data.selectedSlacksString" multiple>
+	      <option ng-repeat="string in data.filterSlackStrings track by $index" ng-value="string">{{string}}</option>
+	    </select>
+
+	    
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showSlacksFilterModal = false;filterBySlacks();">Filter</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showSlacksFilterModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showStartFilterModal" ng-show="data.showStartFilterModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showStartFilterModal = false;" aria-hidden="true">×</button>
+
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <label>Filter start by:</label><input type="text" ng-model="data.selectedStartFilter"></input>
+    
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showStartFilterModal = false;filterByStarts();">Filter</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showStartFilterModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showClkStartFilterModal" ng-show="data.showClkStartFilterModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showClkStartFilterModal = false;" aria-hidden="true">×</button>
+
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <label>Filter clk_start by:</label><input type="text" ng-model="data.selectedClkStartFilter"></input>
+	    
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showClkStartFilterModal = false;filterByClkStarts();">Filter</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showClkStartFilterModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!--  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div style="text-align: center;display:inline-block">
+	  <label>Release type</label></br>
+	  <select class="timingReleaseTypeSelectpicker" data-width="150px" ng-model="data.releaseType" ng-change="releaseTypeSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option value="unreleased">unreleased</option>
+	    <option value="released">released</option>
+	  </select>
+      </div>
+
+      <div style="text-align: center;display:inline-block">
+	  <label>Project</label></br>
+	  <select class="timingProjectSelectpicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>unit</label></br>
+	  <select class="timingUnitSelectpicker" data-width="150px" ng-model="data.selectedUnit" ng-change="unitSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="unit in data.projectUnits track by $index" ng-value="unit">{{unit}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>user</label></br>
+	  <select class="timingUserSelectpicker" data-width="150px" ng-model="data.selectedUser" ng-change="userSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="user in data.projectUsers track by $index" ng-value="user">{{user}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>run_id</label></br>
+	  <select class="timingRunIdSelectpicker" data-width="150px" ng-model="data.selectedRunid" ng-change="runidSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="runid in data.projectRunids track by $index" ng-value="runid">{{runid}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>stage</label></br>
+	  <select class="timingStageSelectpicker" data-width="150px" ng-model="data.selectedStage" ng-change="stageSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="stage in data.projectStages track by $index" ng-value="stage">{{stage}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>date</label></br>
+	  <select class="timingDateSelectpicker" data-width="150px" ng-model="data.selectedDate">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="date in data.projectDates track by $index" ng-value="date">{{date}}</option>
+	  </select>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="fetchTimingInfo()">Fetch</button>
+
+    </div>
+  </div>-->
+
+
+
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+
+      <div style="text-align: center;display:inline-block">
+	  <label>report_type</label></br>
+	  <select class="selectPicker" data-width="150px" ng-model="data.selectedReportType" ng-change="reportTypeSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="reportType in data.reportsType track by $index" ng-value="reportType">{{reportType}}</option>
+	  </select>
+      </div>
+
+      <div style="text-align: center;display:inline-block">
+	  <label>delay_type</label></br>
+	  <select class="selectPicker" data-width="150px" ng-model="data.selectedDelayType" ng-change="delayTypeSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="delayType in data.delaysType track by $index" ng-value="delayType">{{delayType}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>scenario_name</label></br>
+	  <select class="selectPicker" data-width="150px" ng-model="data.selectedScenarioName" ng-change="scenarioNameSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="scenarioName in data.scenarioNames track by $index" ng-value="scenarioName">{{scenarioName}}</option>
+	  </select>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row" ng-if="data.noDataInfo">
+      <div class="col-md-12">
+	  <label>No data found !</label>
+      </div>
+  </div>
+
+
+  <div class="row" ng-if="data.showTimingInfo">
+    <div class="container-fluid">
+      <div class="col-md-12">
+
+
+	<script type = "text/ng-template" id = "slackTemplate.html">
+	  <div class="ui-grid-cell-contents"><a ng-if="row.entity.fileId" href="" ng-click="grid.appScope.getSlackFile(row.entity.fileId)">{{ COL_FIELD }}</a> {{row.entity.fileId ? '' : COL_FIELD}}</div>
+	</script>
+	<script type = "text/ng-template" id = "longTextWithTooltip.html">
+	  <div class="ui-grid-cell-contents"><p title="{{COL_FIELD}}" style="display: inline-block;">{{COL_FIELD}}</p></div>
+/*	  <div class="ui-grid-cell-contents"><a ng-click="grid.appScope.copyToClipboard(COL_FIELD)" href=""><i class="fa fa-copy" title="copy"></i></a><p title="{{COL_FIELD}}" style="display: inline-block;">{{COL_FIELD}}</p></div>*/
+	</script>
+	<script type = "text/ng-template" id = "rowIndex.html">
+	  <div class="ui-grid-cell-contents">{{row.entity.idx}}</div>
+	</script>
+	<script type = "text/ng-template" id = "slackHeaderTemplate.html">
+	  <div class="ui-grid-cell-contents">
+	      {{col.displayName}} <a href="" ng-click="grid.appScope.showFilterBySlacks()"><i title="filter" class="fas fa-filter"></i></a>
+<span ui-grid-one-bind-id-grid="col.uid + '-sortdir-text'" ui-grid-visible="col.sort.direction" aria-label="Sort Ascending" class="" id="1584972646608-uiGrid-0008-sortdir-text"><i ng-class="{ 'ui-grid-icon-up-dir': col.sort.direction == asc, 'ui-grid-icon-down-dir': col.sort.direction == desc, 'ui-grid-icon-blank': !col.sort.direction }" title="" aria-hidden="true" class="ui-grid-icon-up-dir" style=""></i> <sub ui-grid-visible="isSortPriorityVisible()" class="ui-grid-sort-priority-number ng-binding ui-grid-invisible">1</sub></span>
+	      <p>{{grid.appScope.data.filter.slacksRanges}}
+	      {{grid.appScope.data.filter.slacksStrings}}</p>
+	  </div>
+	</script>
+	<script type = "text/ng-template" id = "groupHeaderTemplate.html">
+	  <div class="ui-grid-cell-contents">
+	      {{col.displayName}} <a href="" ng-click="grid.appScope.showFilterByGroups()"><i title="filter" class="fas fa-filter"></i></a>
+<span ui-grid-one-bind-id-grid="col.uid + '-sortdir-text'" ui-grid-visible="col.sort.direction" aria-label="Sort Ascending" class="" id="1584972646608-uiGrid-0008-sortdir-text"><i ng-class="{ 'ui-grid-icon-up-dir': col.sort.direction == asc, 'ui-grid-icon-down-dir': col.sort.direction == desc, 'ui-grid-icon-blank': !col.sort.direction }" title="" aria-hidden="true" class="ui-grid-icon-up-dir" style=""></i> <sub ui-grid-visible="isSortPriorityVisible()" class="ui-grid-sort-priority-number ng-binding ui-grid-invisible">1</sub></span>
+
+	      <p>{{grid.appScope.data.filter.groups}}</p>
+	  </div>
+	</script>
+
+	<script type = "text/ng-template" id = "startHeaderTemplate.html">
+	  <div class="ui-grid-cell-contents">
+	      {{col.displayName}} <a href="" ng-click="grid.appScope.showFilterByStart()"><i title="filter" class="fas fa-filter"></i></a>
+<span ui-grid-one-bind-id-grid="col.uid + '-sortdir-text'" ui-grid-visible="col.sort.direction" aria-label="Sort Ascending" class="" id="1584972646608-uiGrid-0008-sortdir-text"><i ng-class="{ 'ui-grid-icon-up-dir': col.sort.direction == asc, 'ui-grid-icon-down-dir': col.sort.direction == desc, 'ui-grid-icon-blank': !col.sort.direction }" title="" aria-hidden="true" class="ui-grid-icon-up-dir" style=""></i> <sub ui-grid-visible="isSortPriorityVisible()" class="ui-grid-sort-priority-number ng-binding ui-grid-invisible">1</sub></span>
+
+	      <p>{{grid.appScope.data.filter.start}}</p>
+	  </div>
+	</script>
+
+	<script type = "text/ng-template" id = "clkStartHeaderTemplate.html">
+	  <div class="ui-grid-cell-contents">
+	      {{col.displayName}} <a href="" ng-click="grid.appScope.showFilterByClkStarts()"><i title="filter" class="fas fa-filter"></i></a>
+<span ui-grid-one-bind-id-grid="col.uid + '-sortdir-text'" ui-grid-visible="col.sort.direction" aria-label="Sort Ascending" class="" id="1584972646608-uiGrid-0008-sortdir-text"><i ng-class="{ 'ui-grid-icon-up-dir': col.sort.direction == asc, 'ui-grid-icon-down-dir': col.sort.direction == desc, 'ui-grid-icon-blank': !col.sort.direction }" title="" aria-hidden="true" class="ui-grid-icon-up-dir" style=""></i> <sub ui-grid-visible="isSortPriorityVisible()" class="ui-grid-sort-priority-number ng-binding ui-grid-invisible">1</sub></span>
+
+	      <p>{{grid.appScope.data.filter.clk_start}}</p>
+	  </div>
+	</script>
+
+
+
+<!-- {{data.selectedGroupsFilter}} -->
+
+
+	<div id="grid1" ui-grid="data.gridOptions" class="grid" ui-grid-resize-columns ui-grid-move-columns style="height:800px"></div>
+
+<!--	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th>group</th>
+	      <th>slack</th>
+	      <th>t-slack</th>
+	      <th>start</th>
+	      <th>clk_start</th>
+	      <th>end</th>
+	      <th>clk_end</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="timing in data.timingData track by $index">
+	      <td>{{timing.group}}</td>
+	      <td>{{timing.slack}}</td>
+	      <td>{{timing.t-slack}}</td>
+	      <td>{{timing.start}}</td>
+	      <td>{{timing.clk_start}}</td>
+	      <td>{{timing.end}}</td>
+	      <td>{{timing.clk_end}}</td>
+	    </tr>
+	  </tbody>
+	</table>-->
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

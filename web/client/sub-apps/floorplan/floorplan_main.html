@@ -1,0 +1,298 @@
+
+<div class="floorplan_main_container container-fluid" id="floorplanContainer">
+
+
+  <div class="row">
+      <div class="col-md-12">
+	<button type="button" class="btn btn-danger" ng-click="hideBar()" ng-if="!hideFirstBar && !hideSecondBar" style="float:right">Disable bar</button>
+	<button type="button" class="btn btn-success" ng-click="showBar()" ng-if="hideFirstBar || hideSecondBar" style="float:right">Enable bar</button>
+      </div>
+  </div>
+
+
+
+  <div class="row" ng-if="data.noDataInfo">
+      <div class="col-md-12">
+	  <label>No data found !</label>
+      </div>
+  </div>
+
+
+  <div class="row" ng-show="data.showFloorplanInfo">
+      <h3>physical area: {{data.floorplanData.physical_area | number: 0}} [u2]</h3>
+      <div class="col-md-3">
+
+	<div ng-repeat="key in ['voltage', 'blockages', 'macros', 'std_cells']" ng-if="data.floorplanData[key].objects.length > 0">
+
+	  <div class="ui big steps">
+	    <a href="" ng-click="data.floorplanData[key].selected =!data.floorplanData[key].selected;" ng-class="{'active step': data.floorplanData[key].selected, 'step': !data.floorplanData[key].selected, 'disabled step': !data.floorplanData[key].objects || data.floorplanData[key].objects.length == 0}">
+	      <i class="firstdraft icon"></i>
+	      <div class="content">
+		<div class="title">{{data.floorplanData[key].name}}</div>
+	      </div>
+	    </a>
+	    <div class="step">
+	      cell count <br> {{data.floorplanData[key].objects.length | number : 0}}
+	    </div>
+	    <div class="step">
+	      area [u2] <br> {{data.floorplanData[key].area ? data.floorplanData[key].area : 'N/A' }}
+	    </div>
+	    <div class="step" ng-if="data.floorplanData[key].name == 'std_cells'">
+	      K gates <br> {{data.floorplanData[key].kgates ? data.floorplanData[key].kgates : 'N/A' }}
+	    </div>
+	  </div>
+
+	  <div ng-if="data.floorplanData[key].name == 'Macros' && data.floorplanData[key].selected" style="height:350px; overflow: auto">
+	    <input type="text" ng-model-options="{ debounce: 500 }" ng-model="data.filterMacros" placeholder="filter macros" ng-change="filterMacrosOnChange(data.floorplanData[key].objects)"></input>
+	    <div ng-repeat="obj in data.floorplanData[key].objects | filter: { description : data.filterMacros}">
+		<label ng-mouseover="highlightShape(obj)" ng-mouseout="normalShape(obj)" style="cursor: pointer;">{{obj.description}}</label>
+	    </div>
+	  </div>
+
+	  <div ng-if="data.floorplanData[key].name == 'std_cells' && data.floorplanData[key].selected" style="width:100%; overflow:auto">
+
+
+	    <script type="text/ng-template" id="stdmenu.html">
+	      <ul style="padding-left: 0px;">
+		<li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		  <div style="white-space:nowrap;display:inline-block">
+		      <i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		      <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		      <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		      <span style="cursor: pointer;"><input type="checkbox" ng-model="item.selected" ng-value="item.selected" ng-change="hierarchySelectionChange(item)">{{item['name']}}</input></span>
+		  </div>
+
+		  <div ng-if="item.children && item.children.length && item.show" ng-include="'stdmenu.html'"></div>
+		</li>
+	      </ul>
+	    </script>
+
+	    <ul style="padding-left: 0px;">
+	      <li ng-repeat="item in data.floorplanData['std_hierarchy'] track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+		<div style="white-space:nowrap;display:inline-block">
+		    <i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		    <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		    <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		    <span style="cursor: pointer;"><input type="checkbox" ng-model="item.selected" ng-value="item.selected" ng-change="hierarchySelectionChange(item)">{{item['name']}}</input></span>
+		</div>
+
+		<div ng-if="item.children && item.children.length && item.show" ng-include="'stdmenu.html'"></div>
+	      </li>
+	    </ul>
+
+	  </div>
+
+
+	</div>
+
+
+      </div>
+
+      <div class="col-md-7">
+	<svg style="width: 100%; height: 800px;">
+	  <g id="svgg">
+	    <g ng-repeat="key in ['design', 'voltage', 'macros', 'blockages', 'std_cells']">
+	      <g ng-init="obj.originalfill = key != design ? obj.fill : 'white'" ng-repeat="obj in data.floorplanData[key].objects track by $index" ng-if="data.floorplanData[key].selected && ((key == 'std_cells' && obj.draw) || (key != 'std_cells'))">
+		<polygon ng-if="obj.shape=='polygon'" 
+		    ng-attr-points="{{obj.points}}"
+		    ng-attr-width="{{obj.width}}"
+		    ng-attr-height="{{obj.height}}"
+		    ng-attr-fill="{{(key!='design' && obj.fill) || (key=='design' && 'white')}}"
+		    ng-attr-originalfill="{{(key!='design' && obj.fill) || (key=='design' && 'white')}}"
+		    ng-attr-stroke="{{(key!='design' && obj.stroke) || (key=='design' && 'black')}}"
+		    ng-attr-shape="{{obj.rect}}"
+		    ng-attr-title="{{obj.description}}"
+		    ng-attr-hierarchy="{{obj.hierarchy}}"
+		    ng-attr-stroke-width="{{ obj.stroke-width || (key=='design' && 1) || (key=='voltage' && 1) || (key=='blockages' && 1) || 0.5}}"
+		    ng-attr-stroke-opacity="{{ (key=='design' && 1) || (key=='voltage' && 1) || (key=='blockages' && 1) || 0.5 }}"
+		    ng-attr-fill-opacity="{{(key=='voltage' && 0.5) || (key=='blockages' && 0.5) || 1 }}"
+		    ng-attr-originalopacity="{{(key=='voltage' && 0.5) || (key=='blockages' && 0.5) || 1 }}"
+		    ng-mouseenter="objectOnMouseEnter($event)"
+		    ng-mouseout="objectOnMouseOut($event)"
+		    ng-click="showBlockDetails(obj)">
+		  <title> {{obj.description}} </title>
+		</polygon>
+	      </g>
+	    </g>
+	  </g>
+	</svg>
+
+      </div>
+
+      <div class="col-md-2">
+	<table class="ui selectable inverted table" ng-if="data.blockDetails['description'] != 'poly0'" style="table-layout:fixed; width:100%;">
+	  <tbody>
+	    <tr ng-repeat="(k,v) in data.blockDetails.meta">
+	      <th style="width:100px">{{k}}</th>
+	      <td>{{v}}</td>
+	    </tr>
+	  </tbody>
+	</table>
+      </div>
+
+  </div>
+
+
+<!--
+  <div class="row" ng-show="data.showFloorplanInfo">
+      <h3>physical area: {{data.floorplanInfo.physical_area | number: 0}} [u2]</h3>
+      <div class="col-md-3">
+
+      <div ng-repeat="item in data.svgItems3.slice().reverse()" ng-if="!item.hide">
+
+	<div class="ui big steps">
+	  <a href="" ng-click="item.selected =!item.selected; createsvg()" ng-class="{'active step': item.selected, 'step': !item.selected, 'disabled step': !item.objects || item.objects.length == 0}">
+	    <i class="firstdraft icon"></i>
+	    <div class="content">
+	      <div class="title">{{item.name}}</div>
+	    </div>
+	  </a>
+	  <div class="step">
+	    cell count <br> {{item.count | number : 0}}
+	  </div>
+	  <div class="step">
+	    area [u2] <br> {{item.area ? item.area : 'N/A' }}
+	  </div>
+	  <div class="step" ng-if="item.name == 'std_cells'">
+	    K gates <br> {{item.kgates ? item.kgates : 'N/A' }}
+	  </div>
+	</div>
+
+	<div ng-if="item.name == 'Macros' && item.selected" style="height:350px; overflow: auto">
+	  <input type="text" ng-model-options="{ debounce: 500 }" ng-model="data.filterMacros" placeholder="filter macros" ng-change="filterMacrosOnChange()"></input>
+	  <div ng-repeat="obj in item.objects | filter: { description : data.filterMacros}">
+	      <label ng-mouseover="highlightShape(obj.description)" ng-mouseout="normalShape(obj.description)" style="cursor: pointer;">{{obj.description}}</label>
+	  </div>
+	</div>
+
+
+	</br>
+      </div>
+
+
+	  <div id="topDiv">
+	  </div>
+
+	  <div id="gridDiv" style="width:25%">
+	  </div>
+
+	  <br>
+	  <div id="hierDiv" class="hierarchies" ng-show="false">
+	  </div>
+      </div>
+      <div class="col-md-7">
+	<svg id="mySvg" class="shapeset"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  onpageshow="createsvg()" style="width: 100%; height: 800px;">
+	</svg>
+      </div>
+      <div class="col-md-2">
+	<table class="ui selectable inverted table" ng-if="data.blockDetails['description'] != 'poly0'" style="table-layout:fixed; width:100%;">
+	  <tbody>
+	    <tr ng-repeat="(k,v) in data.blockDetails.meta">
+	      <th style="width:100px">{{k}}</th>
+	      <td>{{v}}</td>
+	    </tr>
+	  </tbody>
+	</table>
+      </div>
+
+
+<svg id = "testSVG">
+<defs id ="effectdef">
+<marker id = "dummy" markerWidth="12" markerHeight="12" refX = "6" refY = "6" markerUnits="strokeWidth" viewBox="0 0 0 0" orient="auto" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(150,130,13)" fill-opacity="1" class="spots"/>
+</marker>
+<linearGradient id="gradummy" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+</linearGradient>
+</defs>
+<marker id = "middle" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(0,120,180)" fill-opacity="1" class = "spots"/>
+</marker>
+<marker id = "edge" markerWidth="12" markerHeight="12" refX = "6" refY = "6" markerUnits="strokeWidth" orient="auto" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(150,130,13)" fill-opacity="1" class="spots"/>
+</marker>
+<marker id = "middle2" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(162,112,88)" fill-opacity="1" class = "spots"/>
+</marker>
+<marker id = "edge2" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "1" stroke="none" fill = "rgb(21,202,21)" fill-opacity="1" class = "spots"/>
+</marker>
+<marker id = "end" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(255,0,24)" fill-opacity="1" class = "spots"/>
+</marker>
+<marker id = "edge3" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "1" stroke="none" fill = "rgb(169,56,33)" fill-opacity="1" class = "spots"/>
+</marker>
+<marker id = "middle3" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "6" stroke="none" fill = "rgb(147,253,147)" fill-opacity="0.5" class = "spots"/>
+</marker>
+<marker id = "end2" markerWidth="12" markerHeight = "12" refX = "6" refY = "6" class="spots">
+<circle cx = "6" cy = "6" r = "1" stroke="none" fill = "rgb(83,31,139)" fill-opacity="1" class = "spots"/>
+</marker>
+
+<pattern id = "grid" width="8" height = "8" patternUnits = "userSpaceOnUse">
+<path id="gridspace" d="M 8 0 L 0 0 0 8" fill="none" stroke="black" stroke-width="0.5"/>
+</pattern>
+</svg>
+
+
+  </div>
+
+
+<!--<div id="moveDiv" class="split right">
+<div id="topDiv">
+</div>
+<br>
+<div id="hierDiv" class="hierarchies">
+</div>
+</div>
+<br>
+<div id= "myDiv" class = "split left">
+
+
+
+<svg id="mySvg" class="shapeset"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  onpageshow="createsvg()" style="overflow-x: scroll; overflow-y: scroll;" onmousedown="storemouse(event)" onmouseup="noDrag(event)" 
+onmousemove="panDrag(event)" onmousewheel="scrollzoom(event)" viewbox="0 0 500 500">
+
+</svg>
+
+
+
+</div>-->
+
+<!--<div id="myDiv2">
+
+
+
+
+
+
+
+
+
+
+
+</div>-->
+
+<!--<br>
+
+
+<br>
+
+<br>
+<div id = "metadiv">
+</div>
+-->
+
+
+
+
+
+
+
+
+
+</div>

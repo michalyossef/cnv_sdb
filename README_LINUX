@@ -1,0 +1,101 @@
+// Date:   10/2021
+// Author: Michal Danieli (Yossef)
+
+
+
+#####################################
+# How to run Website locally: (linux)
+#####################################
+In our example:
+Server machine:  icsl11681.iil.intel.com:2001
+Client machine:  icsl11672.iil.intel.com:5000
+
+- In order to know hostname, type from machine: echo $HOSTNAME
+- Don't change ports numbers: if port 2001 on server or 5000 on client are not available, move to other machine/s
+- In order to check if port is in used, run:  lsof -i -P -n | grep LISTEN | grep <port num>
+
+Copy Website Dir to local dir:
+cp /nfs/iil/stod/stod901/w.myossef1.100/nodeJs/website <local dir>
+
+# ---------------------------
+
+# 1. Setup - run on both Server & Client machines
+# Set the following to your local values:
+setenv WEBSITE_DIR <local dir>
+#setenv WEBSITE_DIR /nfs/iil/stod/stod901/w.myossef1.100/nodeJs/website
+
+# ---------------------------
+
+# 2. Run from Client machine
+# Edit following file to updated Server & Client machines:
+xemacs $WEBSITE_DIR/big_data/web/client/config.js &
+    if(window.location.host=="icsl11672.iil.intel.com:5000"){         // client machine
+      $rootScope.serverUrl = "http://icsl11681.iil.intel.com:2001/";  // server machine
+    } 
+
+cd $WEBSITE_DIR/big_data/web
+$WEBSITE_DIR/libs/node/lib/node_modules/light-server/bin/light-server -s .
+
+# ---------------------------
+
+# 3. Run from Server machine
+setenv CLIENT_HOSTNAME  <icsl11672.iil.intel.com>
+setenv SERVER_PORT      2001
+setenv CLIENT_PORT      5000
+setenv NODE_ENV test
+setenv PATH $WEBSITE_DIR/libs/node-v10.13.0-linux-x64/bin:$PATH
+
+cd $WEBSITE_DIR/big_data/server
+node server.js
+
+
+# ---------------------------
+
+# 4. Enter to Website- from Windows Chrome - client side
+http://icsl11672.iil.intel.com:5000 
+
+
+
+
+
+###########################################
+# How to upload Website to Cloud Foundry:
+###########################################
+# Intel Cloud Foundry:
+Environment:    LC Internal
+Orgs:           rsakhnin
+Spaces:         Production
+Applications:   
+                cnvapi   # server side
+                CNV      # client side - only 1 is in used
+                CNV2     # client side - only 1 is in used
+
+# Login
+$WEBSITE_DIR/libs/cloudfoundry/cf login
+# API endpoint> https://api.apps1-lc-int.icloud.intel.com
+# This fit to Environment "LC Internal". 
+# API endpoint can be also be set from cmd:  cf login -a <API endpoint>
+
+# Print Apps
+$WEBSITE_DIR/libs/cloudfoundry/cf apps
+
+# upload server side
+cd $WEBSITE_DIR/big_data/server
+$WEBSITE_DIR/libs/cloudfoundry/cf push cnvapi .
+
+# upload client side
+cd $WEBSITE_DIR/big_data/web
+$WEBSITE_DIR/libs/cloudfoundry/cf push CNV  .
+$WEBSITE_DIR/libs/cloudfoundry/cf push CNV2 .
+
+
+#################
+## Backups:
+#################
+/nfs/site/proj/wivcore/workarea/lgc/myossef1/michal/website/big_data/
+/nfs/iil/disks/home13/myossef1/libs/cloudfoundry/
+/nfs/iil/stod/stod901/w.myossef1.100/nodeJs/website
+
+website 
+  |_ big_data
+  |_ libs

@@ -1,0 +1,24 @@
+{
+  "name": "web_api",
+  "version": "1.0.0",
+  "description": "RESTful web api",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install --save pm2",
+    "start": "node ./node_modules/.bin/pm2-runtime server.js -i max"
+  },
+  "author": "rsakhnin",
+  "license": "ISC",
+  "dependencies": {
+    "blob": "0.0.4",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^5.1.6",
+    "pm2": "^2.10.1"
+  },
+  "engines": {
+    "node": "8.11.4",
+    "npm": "5.5.1"
+  }
+}

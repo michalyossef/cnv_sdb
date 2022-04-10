@@ -1,0 +1,1899 @@
+execve("/usr/intel/bin/cdislookup", ["cdislookup", "-u", "rsakhnin"], [/* 120 vars */]) = 0
+brk(0)                                  = 0x607000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ffa000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/x86_64", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/tls", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/x86_64", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib/tls/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/tls/x86_64", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/tls", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/x86_64", 0x7fffffffce50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib", {st_mode=S_IFDIR|0755, st_size=8192, ...}) = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libc.so.6", O_RDONLY)      = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\355\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1788205, ...}) = 0
+mmap(NULL, 3651768, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7a61000
+fadvise64(3, 0, 3651768, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7bd3000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7dd3000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x172000) = 0x7ffff7dd3000
+mmap(0x7ffff7dd8000, 18616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7dd8000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd9000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd8000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd7000
+arch_prctl(ARCH_SET_FS, 0x7ffff7fd8700) = 0
+mprotect(0x7ffff7dd3000, 16384, PROT_READ) = 0
+mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+access("/tmp/SITE", F_OK)               = 0
+access("/tmp/SITE", R_OK)               = 0
+brk(0)                                  = 0x607000
+brk(0x628000)                           = 0x628000
+open("/tmp/SITE", O_RDONLY)             = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=8, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "iil.iec\n", 4096)              = 8
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+getpid()                                = 18214
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+stat("/etc/resolv.conf", {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\r\0\0\0\6\0\0\0hosts\0", 18, MSG_NOSIGNAL, NULL, 0) = 18
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+recvmsg(3, {msg_name(0)=NULL, msg_iov(2)=[{"\0\0\0\0\0\0", 6}, {"p\254\377\367\377\177\0\0", 8}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 0
+close(3)                                = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\4\0\0\0\36\0\0\0iil-logger.usrintel."..., 42, MSG_NOSIGNAL, NULL, 0) = 42
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+read(3, "\2\0\0\0\377\377\377\377\0\0\0\0\0\0\0\0\377\377\377\377\377\377\377\377\0\0\0\0\377\377\377\377", 32) = 32
+close(3)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1827, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "# DO NOT EDIT! MANUAL CHANGES WI"..., 4096) = 1827
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libnss_files.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libnss_files.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libnss_files.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \"\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=61397, ...}) = 0
+mmap(NULL, 2147784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7854000
+fadvise64(3, 0, 2147784, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff785f000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7a5f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x7ffff7a5f000
+close(3)                                = 0
+mprotect(0x7ffff7a5f000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+open("/etc/host.conf", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=370, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "#\n# /etc/host.conf - resolver co"..., 4096) = 370
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/etc/hosts", O_RDONLY|O_CLOEXEC)  = 3
+fcntl(3, F_GETFD)                       = 0x1 (flags FD_CLOEXEC)
+fstat(3, {st_mode=S_IFREG|0644, st_size=696, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "#\n# hosts         This file desc"..., 4096) = 696
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libnss_dns.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libnss_dns.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libnss_dns.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\20\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=27359, ...}) = 0
+mmap(NULL, 2117912, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff764e000
+fadvise64(3, 0, 2117912, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7653000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff7852000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7ffff7852000
+close(3)                                = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libresolv.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libresolv.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/lib64/libresolv.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3408\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=98148, ...}) = 0
+mmap(NULL, 2189992, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7437000
+fadvise64(3, 0, 2189992, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff744a000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff764a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13000) = 0x7ffff764a000
+mmap(0x7ffff764c000, 6824, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff764c000
+close(3)                                = 0
+mprotect(0x7ffff764a000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7852000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+socket(PF_INET, 0x802 /* SOCK_??? */, IPPROTO_IP) = 3
+connect(3, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, 28) = 0
+poll([{fd=3, events=POLLOUT}], 1, 0)    = 1 ([{fd=3, revents=POLLOUT}])
+sendto(3, "\22\340\1\0\0\1\0\0\0\0\0\0\niil-logger\10usrintel"..., 47, MSG_NOSIGNAL, NULL, 0) = 47
+poll([{fd=3, events=POLLIN}], 1, 5000)  = 1 ([{fd=3, revents=POLLIN}])
+ioctl(3, FIONREAD, [98])                = 0
+recvfrom(3, "\22\340\201\200\0\1\0\2\0\0\0\0\niil-logger\10usrintel"..., 1024, 0, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, [16]) = 98
+close(3)                                = 0
+socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP) = 3
+fcntl(3, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+fcntl(3, F_GETFL)                       = 0x802 (flags O_RDWR|O_NONBLOCK)
+access("/usr/intel/bin/cdislookup", X_OK) = 0
+access("/usr/intel/bin/.app_itools", R_OK) = -1 ENOENT (No such file or directory)
+access("/usr/intel/bin/.app_pkgs", R_OK) = -1 ENOENT (No such file or directory)
+stat("/tmp/.itools_login_debug.rsakhnin", 0x7fffffffd4e0) = -1 ENOENT (No such file or directory)
+access("rsakhnin", X_OK)                = -1 ENOENT (No such file or directory)
+access("/usr/intel/bin/cdislookup", X_OK) = 0
+stat("/usr/intel/bin/cdislookup", {st_mode=S_IFREG|0755, st_size=37749, ...}) = 0
+lstat("/usr/intel/bin/cdislookup", {st_mode=S_IFREG|0755, st_size=37749, ...}) = 0
+open("/usr/intel/../control/global.pkgs", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0444, st_size=59380, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fea000
+read(7, "################################"..., 65536) = 59380
+lseek(7, 0, SEEK_SET)                   = 0
+close(7)                                = 0
+munmap(0x7ffff7fea000, 65536)           = 0
+stat("/usr/intel/bin/.app_itools", 0x7fffffffd040) = -1 ENOENT (No such file or directory)
+open("/nfs/iil/home/rsakhnin/.itools", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0640, st_size=8, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff2000
+read(7, "gdb 7.8\n", 32768)             = 8
+read(7, "", 32768)                      = 0
+lseek(7, 0, SEEK_SET)                   = 0
+read(7, "gdb 7.8\n", 32768)             = 8
+read(7, "", 32768)                      = 0
+lseek(7, 0, SEEK_SET)                   = 0
+open("/usr/intel/cfg/pkgs/wrapper/etc/set1/site.itools", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0644, st_size=3664, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe2000
+read(8, "# IEM1/IEM2 compatibility CLI\n#\n"..., 65536) = 3664
+read(8, "", 65536)                      = 0
+lseek(8, 0, SEEK_SET)                   = 0
+brk(0x649000)                           = 0x649000
+read(8, "# IEM1/IEM2 compatibility CLI\n#\n"..., 65536) = 3664
+read(8, "", 65536)                      = 0
+lseek(8, 0, SEEK_SET)                   = 0
+open("/usr/intel/pkgs/wrapper/etc/set1/global.itools", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0644, st_size=475, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fc7000
+read(9, "wish8.3         /usr/intel/pkgs/"..., 65536) = 475
+read(9, "", 65536)                      = 0
+lseek(9, 0, SEEK_SET)                   = 0
+read(9, "wish8.3         /usr/intel/pkgs/"..., 65536) = 475
+read(9, "", 65536)                      = 0
+lseek(9, 0, SEEK_SET)                   = 0
+open("/usr/intel/pkgs/cdislookup/versions", O_RDONLY) = 10
+fstat(10, {st_mode=S_IFREG|0644, st_size=181, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fb7000
+read(10, "v:default    /usr/intel/pkgs/cdi"..., 65536) = 181
+read(10, "", 65536)                     = 0
+lseek(10, 0, SEEK_SET)                  = 0
+read(10, "v:default    /usr/intel/pkgs/cdi"..., 65536) = 181
+read(10, "", 65536)                     = 0
+lseek(10, 0, SEEK_SET)                  = 0
+read(10, "v:default    /usr/intel/pkgs/cdi"..., 65536) = 181
+lseek(10, 181, SEEK_SET)                = 181
+access("/usr/intel/pkgs/cdislookup/4.0/cdislookup", X_OK) = 0
+close(10)                               = 0
+munmap(0x7ffff7fb7000, 65536)           = 0
+access("/usr/intel/pkgs/cdislookup/4.0/cdislookup", X_OK) = 0
+open("/usr/share/zoneinfo/Israel", O_RDONLY) = 10
+fstat(10, {st_mode=S_IFREG|0644, st_size=2256, ...}) = 0
+fstat(10, {st_mode=S_IFREG|0644, st_size=2256, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe1000
+read(10, "TZif3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\6\0\0\0\0"..., 4096) = 2256
+lseek(10, -1428, SEEK_CUR)              = 828
+read(10, "TZif3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\6\0\0\0\0"..., 4096) = 1428
+close(10)                               = 0
+munmap(0x7ffff7fe1000, 4096)            = 0
+getuid()                                = 11634678
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 10
+connect(10, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(10, "\2\0\0\0\v\0\0\0\7\0\0\0passwd\0", 19, MSG_NOSIGNAL, NULL, 0) = 19
+poll([{fd=10, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=10, revents=POLLIN|POLLHUP}])
+recvmsg(10, {msg_name(0)=NULL, msg_iov(2)=[{"passwd\0", 7}, {"tn\30\0\0\0\0\0", 8}], msg_controllen=24, {cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, {11}}, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 15
+mmap(NULL, 1601140, PROT_READ, MAP_SHARED, 11, 0) = 0x7ffff7e40000
+close(11)                               = 0
+close(10)                               = 0
+sendto(3, "iil:cdislookup:cdislookup:4.0:em"..., 73, 0, {sa_family=AF_INET, sin_port=htons(51710), sin_addr=inet_addr("10.184.201.111")}, 16) = 73
+close(3)                                = 0
+access("/tmp/SITE.locked", R_OK)        = -1 ENOENT (No such file or directory)
+execve("/usr/intel/pkgs/cdislookup/4.0/cdislookup", ["cdislookup", "-u", "rsakhnin"], [/* 120 vars */]) = 0
+brk(0)                                  = 0x607000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ffa000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/x86_64", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/tls", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64/x86_64", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib64", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib/tls/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/tls/x86_64", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/tls", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib/x86_64", 0x7fffffffce00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/4.7.2/lib", {st_mode=S_IFDIR|0755, st_size=8192, ...}) = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libc.so.6", O_RDONLY)      = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\355\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1788205, ...}) = 0
+mmap(NULL, 3651768, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7a61000
+fadvise64(3, 0, 3651768, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7bd3000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7dd3000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x172000) = 0x7ffff7dd3000
+mmap(0x7ffff7dd8000, 18616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7dd8000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd9000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd8000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd7000
+arch_prctl(ARCH_SET_FS, 0x7ffff7fd8700) = 0
+mprotect(0x7ffff7dd3000, 16384, PROT_READ) = 0
+mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+access("/tmp/SITE", F_OK)               = 0
+access("/tmp/SITE", R_OK)               = 0
+brk(0)                                  = 0x607000
+brk(0x628000)                           = 0x628000
+open("/tmp/SITE", O_RDONLY)             = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=8, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "iil.iec\n", 4096)              = 8
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+getpid()                                = 18214
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+stat("/etc/resolv.conf", {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\r\0\0\0\6\0\0\0hosts\0", 18, MSG_NOSIGNAL, NULL, 0) = 18
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+recvmsg(3, {msg_name(0)=NULL, msg_iov(2)=[{"\0\0\0\0\0\0", 6}, {"p\254\377\367\377\177\0\0", 8}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 0
+close(3)                                = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\4\0\0\0\36\0\0\0iil-logger.usrintel."..., 42, MSG_NOSIGNAL, NULL, 0) = 42
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+read(3, "\2\0\0\0\377\377\377\377\0\0\0\0\0\0\0\0\377\377\377\377\377\377\377\377\0\0\0\0\377\377\377\377", 32) = 32
+close(3)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1827, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "# DO NOT EDIT! MANUAL CHANGES WI"..., 4096) = 1827
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libnss_files.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libnss_files.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libnss_files.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \"\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=61397, ...}) = 0
+mmap(NULL, 2147784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7854000
+fadvise64(3, 0, 2147784, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff785f000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7a5f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x7ffff7a5f000
+close(3)                                = 0
+mprotect(0x7ffff7a5f000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+open("/etc/host.conf", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=370, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "#\n# /etc/host.conf - resolver co"..., 4096) = 370
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/etc/hosts", O_RDONLY|O_CLOEXEC)  = 3
+fcntl(3, F_GETFD)                       = 0x1 (flags FD_CLOEXEC)
+fstat(3, {st_mode=S_IFREG|0644, st_size=696, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "#\n# hosts         This file desc"..., 4096) = 696
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libnss_dns.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libnss_dns.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libnss_dns.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\20\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=27359, ...}) = 0
+mmap(NULL, 2117912, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff764e000
+fadvise64(3, 0, 2117912, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7653000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff7852000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7ffff7852000
+close(3)                                = 0
+open("/usr/intel/pkgs/gcc/4.7.2/lib64/libresolv.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/4.7.2/lib/libresolv.so.2", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/lib64/libresolv.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3408\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=98148, ...}) = 0
+mmap(NULL, 2189992, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7437000
+fadvise64(3, 0, 2189992, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff744a000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff764a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13000) = 0x7ffff764a000
+mmap(0x7ffff764c000, 6824, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff764c000
+close(3)                                = 0
+mprotect(0x7ffff764a000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7852000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+stat("/etc/resolv.conf", {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+socket(PF_INET, 0x802 /* SOCK_??? */, IPPROTO_IP) = 3
+connect(3, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, 28) = 0
+poll([{fd=3, events=POLLOUT}], 1, 0)    = 1 ([{fd=3, revents=POLLOUT}])
+sendto(3, "\336H\1\0\0\1\0\0\0\0\0\0\niil-logger\10usrintel"..., 47, MSG_NOSIGNAL, NULL, 0) = 47
+poll([{fd=3, events=POLLIN}], 1, 5000)  = 1 ([{fd=3, revents=POLLIN}])
+ioctl(3, FIONREAD, [98])                = 0
+recvfrom(3, "\336H\201\200\0\1\0\2\0\0\0\0\niil-logger\10usrintel"..., 1024, 0, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, [16]) = 98
+close(3)                                = 0
+socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP) = 3
+fcntl(3, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+fcntl(3, F_GETFL)                       = 0x802 (flags O_RDWR|O_NONBLOCK)
+access("/usr/intel/bin/.app_itools", R_OK) = -1 ENOENT (No such file or directory)
+access("/usr/intel/bin/.app_pkgs", R_OK) = -1 ENOENT (No such file or directory)
+stat("/tmp/.itools_login_debug.rsakhnin", 0x7fffffffd490) = -1 ENOENT (No such file or directory)
+access("/usr/intel/pkgs/cdislookup/4.0/cdislookup", X_OK) = 0
+stat("/usr/intel/bin/perl5.87", {st_mode=S_IFREG|0755, st_size=37749, ...}) = 0
+lstat("/usr/intel/bin/perl5.87", {st_mode=S_IFREG|0755, st_size=37749, ...}) = 0
+open("/usr/intel/../control/global.pkgs", O_RDONLY) = 10
+fstat(10, {st_mode=S_IFREG|0444, st_size=59380, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fea000
+read(10, "################################"..., 65536) = 59380
+lseek(10, 0, SEEK_SET)                  = 0
+close(10)                               = 0
+munmap(0x7ffff7fea000, 65536)           = 0
+stat("/usr/intel/bin/.app_itools", 0x7fffffffcff0) = -1 ENOENT (No such file or directory)
+open("/nfs/iil/home/rsakhnin/.itools", O_RDONLY) = 10
+fstat(10, {st_mode=S_IFREG|0640, st_size=8, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff2000
+read(10, "gdb 7.8\n", 32768)            = 8
+read(10, "", 32768)                     = 0
+lseek(10, 0, SEEK_SET)                  = 0
+read(10, "gdb 7.8\n", 32768)            = 8
+read(10, "", 32768)                     = 0
+lseek(10, 0, SEEK_SET)                  = 0
+open("/usr/intel/cfg/pkgs/wrapper/etc/set1/site.itools", O_RDONLY) = 11
+fstat(11, {st_mode=S_IFREG|0644, st_size=3664, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe2000
+read(11, "# IEM1/IEM2 compatibility CLI\n#\n"..., 65536) = 3664
+read(11, "", 65536)                     = 0
+lseek(11, 0, SEEK_SET)                  = 0
+brk(0x649000)                           = 0x649000
+read(11, "# IEM1/IEM2 compatibility CLI\n#\n"..., 65536) = 3664
+read(11, "", 65536)                     = 0
+lseek(11, 0, SEEK_SET)                  = 0
+open("/usr/intel/pkgs/wrapper/etc/set1/global.itools", O_RDONLY) = 12
+fstat(12, {st_mode=S_IFREG|0644, st_size=475, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fc7000
+read(12, "wish8.3         /usr/intel/pkgs/"..., 65536) = 475
+read(12, "", 65536)                     = 0
+lseek(12, 0, SEEK_SET)                  = 0
+read(12, "wish8.3         /usr/intel/pkgs/"..., 65536) = 475
+read(12, "", 65536)                     = 0
+lseek(12, 0, SEEK_SET)                  = 0
+open("/usr/intel/pkgs/perl/versions", O_RDONLY) = 13
+fstat(13, {st_mode=S_IFREG|0755, st_size=2641, ...}) = 0
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fb7000
+read(13, "v:default             /usr/intel"..., 65536) = 2641
+read(13, "", 65536)                     = 0
+lseek(13, 0, SEEK_SET)                  = 0
+read(13, "v:default             /usr/intel"..., 65536) = 2641
+lseek(13, 2641, SEEK_SET)               = 2641
+access("/usr/intel/pkgs/perl/5.8.7/bin/perl", X_OK) = 0
+close(13)                               = 0
+munmap(0x7ffff7fb7000, 65536)           = 0
+access("/usr/intel/pkgs/perl/5.8.7/bin/perl", X_OK) = 0
+open("/usr/share/zoneinfo/Israel", O_RDONLY) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=2256, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=2256, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe1000
+read(13, "TZif3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\6\0\0\0\0"..., 4096) = 2256
+lseek(13, -1428, SEEK_CUR)              = 828
+read(13, "TZif3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\6\0\0\0\6\0\0\0\0"..., 4096) = 1428
+close(13)                               = 0
+munmap(0x7ffff7fe1000, 4096)            = 0
+getuid()                                = 11634678
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 13
+connect(13, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(13, "\2\0\0\0\v\0\0\0\7\0\0\0passwd\0", 19, MSG_NOSIGNAL, NULL, 0) = 19
+poll([{fd=13, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=13, revents=POLLIN|POLLHUP}])
+recvmsg(13, {msg_name(0)=NULL, msg_iov(2)=[{"passwd\0", 7}, {"tn\30\0\0\0\0\0", 8}], msg_controllen=24, {cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, {14}}, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 15
+mmap(NULL, 1601140, PROT_READ, MAP_SHARED, 14, 0) = 0x7ffff7e40000
+close(14)                               = 0
+close(13)                               = 0
+sendto(3, "iil:perl:perl:5.8.7:em64t_SLES11"..., 63, 0, {sa_family=AF_INET, sin_port=htons(51710), sin_addr=inet_addr("10.184.201.111")}, 16) = 63
+close(3)                                = 0
+access("/tmp/SITE.locked", R_OK)        = -1 ENOENT (No such file or directory)
+execve("/usr/intel/pkgs/perl/5.8.7/bin/perl", ["/usr/intel/bin/perl5.87", "/usr/intel/pkgs/cdislookup/4.0/c"..., "-u", "rsakhnin"], [/* 120 vars */]) = 0
+brk(0)                                  = 0x60f000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ffa000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/3.4.2/lib64/tls/x86_64/libnsl.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/3.4.2/lib64/tls/x86_64", 0x7fffffffce10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/3.4.2/lib64/tls/libnsl.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/3.4.2/lib64/tls", 0x7fffffffce10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/3.4.2/lib64/x86_64/libnsl.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/3.4.2/lib64/x86_64", 0x7fffffffce10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/gcc/3.4.2/lib64/libnsl.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/gcc/3.4.2/lib64", 0x7fffffffce10) = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fda000
+close(3)                                = 0
+open("/lib64/libnsl.so.1", O_RDONLY)    = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340@\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=108272, ...}) = 0
+mmap(NULL, 2194128, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7bc5000
+fadvise64(3, 0, 2194128, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7bda000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff7dd9000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x14000) = 0x7ffff7dd9000
+mmap(0x7ffff7ddb000, 6864, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ddb000
+close(3)                                = 0
+open("/lib64/libdl.so.2", O_RDONLY)     = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360\r\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=19173, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd9000
+mmap(NULL, 2109728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff79c1000
+fadvise64(3, 0, 2109728, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff79c3000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff7bc3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7ffff7bc3000
+close(3)                                = 0
+open("/lib64/libm.so.6", O_RDONLY)      = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300E\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=550228, ...}) = 0
+mmap(NULL, 2600296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7746000
+fadvise64(3, 0, 2600296, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff77a3000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff79a2000, 126976, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x5c000) = 0x7ffff79a2000
+close(3)                                = 0
+open("/lib64/libcrypt.so.1", O_RDONLY)  = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240\n\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=57724, ...}) = 0
+mmap(NULL, 2335200, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff750b000
+fadvise64(3, 0, 2335200, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7517000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff7716000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x7ffff7716000
+mmap(0x7ffff7718000, 184800, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7718000
+close(3)                                = 0
+open("/lib64/libutil.so.1", O_RDONLY)   = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\16\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=14384, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd8000
+mmap(NULL, 2105632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7308000
+fadvise64(3, 0, 2105632, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff730a000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff7509000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x7ffff7509000
+close(3)                                = 0
+open("/lib64/libc.so.6", O_RDONLY)      = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\355\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1788205, ...}) = 0
+mmap(NULL, 3651768, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff6f8c000
+fadvise64(3, 0, 3651768, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff70fe000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff72fe000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x172000) = 0x7ffff72fe000
+mmap(0x7ffff7303000, 18616, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7303000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd7000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd6000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fd5000
+arch_prctl(ARCH_SET_FS, 0x7ffff7fd6700) = 0
+mprotect(0x7ffff72fe000, 16384, PROT_READ) = 0
+mprotect(0x7ffff7509000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7716000, 4096, PROT_READ) = 0
+mprotect(0x7ffff79a2000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7bc3000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7dd9000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7ffc000, 4096, PROT_READ) = 0
+munmap(0x7ffff7fda000, 130777)          = 0
+rt_sigaction(SIGFPE, {0x1, [FPE], SA_RESTORER|SA_RESTART, 0x7ffff6fbe910}, {SIG_DFL, [], 0}, 8) = 0
+brk(0)                                  = 0x60f000
+brk(0x630000)                           = 0x630000
+getuid()                                = 11634678
+geteuid()                               = 11634678
+getgid()                                = 2222
+getegid()                               = 2222
+open("/usr/lib/locale/locale-archive", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/locale.alias", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2512, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7ff9000
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2512
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7ff9000, 4096)            = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_IDENTIFICATION", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_IDENTIFICATION", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=373, ...}) = 0
+mmap(NULL, 373, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7ff9000
+close(3)                                = 0
+open("/usr/lib64/gconv/gconv-modules.cache", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=26050, ...}) = 0
+mmap(NULL, 26050, PROT_READ, MAP_SHARED, 3, 0) = 0x7ffff7ff2000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MEASUREMENT", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MEASUREMENT", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=23, ...}) = 0
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7ff1000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_TELEPHONE", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_TELEPHONE", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=59, ...}) = 0
+mmap(NULL, 59, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7ff0000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_ADDRESS", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_ADDRESS", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=155, ...}) = 0
+mmap(NULL, 155, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fef000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_NAME", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_NAME", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=77, ...}) = 0
+mmap(NULL, 77, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fee000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_PAPER", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_PAPER", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34, ...}) = 0
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fed000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MESSAGES", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MESSAGES", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+close(3)                                = 0
+open("/usr/lib/locale/en_US.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=57, ...}) = 0
+mmap(NULL, 57, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fec000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MONETARY", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MONETARY", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=286, ...}) = 0
+mmap(NULL, 286, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7feb000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_TIME", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_TIME", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2454, ...}) = 0
+mmap(NULL, 2454, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fea000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_NUMERIC", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_NUMERIC", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=54, ...}) = 0
+mmap(NULL, 54, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fe9000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_CTYPE", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_CTYPE", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=256324, ...}) = 0
+mmap(NULL, 256324, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7f96000
+close(3)                                = 0
+open("/dev/urandom", O_RDONLY)          = 3
+read(3, "6\240\234C", 4)                = 4
+close(3)                                = 0
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+lseek(0, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(1, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+lseek(1, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(2, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+lseek(2, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+open("/usr/intel/pkgs/cdislookup/4.0/cdislookup", O_RDONLY) = 3
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd320) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(3, 0, SEEK_CUR)                   = 0
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+readlink("/proc/self/exe", "/nfs/iil/itools/em64t_SLES11/pkgs/perl/5.8.7/bin/perl", 4095) = 53
+brk(0x651000)                           = 0x651000
+getpid()                                = 18214
+read(3, "#! /usr/intel/bin/perl5.87\n\n($pr"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/CDISLookup.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/CDISLookup.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/CDISLookup.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/CDISLookup.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/CDISLookup.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/CDISLookup.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/CDISLookup.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/CDISLookup.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffccf0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package Intel::CDISLookup;\n\nuse "..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/CDISLookup/Person.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/CDISLookup/Person.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/CDISLookup/Person.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/CDISLookup/Person.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/CDISLookup/Person.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/CDISLookup/Person.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/CDISLookup/Person.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/CDISLookup/Person.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "package Intel::CDISLookup::Perso"..., 4096) = 2497
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/strict.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/strict.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/strict.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/strict.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package strict;\n\n$strict::VERSIO"..., 4096) = 3292
+lseek(15, 598, SEEK_SET)                = 598
+lseek(15, 0, SEEK_CUR)                  = 598
+close(15)                               = 0
+lseek(14, 1397, SEEK_SET)               = 1397
+lseek(14, 0, SEEK_CUR)                  = 1397
+close(14)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# IO::Socket.pm\n#\n# Copyright (c"..., 4096) = 4096
+brk(0x673000)                           = 0x673000
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Handle.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Handle.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package IO::Handle;\n\n=head1 NAME"..., 4096) = 4096
+read(15, "ror\n\nReturns a true value if the"..., 4096) = 4096
+read(15, "m that class.\nThey actually aren"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Carp.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Carp.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Carp.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Carp.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package Carp;\n\nour $VERSION = '1"..., 4096) = 4096
+read(16, "an not get %CarpInternal or %Int"..., 4096) = 4096
+read(16, "need to (for Safe compartments)\n"..., 4096) = 648
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Exporter.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Exporter.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Exporter.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Exporter.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package Exporter;\n\nrequire 5.006"..., 4096) = 4096
+brk(0x694000)                           = 0x694000
+lseek(16, 2217, SEEK_SET)               = 2217
+lseek(16, 0, SEEK_CUR)                  = 2217
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Symbol.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Symbol.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Symbol.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Symbol.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package Symbol;\n\n=head1 NAME\n\nSy"..., 4096) = 4096
+read(16, "{\n    my $pkg = shift;\n\n    # ex"..., 4096) = 698
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/SelectSaver.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/SelectSaver.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/SelectSaver.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/SelectSaver.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package SelectSaver;\n\nour $VERSI"..., 4096) = 1070
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "#\n\npackage IO;\n\nuse XSLoader ();"..., 4096) = 1401
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/XSLoader.pmc", 0x7fffffffba50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/XSLoader.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb830) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "# Generated from XSLoader.pm.PL "..., 4096) = 4096
+brk(0x6b5000)                           = 0x6b5000
+lseek(17, 2901, SEEK_SET)               = 2901
+lseek(17, 0, SEEK_CUR)                  = 2901
+close(17)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/warnings.pmc", 0x7fffffffba50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/warnings.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/warnings.pmc", 0x7fffffffba50) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/warnings.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb830) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "\n# !!!!!!!   DO NOT EDIT THIS FI"..., 4096) = 4096
+read(17, "'\t\t=> 92,\n  );\n\nour %Bits = (\n  "..., 4096) = 4096
+read(17, "00\\x00\", # [22]\n    'deprecated'"..., 4096) = 4096
+read(17, "       $mask |= $Bits{'all'} ;\n "..., 4096) = 3505
+brk(0x6d6000)                           = 0x6d6000
+read(17, "", 4096)                      = 0
+close(17)                               = 0
+lseek(16, 412, SEEK_SET)                = 412
+lseek(16, 0, SEEK_CUR)                  = 412
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/IO/IO.so", {st_mode=S_IFREG|0755, st_size=23919, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/IO/IO.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/IO/IO.so", O_RDONLY) = 16
+read(16, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0p\33\0\0\0\0\0\0"..., 832) = 832
+fstat(16, {st_mode=S_IFREG|0755, st_size=23919, ...}) = 0
+mmap(NULL, 1064656, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 16, 0) = 0x7ffff7e92000
+fadvise64(16, 0, 1064656, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff7e96000, 1044480, PROT_NONE) = 0
+mmap(0x7ffff7f95000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 16, 0x3000) = 0x7ffff7f95000
+close(16)                               = 0
+read(15, "oak 'usage: $io->syswrite(BUF [,"..., 4096) = 3700
+brk(0x6f7000)                           = 0x6f7000
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Socket.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Socket.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package Socket;\n\nour($VERSION, @"..., 4096) = 4096
+read(15, "eername()) and returns the addre"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/warnings/register.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/warnings/register.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/warnings/register.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/warnings/register.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package warnings::register ;\n\nou"..., 4096) = 1014
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+read(15, "TRANSPORT\n\tSO_SNDBUF\n\tSO_SNDLOWA"..., 4096) = 1609
+brk(0x718000)                           = 0x718000
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Socket/Socket.so", {st_mode=S_IFREG|0755, st_size=28906, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Socket/Socket.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Socket/Socket.so", O_RDONLY) = 15
+read(15, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\26\0\0\0\0\0\0"..., 832) = 832
+fstat(15, {st_mode=S_IFREG|0755, st_size=28906, ...}) = 0
+mmap(NULL, 1070304, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 15, 0) = 0x7ffff6e86000
+fadvise64(15, 0, 1070304, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6e8b000, 1048576, PROT_NONE) = 0
+mmap(0x7ffff6f8b000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 15, 0x5000) = 0x7ffff6f8b000
+close(15)                               = 0
+brk(0x739000)                           = 0x739000
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Errno.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Errno.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "#\n# This file is auto-generated."..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Config.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Config.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "# This file was created by confi"..., 4096) = 2565
+brk(0x75a000)                           = 0x75a000
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+read(15, "b EUSERS () { 87 }\nsub ENOTSOCK "..., 4096) = 3226
+brk(0x77b000)                           = 0x77b000
+lseek(15, 5971, SEEK_SET)               = 5971
+lseek(15, 0, SEEK_CUR)                  = 5971
+close(15)                               = 0
+read(14, "ccept($new,$sock)\n\tor return;\n\n "..., 4096) = 4096
+brk(0x79c000)                           = 0x79c000
+lseek(14, 6678, SEEK_SET)               = 6678
+lseek(14, 0, SEEK_CUR)                  = 6678
+close(14)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket/INET.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket/INET.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IO/Socket/INET.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IO/Socket/INET.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# IO::Socket::INET.pm\n#\n# Copyri"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Exporter/Heavy.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Exporter/Heavy.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Exporter/Heavy.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Exporter/Heavy.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package Exporter::Heavy;\n\nuse st"..., 4096) = 4096
+read(15, "ols. Optimise the lookup by addi"..., 4096) = 2301
+brk(0x7bd000)                           = 0x7bd000
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+brk(0x7de000)                           = 0x7de000
+read(14, "exists($arg->{PeerAddr});\n \n    "..., 4096) = 4096
+lseek(14, 6497, SEEK_SET)               = 6497
+lseek(14, 0, SEEK_CUR)                  = 6497
+close(14)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket/UNIX.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Socket/UNIX.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IO/Socket/UNIX.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IO/Socket/UNIX.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# IO::Socket::UNIX.pm\n#\n# Copyri"..., 4096) = 3123
+brk(0x7ff000)                           = 0x7ff000
+lseek(14, 1386, SEEK_SET)               = 1386
+lseek(14, 0, SEEK_CUR)                  = 1386
+close(14)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Select.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Select.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# IO::Select.pm\n#\n# Copyright (c"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/vars.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/vars.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/vars.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/vars.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package vars;\n\nuse 5.006;\n\nour $"..., 4096) = 2358
+lseek(15, 1148, SEEK_SET)               = 1148
+lseek(15, 0, SEEK_CUR)                  = 1148
+close(15)                               = 0
+brk(0x820000)                           = 0x820000
+lseek(14, 4029, SEEK_SET)               = 4029
+lseek(14, 0, SEEK_CUR)                  = 4029
+close(14)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/vdcesite.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Intel/vdcesite.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/vdcesite.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Intel/vdcesite.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/vdcesite.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Intel/vdcesite.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/vdcesite.pmc", 0x7fffffffc9e0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Intel/vdcesite.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc7c0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "package Intel::vdcesite;\n\nrequir"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IniConf.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IniConf.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IniConf.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/IniConf.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/IniConf.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/IniConf.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/IniConf.pmc", 0x7fffffffc4b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/IniConf.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc290) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package IniConf;\n\nuse strict;\nus"..., 4096) = 350
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Config/IniFiles.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Config/IniFiles.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Config/IniFiles.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Config/IniFiles.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Config/IniFiles.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Config/IniFiles.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Config/IniFiles.pmc", 0x7fffffffbf80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Config/IniFiles.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package Config::IniFiles;\n$Confi"..., 4096) = 4096
+read(16, " the\nform:\n\n  PID <PID> reloadin"..., 4096) = 4096
+brk(0x841000)                           = 0x841000
+read(16, "]/) {\n      # must not be square"..., 4096) = 4096
+read(16, "$sect}{$parm} = \\@val;\n\t$self->{"..., 4096) = 4096
+read(16, "r start with [\n  my $first = '';"..., 4096) = 4096
+brk(0x862000)                           = 0x862000
+read(16, "rms}{$_};\n    $self->{v}{$_} = {"..., 4096) = 4096
+brk(0x883000)                           = 0x883000
+read(16, "s sure that the specified sectio"..., 4096) = 4096
+read(16, "writeConfig {\n  my $self = shift"..., 4096) = 4096
+read(16, "hed to section $section. In \nsca"..., 4096) = 4096
+brk(0x8a4000)                           = 0x8a4000
+read(16, "=head2 DeleteParameterEOT ($sect"..., 4096) = 4096
+read(16, " from a section.\n\n=head2 delete "..., 4096) = 4096
+read(16, "--------------------------------"..., 4096) = 4096
+read(16, "ined($thing) && ref($thing) && d"..., 4096) = 4096
+read(16, " which to store the value\n#\t@val"..., 4096) = 4096
+brk(0x8c5000)                           = 0x8c5000
+read(16, "--------\n# Date      Modificatio"..., 4096) = 4096
+read(16, "vision 2.29  2002/08/15 21:33:58"..., 4096) = 4096
+read(16, "plit from its value on the first"..., 4096) = 4096
+read(16, "ject on SourceForge. (Not a chan"..., 4096) = 407
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+lseek(14, 3024, SEEK_SET)               = 3024
+lseek(14, 0, SEEK_CUR)                  = 3024
+close(14)                               = 0
+brk(0x8e6000)                           = 0x8e6000
+read(13, "cords\\n\", $count) if $self->debu"..., 4096) = 4096
+read(13, "(/=\\s+/);\n\t\t\t$person->add($field"..., 4096) = 4096
+brk(0x907000)                           = 0x907000
+lseek(13, 9955, SEEK_SET)               = 9955
+lseek(13, 0, SEEK_CUR)                  = 9955
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Getopt/Std.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Getopt/Std.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Getopt/Std.pmc", 0x7fffffffcf10) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Getopt/Std.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffccf0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package Getopt::Std;\nrequire 5.0"..., 4096) = 4096
+read(13, "\tshift(@ARGV);\n\t    }\n\t    else "..., 4096) = 4096
+brk(0x928000)                           = 0x928000
+read(13, "unless (ref $hash) { \n\tlocal $Ex"..., 4096) = 106
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+read(3, "\t<TD WIDTH=32%><FONT SIZE=-1>%s<"..., 4096) = 4096
+brk(0x949000)                           = 0x949000
+read(3, "ed, and are not\n\tcase-sensitive."..., 4096) = 978
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/vastool.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/vastool.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/vastool.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/vastool.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/vastool.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("./vastool.pmc", 0x7fffffffd3b0)   = -1 ENOENT (No such file or directory)
+open("./vastool.pm", O_RDONLY)          = -1 ENOENT (No such file or directory)
+stat("/usr/intel/common/pkgs/adtools/1.2/lib/perl5/vastool.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/common/pkgs/adtools/1.2/lib/perl5/vastool.pm", O_RDONLY) = 3
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd190) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(3, 0, SEEK_CUR)                   = 0
+read(3, "package vastool;\n\nuse strict;\nus"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/LDIF.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/LDIF.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/LDIF.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/LDIF.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/LDIF.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/LDIF.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/LDIF.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/LDIF.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "# Copyright (c) 1997-2004 Graham"..., 4096) = 4096
+read(13, ":\\s*/) {\n    my $changetype = $l"..., 4096) = 4096
+brk(0x96a000)                           = 0x96a000
+read(13, "rst)\nsub _cmpAttrs {\n  ($a =~ /^"..., 4096) = 4096
+brk(0x98b000)                           = 0x98b000
+read(13, ">read_entry;\n\n  @entries;\n}\n\n# _"..., 4096) = 1925
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/Entry.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/Entry.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/Entry.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/Entry.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/Entry.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/Entry.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/Entry.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/Entry.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "# Copyright (c) 1997-2004 Graham"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/ASN.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/ASN.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/ASN.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/ASN.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/ASN.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/ASN.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/ASN.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/ASN.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "\npackage Net::LDAP::ASN;\n\n$VERSI"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc200) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "# Copyright (c) 2000-2002 Graham"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/constant.pmc", 0x7fffffffbef0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/constant.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/constant.pmc", 0x7fffffffbef0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/constant.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbcd0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package constant;\n\nuse strict;\nu"..., 4096) = 4096
+brk(0x9ac000)                           = 0x9ac000
+lseek(16, 3050, SEEK_SET)               = 3050
+lseek(16, 0, SEEK_CUR)                  = 3050
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "#\n# $Id: Encode.pm,v 2.18 2006/0"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/base.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/base.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/base.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/base.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb7e0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "package base;\n\nuse strict 'vars'"..., 4096) = 4096
+brk(0x9cd000)                           = 0x9cd000
+lseek(17, 3977, SEEK_SET)               = 3977
+lseek(17, 0, SEEK_CUR)                  = 3977
+close(17)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Alias.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Alias.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb7e0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "package Encode::Alias;\nuse stric"..., 4096) = 4096
+read(17, " qr/^UTF-?(16|32)-?LE$/i => '\"UT"..., 4096) = 4096
+brk(0x9ee000)                           = 0x9ee000
+read(17, "r/^UTF-8$/i => '\"utf-8-strict\"' "..., 4096) = 3344
+lseek(17, 8343, SEEK_SET)               = 8343
+lseek(17, 0, SEEK_CUR)                  = 8343
+close(17)                               = 0
+read(16, "Carp;\n        Carp::croak(\"Unkno"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Encoding.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Encoding.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb7e0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+brk(0xa0f000)                           = 0xa0f000
+read(17, "package Encode::Encoding;\n\n# Bas"..., 4096) = 4096
+lseek(17, 1387, SEEK_SET)               = 1387
+lseek(17, 0, SEEK_CUR)                  = 1387
+close(17)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/bytes.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/bytes.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/bytes.pmc", 0x7fffffffba00) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/bytes.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffb7e0) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "package bytes;\n\nour $VERSION = '"..., 4096) = 2384
+lseek(17, 446, SEEK_SET)                = 446
+lseek(17, 0, SEEK_CUR)                  = 446
+close(17)                               = 0
+read(16, "+ length($trm);\n                "..., 4096) = 4096
+lseek(16, 8608, SEEK_SET)               = 8608
+lseek(16, 0, SEEK_CUR)                  = 8608
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Encode/Encode.so", {st_mode=S_IFREG|0755, st_size=47144, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Encode/Encode.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Encode/Encode.so", O_RDONLY) = 16
+read(16, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 .\0\0\0\0\0\0"..., 832) = 832
+fstat(16, {st_mode=S_IFREG|0755, st_size=47144, ...}) = 0
+mmap(NULL, 1084992, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 16, 0) = 0x7ffff6d7d000
+fadvise64(16, 0, 1084992, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6d85000, 1048576, PROT_NONE) = 0
+mmap(0x7ffff6e85000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 16, 0x8000) = 0x7ffff6e85000
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Config.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/Config.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "#\n# Demand-load module list\n#\npa"..., 4096) = 4096
+brk(0xa30000)                           = 0xa30000
+read(16, "e',\n    'UTF-32LE' => 'Encode::U"..., 4096) = 1871
+lseek(16, 5903, SEEK_SET)               = 5903
+lseek(16, 0, SEEK_CUR)                  = 5903
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("./Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("./Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/common/pkgs/adtools/1.2/lib/perl5/Encode/ConfigLocal.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/common/pkgs/adtools/1.2/lib/perl5/Encode/ConfigLocal.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/utf8.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/utf8.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/utf8.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/utf8.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package utf8;\n\n$utf8::hint_bits "..., 4096) = 4096
+lseek(16, 378, SEEK_SET)                = 378
+lseek(16, 0, SEEK_CUR)                  = 378
+close(16)                               = 0
+read(15, ";\n  my $ret = $self->prepare( \\*"..., 4096) = 4096
+brk(0xa51000)                           = 0xa51000
+read(15, "f or $value == 0x1f) {\n    retur"..., 4096) = 1146
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/_decode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/_decode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/_decode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/_decode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/_decode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/_decode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/_decode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/_decode.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "# Copyright (c) 2000-2002 Graham"..., 4096) = 4096
+brk(0xa72000)                           = 0xa72000
+read(16, "{\n\t\t  _decode(\n\t\t    $optn,\n\t\t  "..., 4096) = 4096
+read(16, "    $_[4], #buf\n    );\n  }\n  els"..., 4096) = 4096
+brk(0xa93000)                           = 0xa93000
+read(16, "$_[5],$_[6]));\n  }\n  else {\n    "..., 4096) = 2237
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/_encode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/_encode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/_encode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/_encode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/_encode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/_encode.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/_encode.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/_encode.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "# Copyright (c) 2000-2002 Graham"..., 4096) = 4096
+brk(0xab4000)                           = 0xab4000
+read(16, " 5      6\n# $optn, $op, $stash, "..., 4096) = 4096
+read(16, "[cDEFINE] && $_[2]->{$_[1]->[cDE"..., 4096) = 967
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/IO.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/IO.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/IO.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/IO.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/IO.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/IO.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/IO.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/IO.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "# Copyright (c) 2000-2004 Graham"..., 4096) = 4096
+brk(0xad5000)                           = 0xad5000
+read(16, "],$_[3])\n    : send($_[0],$_[1],"..., 4096) = 1383
+brk(0xaf6000)                           = 0xaf6000
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/parser.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Convert/ASN1/parser.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/parser.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Convert/ASN1/parser.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/parser.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Convert/ASN1/parser.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/parser.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Convert/ASN1/parser.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "# 1 \"y.tab.pl\"\n#$yysccsid = \"@(#"..., 4096) = 4096
+read(16, "                2,\n    1,    1, "..., 4096) = 4096
+brk(0xb17000)                           = 0xb17000
+read(16, ",   17,    9,   25,   11,   12, "..., 4096) = 4096
+read(16, "\nlast switch;\n} }\nState21: {\n# 1"..., 4096) = 4096
+brk(0xb38000)                           = 0xb38000
+read(16, "RACE(),\n  '}'\t\t=> constRBRACE(),"..., 4096) = 4096
+brk(0xb59000)                           = 0xb59000
+read(16, "if ($op->[cTYPE] eq 'COMPONENTS'"..., 4096) = 2920
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+read(14, "        (68),\n\t    objectClassMo"..., 4096) = 4096
+read(14, "LDAPDN,\n\tdeleteoldrdn    BOOLEAN"..., 4096) = 3824
+read(14, "", 4096)                      = 0
+close(14)                               = 0
+brk(0xb7a000)                           = 0xb7a000
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/Constant.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Net/LDAP/Constant.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/Constant.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/Net/LDAP/Constant.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/Constant.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/x86_64-linux/Net/LDAP/Constant.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/Constant.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/site_perl/Net/LDAP/Constant.pm", O_RDONLY) = 14
+ioctl(14, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# Copyright (c) 1998-2004 Graham"..., 4096) = 4096
+fcntl(14, F_SETFD, FD_CLOEXEC)          = 0
+lseek(14, 2631, SEEK_SET)               = 2631
+lseek(14, 0, SEEK_CUR)                  = 2631
+lseek(14, 0, SEEK_SET)                  = 0
+lseek(14, 0, SEEK_CUR)                  = 0
+read(14, "# Copyright (c) 1998-2004 Graham"..., 4096) = 4096
+read(14, "er server. The response will\ncon"..., 4096) = 4096
+read(14, "odify DN requested was submitted"..., 4096) = 3940
+brk(0xb9b000)                           = 0xb9b000
+read(13, "ld_attrs($self);\n\n  while(my($ty"..., 4096) = 2890
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/File.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/File.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "#\n\npackage IO::File;\n\n=head1 NAM"..., 4096) = 4096
+brk(0xbbc000)                           = 0xbbc000
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Seekable.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Seekable.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "#\n\npackage IO::Seekable;\n\n=head1"..., 4096) = 2935
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Fcntl.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Fcntl.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc200) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package Fcntl;\n\n=head1 NAME\n\nFcn"..., 4096) = 4096
+read(16, "S_IWUSR S_IXUSR S_IRWXU\n\t\t     S"..., 4096) = 1250
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Fcntl/Fcntl.so", {st_mode=S_IFREG|0755, st_size=19382, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Fcntl/Fcntl.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Fcntl/Fcntl.so", O_RDONLY) = 16
+read(16, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\16\0\0\0\0\0\0"..., 832) = 832
+fstat(16, {st_mode=S_IFREG|0755, st_size=19382, ...}) = 0
+mmap(NULL, 1061832, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 16, 0) = 0x7ffff6c79000
+fadvise64(16, 0, 1061832, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6c7d000, 1044480, PROT_NONE) = 0
+mmap(0x7ffff6d7c000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 16, 0x3000) = 0x7ffff6d7c000
+close(16)                               = 0
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Spec.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Spec.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+brk(0xbdd000)                           = 0xbdd000
+read(15, "package File::Spec;\n\nuse strict;"..., 4096) = 4096
+lseek(15, 595, SEEK_SET)                = 595
+lseek(15, 0, SEEK_CUR)                  = 595
+close(15)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Spec/Unix.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Spec/Unix.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package File::Spec::Unix;\n\nuse s"..., 4096) = 4096
+read(15, "w _;\n\t$tmpdir = $_;\n\tlast;\n    }"..., 4096) = 4096
+brk(0xbfe000)                           = 0xbfe000
+read(15, "th ) ;\n    $rel_path = File::Spe"..., 4096) = 4096
+read(15, "s->curdir;\n\n    my($vol, $dirs, "..., 4096) = 905
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+read(13, "###################\n## Open\n##\n\n"..., 4096) = 915
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Pipe.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/IO/Pipe.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "# IO::Pipe.pm\n#\n# Copyright (c) "..., 4096) = 4096
+brk(0xc1f000)                           = 0xc1f000
+lseek(13, 3426, SEEK_SET)               = 3426
+lseek(13, 0, SEEK_CUR)                  = 3426
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Data/Dumper.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/Data/Dumper.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "#\n# Data/Dumper.pm\n#\n# convert p"..., 4096) = 4096
+read(13, "\\$\" . $1 ) ;\n\t}\n\telsif ($k !~ /^"..., 4096) = 4096
+brk(0xc40000)                           = 0xc40000
+read(13, "not set and maxdepth is set, the"..., 4096) = 4096
+read(13, "    }\n      else {\n\t#warn \"[>\\\\$"..., 4096) = 4096
+brk(0xc61000)                           = 0xc61000
+read(13, ".'}'/ge if $bytes > length;\n  re"..., 4096) = 4096
+lseek(13, 17672, SEEK_SET)              = 17672
+lseek(13, 0, SEEK_CUR)                  = 17672
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/overload.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/overload.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/overload.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/overload.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package overload;\n\nour $VERSION "..., 4096) = 4096
+brk(0xc82000)                           = 0xc82000
+read(13, "_bits;\n    }\n    shift, shift;\n "..., 4096) = 4096
+lseek(13, 4288, SEEK_SET)               = 4288
+lseek(13, 0, SEEK_CUR)                  = 4288
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Data/Dumper/Dumper.so", {st_mode=S_IFREG|0755, st_size=36299, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Data/Dumper/Dumper.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/Data/Dumper/Dumper.so", O_RDONLY) = 13
+read(13, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\"\0\0\0\0\0\0"..., 832) = 832
+fstat(13, {st_mode=S_IFREG|0755, st_size=36299, ...}) = 0
+mmap(NULL, 1076240, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 13, 0) = 0x7ffff6b72000
+fadvise64(13, 0, 1076240, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6b79000, 1044480, PROT_NONE) = 0
+mmap(0x7ffff6c78000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 13, 0x6000) = 0x7ffff6c78000
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Temp.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Temp.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Temp.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Temp.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package File::Temp;\n\n=head1 NAME"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Path.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Path.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Path.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Path.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package File::Path;\n\n=head1 NAME"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Basename.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/File/Basename.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Basename.pmc", 0x7fffffffc420) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/File/Basename.pm", O_RDONLY) = 16
+ioctl(16, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc200) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(16, 0, SEEK_CUR)                  = 0
+read(16, "package File::Basename;\n\n=head1 "..., 4096) = 4096
+read(16, "x, the return\nvalue conforms to "..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/re.pmc", 0x7fffffffbf30) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/re.pm", O_RDONLY) = 17
+ioctl(17, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffbd10) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(17, 0, SEEK_CUR)                  = 0
+read(17, "package re;\n\nour $VERSION = 0.04"..., 4096) = 4019
+brk(0xca3000)                           = 0xca3000
+read(17, "", 4096)                      = 0
+close(17)                               = 0
+read(16, "     This differs from the secon"..., 4096) = 1351
+read(16, "", 4096)                      = 0
+close(16)                               = 0
+read(15, "paths;\n    my(@created,$path);\n "..., 4096) = 3727
+brk(0xcc4000)                           = 0xcc4000
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+read(13, "\n\n# Need the Symbol package if w"..., 4096) = 4096
+read(13, "ed when \"mkdir\" is true.\n\n# The "..., 4096) = 4096
+brk(0xce5000)                           = 0xce5000
+read(13, "  # If $parent is empty replace "..., 4096) = 4096
+read(13, "riginal template\n      $path = _"..., 4096) = 4096
+read(13, ") is not a directory\"\n      if r"..., 4096) = 4096
+read(13, " $fh, $fname, $isdir );\n#\n#   - "..., 4096) = 4096
+read(13, "ional behaviour\nthat the tempora"..., 4096) = 4096
+brk(0xd06000)                           = 0xd06000
+read(13, "her applications.\nBut see the WA"..., 4096) = 4096
+read(13, "te temporary-ness when we open t"..., 4096) = 4096
+read(13, " == 1 ? shift(@_) : undef );\n\n  "..., 4096) = 4096
+read(13, "\n\n  my $template = shift;\n  my $"..., 4096) = 4096
+read(13, "ixXXXXXXXX\n(using unix file conv"..., 4096) = 4096
+brk(0xd27000)                           = 0xd27000
+read(13, "and C<rdev> fields seem to be\ndi"..., 4096) = 4096
+read(13, " before proceeding.\nOptions are:"..., 4096) = 4096
+read(13, "utomatically.  This is useful fo"..., 4096) = 3495
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/POSIX.pmc", 0x7fffffffce80) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/POSIX.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package POSIX;\n\nour(@ISA, %EXPOR"..., 4096) = 4096
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/AutoLoader.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/AutoLoader.pm", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/AutoLoader.pmc", 0x7fffffffc950) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/AutoLoader.pm", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "package AutoLoader;\n\nuse strict;"..., 4096) = 4096
+read(15, " 'lib').\n    #\n\n    (my $calldir"..., 4096) = 4096
+lseek(15, 4936, SEEK_SET)               = 4936
+lseek(15, 0, SEEK_CUR)                  = 4936
+close(15)                               = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/autosplit.ix", O_RDONLY) = 15
+ioctl(15, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffc730) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(15, 0, SEEK_CUR)                  = 0
+read(15, "# Index created by AutoSplit for"..., 4096) = 2265
+brk(0xd48000)                           = 0xd48000
+read(15, "", 4096)                      = 0
+close(15)                               = 0
+lseek(13, 1443, SEEK_SET)               = 1443
+lseek(13, 0, SEEK_CUR)                  = 1443
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/POSIX.so", {st_mode=S_IFREG|0755, st_size=122662, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/POSIX.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/POSIX.so", O_RDONLY) = 13
+read(13, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\\\0\0\0\0\0\0"..., 832) = 832
+fstat(13, {st_mode=S_IFREG|0755, st_size=122662, ...}) = 0
+mmap(NULL, 1153888, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 13, 0) = 0x7ffff6a58000
+fadvise64(13, 0, 1153888, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6a70000, 1048576, PROT_NONE) = 0
+mmap(0x7ffff6b70000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 13, 0x18000) = 0x7ffff6b70000
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/load_imports.al", {st_mode=S_IFREG|0644, st_size=6617, ...}) = 0
+getgroups(65536, [1791, 2222, 2371, 2817, 3093, 3380, 4371, 4398, 15273, 16043, 16064, 16307, 16344, 16812, 17165, 33869, 49021, 49052, 142925725]) = 19
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/POSIX/load_imports.al", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffcc60) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "# NOTE: Derived from ../../lib/P"..., 4096) = 4096
+brk(0xd69000)                           = 0xd69000
+read(13, "xfrm)],\n\n    sys_stat_h => [qw(S"..., 4096) = 2521
+read(13, "", 4096)                      = 0
+close(13)                               = 0
+brk(0xd8a000)                           = 0xd8a000
+brk(0xdab000)                           = 0xdab000
+read(3, "++$count{$user} > $max ) {\n\t\t\t\t$"..., 4096) = 4096
+read(3, " ($site, @ddns, $filter);\n\n\t\tif "..., 4096) = 4096
+brk(0xdcc000)                           = 0xdcc000
+read(3, "@args, '-h', $opt{'host'}) if de"..., 4096) = 4096
+read(3, "se(LDAP);\n\n\t\t\t\t\tif ( $? >> 8 ) {"..., 4096) = 4096
+brk(0xded000)                           = 0xded000
+read(3, "1;\n\t\t\t\t}\n\t\t\t\tnext;\n\t\t\t}\n\t\t}\n\t} e"..., 4096) = 4096
+brk(0xe0e000)                           = 0xe0e000
+read(3, " $entries;\n\t\tunless ( scalar @$e"..., 4096) = 4096
+read(3, " ) {\n\t\t\t$results->{$group}= $ent"..., 4096) = 4096
+brk(0xe2f000)                           = 0xe2f000
+read(3, "emberOf') unless $direct;\n\n\t@adg"..., 4096) = 4096
+lseek(3, 35890, SEEK_SET)               = 35890
+lseek(3, 0, SEEK_CUR)                   = 35890
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+lseek(14, 8933, SEEK_SET)               = 8933
+lseek(14, 0, SEEK_CUR)                  = 8933
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18218
+close(13)                               = 0
+read(3, "/usr/intel/common/pkgs/vas-helpe"..., 4096) = 98
+read(3, "  1  aes128-cts-hmac-sha1-96  am"..., 4096) = 180
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18218, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18218
+close(3)                                = 0
+pipe([3, 13])                           = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18226
+close(13)                               = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd0e0) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+read(3, "\nPrimary Unix Personality Manage"..., 4096) = 386
+lseek(3, 127, SEEK_SET)                 = -1 ESPIPE (Illegal seek)
+close(3)                                = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+rt_sigaction(SIGHUP, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], 0}, 8) = 0
+wait4(18226, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18226
+rt_sigaction(SIGHUP, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+rt_sigaction(SIGINT, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18230
+close(13)                               = 0
+read(3, "DC=ger,DC=corp,DC=intel,DC=com\n", 4096) = 31
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18230, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18230
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18234
+close(13)                               = 0
+read(3, "amr.corp.intel.com\nccr.corp.inte"..., 4096) = 53
+read(3, "gar.corp.intel.com\nger.corp.inte"..., 4096) = 38
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18234, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18234
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18238
+close(13)                               = 0
+read(3, "DC=amr,DC=corp,DC=intel,DC=com\nD"..., 4096) = 86
+read(3, "DC=gar,DC=corp,DC=intel,DC=com\nD"..., 4096) = 62
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18238, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18238
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18242
+close(13)                               = 0
+read(3, "DC=ger,DC=corp,DC=intel,DC=com\n", 4096) = 31
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18242, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18242
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18246
+close(13)                               = 0
+read(3, "dn: OU=iil,OU=UNIX,OU=Engineerin"..., 4096) = 96
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18246, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18246
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18250
+close(13)                               = 0
+read(3, "dn: OU=UserPersonalities,OU=iil,"..., 4096) = 131
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18250, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18250
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18254
+close(13)                               = 0
+read(3, "dn: CN=rsakhnin,OU=UserPersonali"..., 4096) = 186
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(18254, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18254
+close(3)                                = 0
+pipe([3, 13])                           = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 EINVAL (Invalid argument)
+lseek(13, 0, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(13, F_SETFD, FD_CLOEXEC)          = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18258
+close(13)                               = 0
+read(3, "dn: CN=Sakhnini\\, Rawi,OU=Worker"..., 4096) = 192
+read(3, "l: IS\ntitle: 11634678\npostalAddr"..., 4096) = 320
+read(3, "memberOf: CN=CRCG CNV Silicon ID"..., 4096) = 4096
+read(3, "=Resources,DC=ger,DC=corp,DC=int"..., 4096) = 4096
+read(3, "g Computing,OU=Resources,DC=amr,"..., 4096) = 3789
+read(3, "mailNickname: rsakhnin\nemployeeT"..., 4096) = 135
+read(3, "badPwdCount: 1\ncodePage: 0\ncount"..., 4096) = 145
+read(3, "pwdLastSet: 132081082633765522\np"..., 4096) = 130
+read(3, "logonCount: 8382\nsAMAccountName:"..., 4096) = 805
+read(3, "managedObjects: CN=rsakhnin-MOBL"..., 4096) = 495
+read(3, "msNPAllowDialin: TRUE\ndSCoreProp"..., 4096) = 315
+read(3, "textEncodedORAddress: X400:C=US;"..., 4096) = 219
+read(3, "msRTCSIP-UserEnabled: TRUE\nmsRTC"..., 4096) = 326
+read(3, "msExchUserAccountControl: 0\nmsEx"..., 4096) = 117
+read(3, "msExchPoliciesExcluded: {26491cf"..., 4096) = 153
+read(3, "intelCostCenterShortName: PESG S"..., 4096) = 137
+read(3, "intelCompanyCode: 620\nintelDivis"..., 4096) = 212
+read(3, "jobDescription: CAD ENGINEER\nint"..., 4096) = 89
+read(3, "msExchBlockedSendersHash:: 06EZ6"..., 4096) = 245
+read(3, "msExchDelegateListBL: CN=sidb,OU"..., 4096) = 146
+read(3, "employeeLaborCode: E\nmsExchRecip"..., 4096) = 78
+read(3, "msExchArchiveName: Personal Arch"..., 4096) = 90
+read(3, "intelGroupShortName: PESG Grp\nin"..., 4096) = 63
+read(3, "msExchRecipientTypeDetails: 1\nms"..., 4096) = 123
+read(3, "intelOrgUnitCode: 74977\nintelCos"..., 4096) = 89
+read(3, "isCWSponsor: FALSE\ngecos: rawi.s"..., 4096) = 49
+read(3, "msRTCSIP-InternetAccessEnabled: "..., 4096) = 280
+read(3, "intelCampusDescr: Matam\nintelBld"..., 4096) = 71
+read(3, "msExchWhenMailboxCreated: 201605"..., 4096) = 80
+read(3, "intelDivisionCode: 130392\nmsRTCS"..., 4096) = 81
+read(3, "mgrWWID: 10710718\nintelProfitCen"..., 4096) = 78
+read(3, "intelGroupCode: 120077\nmsExchRBA"..., 4096) = 183
+read(3, "msExchSafeSendersHash: \352\240\253\nintel"..., 4096) = 81
+read(3, "isManager: FALSE\nmsRTCSIP-Deploy"..., 4096) = 50
+read(3, "loginShell: /bin/bash\nintelSiteN"..., 4096) = 43
+read(3, "intelCostCenterCode: 49925\nintel"..., 4096) = 68
+read(3, "unixHomeDirectory: /home/rsakhni"..., 4096) = 105
+read(3, "", 4096)                       = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+brk(0xe50000)                           = 0xe50000
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/MIME/Base64.pmc", 0x7fffffffd3b0) = -1 ENOENT (No such file or directory)
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/MIME/Base64.pm", O_RDONLY) = 13
+ioctl(13, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd190) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(13, 0, SEEK_CUR)                  = 0
+read(13, "package MIME::Base64;\n\n# $Id: Ba"..., 4096) = 4096
+brk(0xe71000)                           = 0xe71000
+lseek(13, 360, SEEK_SET)                = 360
+lseek(13, 0, SEEK_CUR)                  = 360
+close(13)                               = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/MIME/Base64/Base64.so", {st_mode=S_IFREG|0755, st_size=16975, ...}) = 0
+stat("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/MIME/Base64/Base64.bs", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/usr/intel/pkgs/perl/5.8.7/lib64/5.8.7/x86_64-linux/auto/MIME/Base64/Base64.so", O_RDONLY) = 13
+read(13, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \20\0\0\0\0\0\0"..., 832) = 832
+fstat(13, {st_mode=S_IFREG|0755, st_size=16975, ...}) = 0
+mmap(NULL, 1059064, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 13, 0) = 0x7ffff6955000
+fadvise64(13, 0, 1059064, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6958000, 1044480, PROT_NONE) = 0
+mmap(0x7ffff6a57000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 13, 0x2000) = 0x7ffff6a57000
+close(13)                               = 0
+brk(0xe92000)                           = 0xe92000
+wait4(18258, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18258
+close(3)                                = 0
+open("/usr/intel/common/pkgs/site-services/conf/site.ini", O_RDONLY) = 3
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd170) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(3, 0, SEEK_CUR)                   = 0
+fstat(3, {st_mode=S_IFREG|0444, st_size=19201, ...}) = 0
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fstat(3, {st_mode=S_IFREG|0444, st_size=19201, ...}) = 0
+read(3, "\n###\n### $Revision: 1.402 $\n###\n"..., 4096) = 4096
+read(3, "ain= amr\nIgnore= true\n\n[SAD ph]\n"..., 4096) = 4096
+read(3, "C Bangalore, India\nSMTPMailDomai"..., 4096) = 4096
+read(3, "om\n#chpasswddPort= 801\n#chpasswd"..., 4096) = 4096
+read(3, "ver\ncdisdServer= cdislookup.iglb"..., 4096) = 2817
+read(3, "", 4096)                       = 0
+brk(0xebb000)                           = 0xebb000
+lseek(3, 0, SEEK_SET)                   = 0
+lseek(3, 0, SEEK_CUR)                   = 0
+close(3)                                = 0
+stat("/bin/domainname", {st_mode=S_IFREG|0755, st_size=14840, ...}) = 0
+pipe([3, 13])                           = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7ffff7fd69d0) = 18262
+close(13)                               = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd0e0) = -1 EINVAL (Invalid argument)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+read(3, "idc\n", 4096)                  = 4
+close(3)                                = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+rt_sigaction(SIGHUP, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, 8) = 0
+rt_sigaction(SIGINT, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, 8) = 0
+rt_sigaction(SIGQUIT, {0x1, [], SA_RESTORER, 0x7ffff6fbe910}, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, 8) = 0
+wait4(18262, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18262
+rt_sigaction(SIGHUP, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+rt_sigaction(SIGINT, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, [], SA_RESTORER, 0x7ffff6fbe910}, NULL, 8) = 0
+open("/etc/nsswitch.conf", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1827, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "# DO NOT EDIT! MANUAL CHANGES WI"..., 4096) = 1827
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7e72000
+close(3)                                = 0
+open("/lib64/libnss_files.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \"\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=61397, ...}) = 0
+mmap(NULL, 2147784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff6748000
+fadvise64(3, 0, 2147784, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6753000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff6953000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x7ffff6953000
+close(3)                                = 0
+mprotect(0x7ffff6953000, 4096, PROT_READ) = 0
+munmap(0x7ffff7e72000, 130777)          = 0
+open("/etc/protocols", O_RDONLY|O_CLOEXEC) = 3
+fcntl(3, F_GETFD)                       = 0x1 (flags FD_CLOEXEC)
+fstat(3, {st_mode=S_IFREG|0644, st_size=23232, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "# See also: protocols(5), http:/"..., 4096) = 4096
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+open("/etc/protocols", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=23232, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "# See also: protocols(5), http:/"..., 4096) = 4096
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+stat("/etc/resolv.conf", {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+open("/etc/resolv.conf", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=164, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "domain iil.intel.com\nsearch iil."..., 4096) = 164
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\r\0\0\0\6\0\0\0hosts\0", 18, MSG_NOSIGNAL, NULL, 0) = 18
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+recvmsg(3, {msg_name(0)=NULL, msg_iov(2)=[{"\240\213t\366\377\177", 6}, {"\320\212\375\367\377\177\0\0", 8}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 0
+close(3)                                = 0
+socket(PF_FILE, 0x80801 /* SOCK_??? */, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = 0
+sendto(3, "\2\0\0\0\4\0\0\0\32\0\0\0cdislookup.iglb.inte"..., 38, MSG_NOSIGNAL, NULL, 0) = 38
+poll([{fd=3, events=POLLIN|POLLERR|POLLHUP}], 1, 5000) = 1 ([{fd=3, revents=POLLIN|POLLHUP}])
+read(3, "\2\0\0\0\377\377\377\377\0\0\0\0\0\0\0\0\377\377\377\377\377\377\377\377\0\0\0\0\377\377\377\377", 32) = 32
+close(3)                                = 0
+open("/etc/host.conf", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=370, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "#\n# /etc/host.conf - resolver co"..., 4096) = 370
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+open("/etc/hosts", O_RDONLY|O_CLOEXEC)  = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=696, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fe8000
+read(3, "#\n# hosts         This file desc"..., 4096) = 696
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7ffff7fe8000, 4096)            = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=130777, ...}) = 0
+mmap(NULL, 130777, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7e72000
+close(3)                                = 0
+open("/lib64/libnss_dns.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\20\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=27359, ...}) = 0
+mmap(NULL, 2117912, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff6542000
+fadvise64(3, 0, 2117912, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff6547000, 2093056, PROT_NONE) = 0
+mmap(0x7ffff6746000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7ffff6746000
+close(3)                                = 0
+open("/lib64/libresolv.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3408\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=98148, ...}) = 0
+mmap(NULL, 2189992, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff632b000
+fadvise64(3, 0, 2189992, POSIX_FADV_WILLNEED) = 0
+mprotect(0x7ffff633e000, 2097152, PROT_NONE) = 0
+mmap(0x7ffff653e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13000) = 0x7ffff653e000
+mmap(0x7ffff6540000, 6824, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff6540000
+close(3)                                = 0
+mprotect(0x7ffff653e000, 4096, PROT_READ) = 0
+mprotect(0x7ffff6746000, 4096, PROT_READ) = 0
+munmap(0x7ffff7e72000, 130777)          = 0
+socket(PF_INET, 0x802 /* SOCK_??? */, IPPROTO_IP) = 3
+connect(3, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, 28) = 0
+poll([{fd=3, events=POLLOUT}], 1, 0)    = 1 ([{fd=3, revents=POLLOUT}])
+sendto(3, "\276d\1\0\0\1\0\0\0\0\0\0\ncdislookup\4iglb\5int"..., 43, MSG_NOSIGNAL, NULL, 0) = 43
+poll([{fd=3, events=POLLIN}], 1, 5000)  = 1 ([{fd=3, revents=POLLIN}])
+ioctl(3, FIONREAD, [59])                = 0
+recvfrom(3, "\276d\201\200\0\1\0\1\0\0\0\0\ncdislookup\4iglb\5int"..., 1024, 0, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.1")}, [16]) = 59
+close(3)                                = 0
+socket(PF_INET, SOCK_STREAM, IPPROTO_TCP) = 3
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fffffffd380) = -1 ENOTTY (Inappropriate ioctl for device)
+lseek(3, 0, SEEK_CUR)                   = -1 ESPIPE (Illegal seek)
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(3, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+connect(3, {sa_family=AF_INET, sin_port=htons(6668), sin_addr=inet_addr("10.109.208.125")}, 16) = -1 EINPROGRESS (Operation now in progress)
+open("/usr/share/locale-langpack/en_US.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en_US.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en_US.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en.UTF-8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en.utf8/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-bundle/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+select(8, NULL, [3], NULL, {5, 0})      = 1 (out [3], left {4, 998624})
+connect(3, {sa_family=AF_INET, sin_port=htons(6668), sin_addr=inet_addr("10.109.208.125")}, 16) = 0
+fcntl(3, F_GETFL)                       = 0x802 (flags O_RDWR|O_NONBLOCK)
+fcntl(3, F_SETFL, O_RDWR)               = 0
+read(3, "CDIS worker database server v4.1"..., 4096) = 42
+write(3, "irsakhnin \n", 11)            = 11
+read(3, "Agency= \nBldgCode= IDC10\nBookNam"..., 2048) = 955
+read(3, "", 2048)                       = 0
+close(3)                                = 0
+write(1, "Agency         = \n", 18)     = 18
+write(1, "BldgCode       = IDC10\n", 23) = 23
+write(1, "BookName       = SAKHNINI, RAWI\n", 32) = 32
+write(1, "ccMailName     = Sakhnini, Rawi\n", 32) = 32
+write(1, "CellNum        = \n", 18)     = 18
+write(1, "Department     = 620-1111-6\n", 28) = 28
+write(1, "Dept           = 1111\n", 22) = 22
+write(1, "Deptfunc       = 6\n", 19)    = 19
+write(1, "DomainAddress  = rawi.sakhnini@i"..., 41) = 41
+write(1, "Emptype        = REG\n", 21)  = 21
+write(1, "Entity         = 620\n", 21)  = 21
+write(1, "ExportCountryCo= \n", 18)     = 18
+write(1, "ExportCountryGr= \n", 18)     = 18
+write(1, "FaxNum         = \n", 18)     = 18
+write(1, "Fname          = RAWI\n", 22) = 22
+write(1, "GLCostCenterCod= 49925\n", 23) = 23
+write(1, "GLCostCenterDes= PESG SHARED IS\n", 32) = 32
+write(1, "GLDivisionCode = 130392\n", 24) = 24
+write(1, "GLDivisionDesc = PESG CENTRAL DI"..., 34) = 34
+write(1, "GLGroupCode    = 120077\n", 24) = 24
+write(1, "GLGroupDesc    = PRODUCT ENABLEM"..., 46) = 46
+write(1, "GLSuperGroupCod= 110031\n", 24) = 24
+write(1, "GLSuperGroupDes= INFRA & PLATFOR"..., 49) = 49
+write(1, "HomePageURL    = \n", 18)     = 18
+write(1, "HrdName        = HADAR,AMOTZ\n", 29) = 29
+write(1, "HrdWWID        = 11486778\n", 26) = 26
+write(1, "IDSID          = rsakhnin\n", 26) = 26
+write(1, "isCC           = \n", 18)     = 18
+write(1, "LastUpdateDate = Mar 27 2019  12"..., 38) = 38
+write(1, "Lname          = SAKHNINI\n", 26) = 26
+write(1, "Location       = \n", 18)     = 18
+write(1, "MailStop       = \n", 18)     = 18
+write(1, "MgrName        = WOLF,ARIEL\n", 28) = 28
+write(1, "MgrWWID        = 10710718\n", 26) = 26
+write(1, "MI             = \n", 18)     = 18
+write(1, "MsgNum         = \n", 18)     = 18
+write(1, "Nickname       = \n", 18)     = 18
+write(1, "OfficeLoc      = H2-65\n", 23) = 23
+write(1, "OrgUnitCode    = 74977\n", 23) = 23
+write(1, "OrgUnitDescr   = iCDG CRCG WCG S"..., 48) = 48
+write(1, "PagerNum       = \n", 18)     = 18
+write(1, "PhoneNum       = \n", 18)     = 18
+write(1, "PostOffice     = ger\n", 21)  = 21
+write(1, "Region         = ISR\n", 21)  = 21
+write(1, "SiteCode       = IS\n", 20)   = 20
+write(1, "StatCode       = A\n", 19)    = 19
+write(1, "StatDate       = Jun 15 2016 12:"..., 37) = 37
+write(1, "TermDate       = \n", 18)     = 18
+write(1, "Worldwid       = 11634678\n", 26) = 26
+write(1, "WWID           = 11634678\n", 26) = 26
+close(14)                               = 0
+exit_group(0)                           = ?

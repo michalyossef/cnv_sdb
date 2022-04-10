@@ -1,0 +1,451 @@
+<div class="summary_main_container container-fluid" id="summaryContainer">
+
+
+
+<!--  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showFloorplanModal" ng-show="data.showFloorplanModal">
+    <div class="modal-dialog" style="height: 100%;">
+      <div class="modal-content" style="height: 100%;">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showFloorplanModal = false;" aria-hidden="true">×</button>
+	  <label></label>
+	  </br>
+	</div>
+	<div class="modal-body" style="height: 100%;">
+
+
+
+
+	</div>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showFloorplanModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>-->
+
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showSummaryCheckModal" ng-show="data.showSummaryCheckModal">
+    <div class="modal-dialog" style="height: 100%;">
+      <div class="modal-content" style="height: 100%;">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showSummaryCheckModal = false;" aria-hidden="true">×</button>
+
+	  </br>
+	</div>
+	<div class="modal-body" style="height: 100%;">
+	    <table class="table table-bordered" style="float: left; width:100%;margin-right: 20px; ">
+	      <thead>
+		<tr>
+		  <th>code</th>
+		  <th>structure</th>
+		  <th>count</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="info in data.selectedSummaryCheck.data track by $index">
+		  <td><a ng-click="data.showDetailedErrors = true;" href="">{{info.code}}</a></td>
+		  <td>{{info.structure}}</td>
+		  <td>{{info.counter}}</td>
+		</tr>
+	      </tbody>
+	    </table>
+
+
+	    <table class="table table-bordered" ng-if="data.showDetailedErrors" style="float: left; width:100%;margin-right: 20px; ">
+	      <thead>
+		<tr>
+		  <th>code</th>
+		  <th>structure</th>
+		  <th>count</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="info in data.selectedSummaryCheck.data track by $index">
+		  <td><a ng-click="data.showDetailedErrors = true;" href="">{{info.code}}</a></td>
+		  <td>{{info.structure}}</td>
+		  <td>{{info.counter}}</td>
+		</tr>
+	      </tbody>
+	    </table>
+
+
+<!--
+	    <div class="table-responsive" style="float: left; width:70%;display:block;overflow:auto;height: 90%;">
+	      <table class="table table-bordered" style="" ng-if="data.showCheckInfoData">
+		<thead>
+		  <tr>
+		    <th>details</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="(key,value) in data.showCheckInfoData |limitTo:500">
+		    <td style="word-wrap: break-word">{{value["details"]}}</td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>-->
+
+
+	</div>
+<!--	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showSummaryCheckModal = false;">Close</button>
+	</div>-->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<!--  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div style="text-align: center;display:inline-block">
+	  <label>Release type</label></br>
+	  <select class="summaryReleaseTypeSelectpicker" data-width="150px" ng-model="data.releaseType" ng-change="releaseTypeSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option value="unreleased">unreleased</option>
+	    <option value="released">released</option>
+	  </select>
+      </div>
+
+      <div style="text-align: center;display:inline-block">
+	  <label>Project</label></br>
+	  <select class="summaryProjectSelectpicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>unit</label></br>
+	  <select class="summaryUnitSelectpicker" data-width="150px" ng-model="data.selectedUnit" ng-change="unitSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="unit in data.projectUnits track by $index" ng-value="unit">{{unit}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>user</label></br>
+	  <select class="summaryUserSelectpicker" data-width="150px" ng-model="data.selectedUser" ng-change="userSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="user in data.projectUsers track by $index" ng-value="user">{{user}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>run_id</label></br>
+	  <select class="summaryRunIdSelectpicker" data-width="150px" ng-model="data.selectedRunid" ng-change="runidSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="runid in data.projectRunids track by $index" ng-value="runid">{{runid}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>stage</label></br>
+	  <select class="summaryStageSelectpicker" data-width="150px" ng-model="data.selectedStage" ng-change="stageSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="stage in data.projectStages track by $index" ng-value="stage">{{stage}}</option>
+	  </select>
+      </div>
+      <div style="text-align: center;display:inline-block">
+	  <label>date</label></br>
+	  <select class="summaryDateSelectpicker" data-width="150px" ng-model="data.selectedDate">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="date in data.projectDates track by $index" ng-value="date">{{date}}</option>
+	  </select>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="fetchSummaryInfo()">Fetch</button>
+
+    </div>
+  </div>-->
+
+
+
+  <div class="row" ng-if="data.noDataInfo">
+      <div class="col-md-12">
+	  <label>No data found !</label>
+      </div>
+  </div>
+
+<!-- 	<button class="button button-success" ng-click="data.showFloorplanModal=true;">Floorplan</button> -->
+
+  <div class="row" ng-if="data.showSummaryInfo">
+    <div class="container-fluid">
+      <div class="col-md-12">
+
+<!--	<div ng-show="data.showSummaryInfo">
+	  <div style="display: inline-block; float:left; height:100%; width: 50%">
+	    <svg style="display: inline-block;float:left;" baseProfile="tiny" height="1000px" width="600px" version="1.2"  xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs />
+		<polygon fill="white" points="628.5,0.0 628.5,742.5 0.0,742.5 0.0,585.25 37.5,585.25 37.5,307.5 240.0,307.5 240.0,147.5 290.0,147.5 290.0,0.0" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(98,94,246)" id="poly0" points="400.8573,375.475 627.6073,375.475 627.6073,311.725 400.8573,311.725" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(98,80,152)" id="poly1" points="107.2553,468.5752 126.8815,468.5752 126.8815,443.7903 107.2553,443.7903" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(98,80,152)" id="poly2" points="134.5633,424.702 154.1895,424.702 154.1895,399.917 134.5633,399.917" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(202,81,209)" id="poly3" points="231.5093,741.8578 251.1355,741.8578 251.1355,717.0728 231.5093,717.0728" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(202,81,209)" id="poly4" points="258.659,672.4088 278.2853,672.4088 278.2853,647.6237 258.659,647.6237" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(135,2,154)" id="poly5" points="389.1968,70.1347 404.3405,70.1347 404.3405,26.7898 389.1968,26.7898" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(35,139,183)" id="poly6" points="107.1145,443.0072 133.8607,443.0072 133.8607,399.6622 107.1145,399.6622" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(229,11,80)" id="poly7" points="251.982,741.8905 278.7283,741.8905 278.7283,698.5455 251.982,698.5455" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(72,130,28)" id="poly8" points="291.349,46.8862 317.394,46.8862 317.394,1.2212 291.349,1.2212" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(72,130,28)" id="poly9" points="317.7063,46.8353 343.7513,46.8353 343.7513,1.1703 317.7063,1.1703" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(72,130,28)" id="poly10" points="317.6685,92.9292 343.7135,92.9292 343.7135,47.2642 317.6685,47.2642" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(72,130,28)" id="poly11" points="291.2425,92.9695 317.2875,92.9695 317.2875,47.3045 291.2425,47.3045" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(160,221,80)" id="poly12" points="380.718,25.6878 404.8268,25.6878 404.8268,0.9028 380.718,0.9028" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(59,229,213)" id="poly13" points="54.8537,715.095 65.515,715.095 65.515,671.75 54.8537,671.75" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(59,229,213)" id="poly14" points="43.4622,714.983 54.1235,714.983 54.1235,671.638 43.4622,671.638" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(59,229,213)" id="poly15" points="309.4237,614.4322 320.085,614.4322 320.085,571.0873 309.4237,571.0873" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(59,229,213)" id="poly16" points="297.5342,614.3323 308.1955,614.3323 308.1955,570.9873 297.5342,570.9873" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(60,101,61)" id="poly17" points="43.434,644.972 63.0603,644.972 63.0603,620.187 43.434,620.187" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(60,101,61)" id="poly18" points="43.4905,670.6342 63.1168,670.6342 63.1168,645.8492 43.4905,645.8492" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(199,15,182)" id="poly19" points="0.8037,611.24 15.9475,611.24 15.9475,586.455 0.8037,586.455" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(60,101,61)" id="poly20" points="258.7837,647.0125 278.41,647.0125 278.41,622.2275 258.7837,622.2275" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(60,101,61)" id="poly21" points="258.7763,697.625 278.4025,697.625 278.4025,672.84 258.7763,672.84" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(199,15,182)" id="poly22" points="200.1227,741.7428 215.2665,741.7428 215.2665,716.9578 200.1227,716.9578" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly23" points="299.4362,277.875 329.8775,277.875 329.8775,225.25 299.4362,225.25" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly24" points="344.4837,105.5537 374.925,105.5537 374.925,52.9288 344.4837,52.9288" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly25" points="359.1175,373.725 389.5587,373.725 389.5587,321.1 359.1175,321.1" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly26" points="324.1775,376.295 354.6187,376.295 354.6187,323.67 324.1775,323.67" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly27" points="404.34,78.5 434.7812,78.5 434.7812,25.875 404.34,25.875" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly28" points="350.235,52.9288 380.6762,52.9288 380.6762,0.3038 350.235,0.3038" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly29" points="202.2837,691.2 232.725,691.2 232.725,638.575 202.2837,638.575" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly30" points="154.1887,451.55 184.63,451.55 184.63,398.925 154.1887,398.925" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(167,11,38)" id="poly31" points="352.0225,311.3475 420.6675,311.3475 420.6675,207.6825 352.0225,207.6825" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(167,11,38)" id="poly32" points="455.4125,311.625 524.0575,311.625 524.0575,207.96 455.4125,207.96" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(167,11,38)" id="poly33" points="434.7812,104.34 503.4262,104.34 503.4262,0.675 434.7812,0.675" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(167,11,38)" id="poly34" points="98.0337,742.235 166.6788,742.235 166.6788,638.57 98.0337,638.57" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly35" points="49.32,611.373 64.4638,611.373 64.4638,586.588 49.32,586.588" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly36" points="33.0403,611.257 48.184,611.257 48.184,586.472 33.0403,586.472" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(251,200,177)" id="poly37" points="47.581,584.8323 55.1797,584.8323 55.1797,569.3273 47.581,569.3273" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(251,200,177)" id="poly38" points="39.0505,584.2955 46.6493,584.2955 46.6493,568.7905 39.0505,568.7905" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(232,245,233)" id="poly39" points="17.1097,611.4495 32.2535,611.4495 32.2535,586.6645 17.1097,586.6645" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(232,245,233)" id="poly40" points="43.423,740.7767 58.5667,740.7767 58.5667,715.9918 43.423,715.9918" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(27,152,100)" id="poly41" points="166.6587,717.0538 174.2575,717.0538 174.2575,701.5488 166.6587,701.5488" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(27,152,100)" id="poly42" points="90.3275,742.2012 97.9262,742.2012 97.9262,726.6962 90.3275,726.6962" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly43" points="215.7312,741.7358 230.875,741.7358 230.875,716.9507 215.7312,716.9507" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly44" points="235.0217,691.2368 250.1655,691.2368 250.1655,666.4517 235.0217,666.4517" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(251,200,177)" id="poly45" points="250.5595,697.396 258.1583,697.396 258.1583,681.891 250.5595,681.891" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(251,200,177)" id="poly46" points="250.754,681.26 258.3528,681.26 258.3528,665.755 250.754,665.755" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(232,245,233)" id="poly47" points="219.3765,716.16 234.5203,716.16 234.5203,691.375 219.3765,691.375" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(232,245,233)" id="poly48" points="235.0153,716.178 250.159,716.178 250.159,691.393 235.0153,691.393" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(27,152,100)" id="poly49" points="174.26,740.2838 181.8587,740.2838 181.8587,724.7787 174.26,724.7787" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(27,152,100)" id="poly50" points="166.68,741.9638 174.2788,741.9638 174.2788,726.4588 166.68,726.4588" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(138,96,186)" id="poly51" points="77.9188,631.825 88.0088,631.825 88.0088,587.05 77.9188,587.05" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(138,96,186)" id="poly52" points="88.0088,618.2587 98.0987,618.2587 98.0987,573.4837 88.0088,573.4837" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly53" points="201.5687,398.5992 216.7125,398.5992 216.7125,373.8143 201.5687,373.8143" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly54" points="169.6355,398.7095 184.7792,398.7095 184.7792,373.9245 169.6355,373.9245" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly55" points="104.4128,398.5537 119.5565,398.5537 119.5565,373.7688 104.4128,373.7688" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly56" points="217.2615,398.8068 232.4052,398.8068 232.4052,374.0217 217.2615,374.0217" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly57" points="153.2123,398.7975 168.356,398.7975 168.356,374.0125 153.2123,374.0125" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly58" points="136.958,398.4502 152.1018,398.4502 152.1018,373.6653 136.958,373.6653" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly59" points="120.5498,398.3905 135.6935,398.3905 135.6935,373.6055 120.5498,373.6055" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(149,28,69)" id="poly60" points="185.591,398.7022 200.7347,398.7022 200.7347,373.9173 185.591,373.9173" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(247,70,211)" id="poly61" points="289.3805,223.2965 298.0593,223.2965 298.0593,192.7115 289.3805,192.7115" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(247,70,211)" id="poly62" points="289.4128,285.0072 298.0915,285.0072 298.0915,254.4222 289.4128,254.4222" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(247,70,211)" id="poly63" points="289.4773,315.8805 298.156,315.8805 298.156,285.2955 289.4773,285.2955" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(247,70,211)" id="poly64" points="289.425,254.0395 298.1037,254.0395 298.1037,223.4545 289.425,223.4545" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(158,17,31)" id="poly65" points="37.52,629.45 50.1538,629.45 50.1538,585.0 37.52,585.0" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(142,138,236)" id="poly66" points="283.6397,361.4207 292.3185,361.4207 292.3185,342.4357 283.6397,342.4357" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(142,138,236)" id="poly67" points="289.4708,335.1338 298.1495,335.1338 298.1495,316.1488 289.4708,316.1488" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly68" points="252.3202,367.3612 267.464,367.3612 267.464,342.5763 252.3202,342.5763" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly69" points="267.9873,367.3467 283.131,367.3467 283.131,342.5618 267.9873,342.5618" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly70" points="236.5673,367.2908 251.711,367.2908 251.711,342.5057 236.5673,342.5057" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(152,136,69)" id="poly71" points="88.1573,398.786 103.301,398.786 103.301,374.001 88.1573,374.001" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(174,28,182)" id="poly72" points="289.3607,192.079 298.0395,192.079 298.0395,151.054 289.3607,151.054" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(100,135,170)" id="poly73" points="233.3655,396.254 244.0267,396.254 244.0267,373.789 233.3655,373.789" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(182,46,233)" id="poly74" points="62.9952,351.7605 87.104,351.7605 87.104,308.4155 62.9952,308.4155" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(182,46,233)" id="poly75" points="38.092,351.817 62.2007,351.817 62.2007,308.472 38.092,308.472" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(182,46,233)" id="poly76" points="37.7317,396.588 61.8405,396.588 61.8405,353.243 37.7317,353.243" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(182,46,233)" id="poly77" points="63.0485,396.7942 87.1573,396.7942 87.1573,353.4493 63.0485,353.4493" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly78" points="386.5208,542.5237 446.2008,542.5237 446.2008,373.8988 386.5208,373.8988" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly79" points="507.6078,541.4367 567.2877,541.4367 567.2877,376.2917 507.6078,376.2917" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly80" points="387.6165,742.052 447.2965,742.052 447.2965,573.427 387.6165,573.427" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly81" points="569.1925,742.052 628.8725,742.052 628.8725,576.907 569.1925,576.907" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly82" points="447.293,542.531 506.973,542.531 506.973,373.906 447.293,373.906" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly83" points="569.956,540.357 629.636,540.357 629.636,375.212 569.956,375.212" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly84" points="448.0745,742.045 507.7545,742.045 507.7545,573.42 448.0745,573.42" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(141,10,154)" id="poly85" points="508.0745,742.045 567.7545,742.045 567.7545,576.9 508.0745,576.9" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(97,103,67)" id="poly86" points="619.9037,156.0225 627.2325,156.0225 627.2325,131.2375 619.9037,131.2375" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(68,211,247)" id="poly87" points="611.7855,308.454 626.9293,308.454 626.9293,296.429 611.7855,296.429" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(64,65,212)" id="poly88" points="618.9155,282.6997 627.5942,282.6997 627.5942,202.2347 618.9155,202.2347" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(34,252,147)" id="poly89" points="1.4315,741.2135 42.9065,741.2135 42.9065,614.3485 1.4315,614.3485" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(34,252,147)" id="poly90" points="279.1025,741.9093 320.5775,741.9093 320.5775,615.0443 279.1025,615.0443" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(89,180,186)" id="poly91" points="138.206,372.7635 161.751,372.7635 161.751,308.5385 138.206,308.5385" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(89,180,186)" id="poly92" points="242.0015,342.1273 265.5465,342.1273 265.5465,277.9022 242.0015,277.9022" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(89,180,186)" id="poly93" points="241.7287,278.0135 265.2738,278.0135 265.2738,213.7885 241.7287,213.7885" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(89,180,186)" id="poly94" points="162.706,372.7635 186.251,372.7635 186.251,308.5385 162.706,308.5385" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly95" points="89.297,372.6325 112.842,372.6325 112.842,308.4075 89.297,308.4075" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly96" points="265.8197,342.178 289.3648,342.178 289.3648,277.953 265.8197,277.953" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly97" points="265.8197,277.9735 289.3648,277.9735 289.3648,213.7485 265.8197,213.7485" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly98" points="187.07,372.6325 210.615,372.6325 210.615,308.4075 187.07,308.4075" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly99" points="211.388,372.6325 234.933,372.6325 234.933,308.4075 211.388,308.4075" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly100" points="241.388,212.7463 264.933,212.7463 264.933,148.5213 241.388,148.5213" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly101" points="265.2518,212.6892 288.7967,212.6892 288.7967,148.4642 265.2518,148.4642" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(30,149,232)" id="poly102" points="113.4335,372.6325 136.9785,372.6325 136.9785,308.4075 113.4335,308.4075" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(29,133,109)" id="poly103" points="345.221,742.0077 386.696,742.0077 386.696,573.3827 345.221,573.3827" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(29,133,109)" id="poly104" points="63.1163,742.235 86.6612,742.235 86.6612,573.61 63.1163,573.61" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(29,133,109)" id="poly105" points="345.221,742.0077 386.696,742.0077 386.696,573.3827 345.221,573.3827" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(29,133,109)" id="poly106" points="63.1163,742.235 86.6612,742.235 86.6612,573.61 63.1163,573.61" stroke="rgb(15%,15%,15%)" /><polygon fill="rgb(98,103,198)" id="poly107" points="618.3075,201.3288 626.9863,201.3288 626.9863,156.2438 618.3075,156.2438" stroke="rgb(15%,15%,15%)" />
+	    </svg>
+	  </div>
+
+	  <div style="display: inline-block;">
+	    <span id="polyInfo" style="display: inline-block;"> aaaa </span>
+	  </div>
+	</div>-->
+
+<!--	<div class="row" ng-if="data.selectedReleaseType == 'released' ||  (data.selectedReleaseType == 'unreleased' && data.selectedStage != 'elaborate')">
+	  <div class="container-fluid">
+	    <div class="col-md-3">
+
+		<table class="table table-bordered">
+		  <tbody>
+		    <tr style="background-color:#32CD32; color:#006400">
+		      <td colspan="2" style="text-align:center;"><label>Timing</label></td>
+		    </tr>
+		    <tr ng-repeat="info in data.timingSummary track by $index">
+		      <th style="width: 200px;">{{info.property}}</th>
+		      <th style="width: 200px;">{{info.result}}</th>
+		    </tr>
+		  </tbody>
+		</table>
+
+		<table class="table table-bordered">
+		  <tbody>
+		    <tr style="background-color:#32CD32; color:#006400">
+		      <td colspan="2" style="text-align:center"><label>Area</label></td>
+		    </tr>
+		    <tr ng-repeat="info in data.areaSummary track by $index">
+		      <th style="width: 200px;">{{info.property}}</th>
+		      <th style="width: 200px;">{{info.result}}</th>
+		    </tr>
+		  </tbody>
+		</table>
+
+		<table class="table table-bordered">
+		  <tbody>
+		    <tr style="background-color:#32CD32; color:#006400">
+		      <td colspan="2" style="text-align:center"><label>Run Time</label></td>
+		    </tr>
+		    <tr ng-repeat="info in data.runTimeSummary track by $index">
+		      <th style="width: 200px;">{{info.property}}</th>
+		      <th style="width: 200px;">{{info.result}}</th>
+		    </tr>
+		  </tbody>
+		</table>
+
+	    </div>
+	  </div>
+	</div>-->
+
+
+<!--	<div class="row">
+	  <div class="container-fluid">
+	    <div class="col-md-12">
+
+		<table class="table table-bordered">
+		  <tbody>
+		    <tr>
+		      <td ng-repeat="info in data.indicatorsSummary track by $index"><label>{{info.title}}</label></td>
+		    </tr>
+		    <tr>
+		      <td ng-repeat="info in data.indicatorsSummary track by $index" ng-style="{'background-color': info.color}">{{info.value}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+	    </div>
+	  </div>
+	</div>-->
+
+
+
+
+	<div class="row">
+
+	  <div class="container-fluid">
+	    <div class="col-md-7">
+
+
+	      <div style="margin-top: 10px;margin-bottom: 10px;">
+		<div class="ui large steps" ng-if="data.summaryCheckInfo.length > 0">
+		  <div class="step">
+		    <i class="fa fa-file-alt fa-2x"></i>
+		    <div class="content">
+		      <div class="title">Summary</div>
+  <!--		    <div class="description">Area summary</div>-->
+		    </div>
+		  </div>
+		  <div class="step" ng-repeat="summaryStep in data.indicatorsSummary" ng-style="{'background-color': summaryStep.color}">
+		    <div class="content">
+		      <div class="title">{{summaryStep['title']}}</div>
+		      <div class="description">{{summaryStep['value']}}</div>
+		    </div>
+		  </div>
+		  <a class="active step" ng-repeat="summaryStep in data.summaryCheckInfo" ng-click="data.selectedSummaryCheck = {data: summaryStep.data}; data.showCheckInfoData = {}; data.showSummaryCheckModal = true; data.showDetailedErrors = false;" ng-style="{'background-color': summaryStep.color}">
+		    <div class="content">
+		      <div class="title">{{summaryStep['title']}}</div>
+		    </div>
+		  </a>
+		</div>
+	      </div>
+
+
+	      <div style="margin-bottom: 10px;">
+		<div class="ui big steps" ng-if="data.summaryStepArea.length > 0">
+		  <a class="active step" ng-click="data.clickedSummaryStep = 'area'">
+		    <i class="fa fa-image fa-2x"></i>
+		    <div class="content">
+		      <div class="title">Area</div>
+  <!--		    <div class="description">Area summary</div>-->
+		    </div>
+		  </a>
+		  <div class="step" ng-repeat="areaStep in data.summaryStepArea">
+		    <div class="content" ng-attr-title="{{areaStep['tooltip']}}">
+		      <div class="title">{{areaStep['title']}}</div>
+		      <div class="description">{{areaStep['description']}}</div>
+		    </div>
+		  </div>
+		  <div class="step">
+		    <div class="content">
+		      <div class="title"><a ng-href="#!/{{getTabPath('area')}}"><i class="sign-out icon"></i></a></div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+
+	      <div style="margin-bottom: 10px;">
+		<div class="ui big steps" ng-if="data.leakageStepSummary.length > 0">
+		  <a class="active step" ng-click="data.clickedSummaryStep = 'leakage'">
+		    <i class="fa fa-tint fa-2x"></i>
+		    <div class="content">
+		      <div class="title">Leakage</div>
+		    </div>
+		  </a>
+		  <div class="step" ng-repeat="leakageStep in data.leakageStepSummary">
+		    <div class="content">
+		      <div class="title">{{leakageStep['title']}}</div>
+		      <div class="description">{{leakageStep['description']}}%</div>
+		    </div>
+		  </div>
+		  <div class="step">
+		    <div class="content">
+		      <div class="title"><a ng-href="#!/{{getTabPath('leakage')}}"><i class="sign-out icon"></i></a></div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+
+
+	      <div ng-repeat="timingScenarios in data.summaryStepTiming" style="margin-bottom: 10px;">
+
+		<div class="ui big steps">
+		  <div class="step" ng-click="showTimingHistoGraph('timing');data.clickedSummaryStep = 'timing'">
+		    <i class="fa fa-clock fa-2x"></i>
+		    <div class="content">
+		      <div class="title">{{timingScenarios['scenario']}}</div>
+		    </div>
+		  </div>
+		  <a class="active step" ng-click="showTimingHistoGraph(timingStep.code);data.clickedSummaryStep = 'timing'" ng-repeat="timingStep in timingScenarios['objects']">
+		    <div class="content" ng-attr-title="{{timingStep['tooltip']}}">
+		      <div class="title">{{timingStep['title']}} [ns]</div>
+		      <div class="description">{{timingStep['description']  | number:2}}</div>
+		    </div>
+		  </a>
+		  <div class="step">
+		    <div class="content">
+		      <div class="title">
+			  <a ng-if="timingScenarios['scenario'] == 'SYSTEM_FAST'" ng-href="#!/{{getTabPath('timing_fast')}}"><i class="sign-out icon"></i></a>
+			  <a ng-if="timingScenarios['scenario'] == 'SYSTEM_SLOW'" ng-href="#!/{{getTabPath('timing_slow')}}"><i class="sign-out icon"></i></a>
+			  <a ng-if="timingScenarios['scenario'] != 'SYSTEM_FAST' && timingScenarios['scenario'] != 'SYSTEM_SLOW'" ng-href="#!/{{getTabPath('timing')}}"><i class="sign-out icon"></i></a>
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+	      </div>
+	      
+
+	      <div style="margin-bottom: 10px;">
+		<div class="ui big steps" ng-if="data.runTimeStepSummary.length > 0">
+		  <a class="active step" ng-click="data.clickedSummaryStep = 'runtime'">
+		    <i class="fas fa-running fa-2x"></i>
+		    <div class="content">
+		      <div class="title">Run time</div>
+		    </div>
+		  </a>
+		  <div class="step" ng-repeat="runTimeStep in data.runTimeStepSummary">
+		    <div class="content">
+		      <div class="title">{{runTimeStep['title']}}</div>
+		      <div class="description">{{runTimeStep['description']}}</div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+
+
+
+
+	    </div>
+
+
+
+
+
+
+	    <div class="col-md-5">
+
+	      <canvas id="chart-pie" class="chart chart-pie"
+		chart-data="data.areaPieValues" chart-labels="data.areaPieLabels" chart-options="data.areaPieOptions" ng-if="data.clickedSummaryStep == 'area'">
+	      </canvas>
+
+		<canvas id="HorizontalBarTimingSummary" class="chart-horizontal-bar"
+		  chart-data="data.summaryGraphValues" chart-labels="data.summaryGraphLabels" ng-show="data.clickedSummaryStep == 'timing'">
+		</canvas> 
+
+	      <canvas id="chart-pie" class="chart chart-bar"
+		chart-data="data.runtimePieValues" chart-labels="data.runtimePieLabels" chart-options="data.runTimePieOptions" ng-if="data.clickedSummaryStep == 'runtime'">
+	      </canvas>
+
+	      <canvas id="chart-pie" class="chart chart-pie"
+		chart-data="data.leakagePieValues" chart-labels="data.leakagePieLabels" chart-options="data.areaPieOptions" ng-if="data.clickedSummaryStep == 'leakage'">
+	      </canvas>
+
+
+	    </div>
+
+
+	  </div>
+
+	</div>
+      </div>
+
+</br></br></br></br>
+
+	<div class="row" ng-repeat="category in data.summaryData track by $index" ng-if="data.showSummaryInfo">
+
+	  <div class="container-fluid">
+	    <div class="col-md-8">
+		<button ng-click="category.show = !category.show" style="margin-right: 5px;">{{category.show ? '-' : '+'}}</button><p ng-click="category.show = !category.show" style="display: inline-block;"><label>Category: </label>{{category.name}}</p>
+		<table ng-hide="!category.show" class="table table-bordered" ng-repeat="subcategory in category.subCategories track by $index" style="margin-left:30px">
+		  <thead>
+		    <tr>
+		      <td colspan="2"><label>Sub category: </label>{{subcategory.sub_name}}</td>
+		    </tr>
+		    <tr>
+		      <th style="width: 500px;">property</th>
+		      <th style="width: 300px;">result</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="info in subcategory.data track by $index">
+		      <td>{{info.property}}</td>
+		      <td>{{info.result}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+	    </div>
+	  </div>
+	</div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>

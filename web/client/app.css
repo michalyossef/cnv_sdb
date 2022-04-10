@@ -1,0 +1,178 @@
+/*
+ ONLY CSS RELEVANT TO INDEX.HTML / NAVBAR / UI-VIEW-CONTAINER
+*/
+
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+.unselectable-text {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.intel-color-bg {
+	background-color: #0071c5;
+}
+
+.custom-nav {
+    border-bottom: 4px solid transparent;
+}
+
+.custom-nav:hover {
+    border-bottom: 4px solid graytext;
+}
+
+.custom-nav-active, .custom-nav-active:hover {
+    border-bottom: 4px solid white;
+}
+
+body {
+/*    background-image: url("assets/microchip-background.jpg");
+    background-repeat: repeat;
+    overflow: hidden;*/
+}
+
+.ui-view-container {
+    position: relative;
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.ui-view-container-loading {
+    position: relative;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.ng-enter {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.slide.ng-leave {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.slide.ng-enter {
+    left: 100%;
+}
+
+.slide.ng-enter-active {
+    left: 0;
+}
+
+.slide.ng-leave {
+    left: 0;
+}
+
+.slide.ng-leave-active {
+    left: -100%;
+}
+
+.jumbotron-blue {
+    border: 3px solid #0071c5;
+}
+
+.grayBox{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index:1001;
+    background-color: black;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+.login_div {
+    position:absolute;
+    width:300px;
+    height:200px;
+    z-index:15;
+    top:20%;
+    left:40%;
+    margin:-100px 0 0 -150px;
+    width: 300px;
+    padding: 25px;
+    border: 25px solid navy;
+    margin: 25px;
+    background-color: white;
+}
+#add_new_full_content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1005;
+}
+
+
+
+.animationload {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.osahanloading {
+    animation: 1.5s linear 0s normal none infinite running osahanloading;
+    background: #fed37f none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 100px;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+}
+.osahanloading::after {
+    animation: 1.5s linear 0s normal none infinite running osahanloading_after;
+    border-color: #85d6de transparent;
+    border-radius: 80px;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    height: 130px;
+    left: -15px;
+    position: absolute;
+    top: -15px;
+    width: 130px;
+}
+@keyframes osahanloading {
+0% {
+    transform: rotate(0deg);
+}
+50% {
+    background: #85d6de none repeat scroll 0 0;
+    transform: rotate(180deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+
+
+
+

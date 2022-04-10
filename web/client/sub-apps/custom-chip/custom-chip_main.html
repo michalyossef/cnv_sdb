@@ -1,0 +1,225 @@
+<div class="customchip_main_container container-fluid" id="customchipContainer">
+
+
+
+  <div class="modal app-modal-window" id="new_release_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.addReleaseModal" ng-show="data.addReleaseModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.addReleaseModal = false;" aria-hidden="true">×</button>
+	  <label><h4 class="modal-title"></h4></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	  <div style="text-align: center;display:inline-block">
+	      <label>Project</label></br>
+	      <select class="areaProjectSelectpicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+		<option value="" selected="selected">Choose</option>
+		<option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	      </select>
+	  </div>
+	  <div style="text-align: center;display:inline-block">
+	      <label>Core</label></br>
+	      <select class="areaCoreSelectpicker" data-width="150px" ng-model="data.selectedCore" ng-change="getRtlByCores(data.selectedCore)">
+		<option value="" selected="selected">Choose</option>
+		<option ng-repeat="core in data.projectCoresList track by $index" ng-value="core">{{core}}</option>
+	      </select>
+	  </div>
+	  <div style="text-align: center;display:inline-block">
+	      <label>RTL</label></br>
+	      <select class="areaRtlSelectpicker" data-width="150px" ng-model="data.selectedRtl" ng-change="getReleasesByCores(data.selectedCore, data.selectedRtl)">
+		<option value="" selected="selected">Choose</option>
+		<option ng-repeat="rtl in data.rtlList track by $index" ng-value="rtl">{{rtl}}</option>
+	      </select>
+	  </div>
+	  <div style="text-align: center;display:inline-block">
+	      <label>Synthesis</label></br>
+	      <select class="areaReleaseSelectpicker" data-width="150px" ng-model="data.selectedRelease">
+		<option value="" selected="selected">Choose</option>
+		<option ng-repeat="release in data.releaseList track by $index" ng-value="release">{{release}}</option>
+	      </select>
+	  </div>
+
+	  <button type="button" class="btn btn-success" ng-click="fetchAndAddRelease()">Add</button>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.addReleaseModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+<!--  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div style="text-align: center;display:inline-block">
+	  <label>customchip</label></br>
+	  <select class="selectPicker" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+	    <option value="" selected="selected">Choose</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+    </div>
+  </div>-->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="ulti" ng-if="data.pickedReleases.length>0" style="width:20%;text-align:center;margin: 0 auto;">
+	  <div style="text-align:center">
+	    <b>memory ultilization (%)</b>
+	    <rzslider rz-slider-model="data.memPercent" rz-slider-options="data.slider.options"></rzslider>
+	  </div>
+	  <div style="text-align:center">
+	    <b>stdcell ultilization (%)</b>
+	    <rzslider rz-slider-model="data.stdPercent" rz-slider-options="data.slider.options"></rzslider>
+	  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+	<div class="col-md-12">
+	    <div id="fullChip" class="collapse in" style="width:100%">
+	      <table class="table table-bordered">
+		<thead>
+		  <tr>
+		    <th colspan="9" style="text-align:center">
+			customized chip
+		    </th>
+		  </tr>
+		  <tr>
+		    <th colspan="4" style="text-align:center">
+			Release info
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Area
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Leakage
+		    </th>
+		    <th colspan="1" style="text-align:center">
+			Macro
+		    </th>
+		  </tr>
+		  <tr>
+		    <th>Project</th>
+		    <th>Core</th>
+		    <th>RTL</th>
+		    <th>Synthesis</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total memory size (KB)</th>
+		    <th>Total stdcell Current  [uA]</th>
+		    <th>Total memory stdby (mode) [uA]</th>
+		    <th>Area [u2]</th>
+		  </tr>
+		</thead>
+		<tbody ng-if="data.pickedReleases.length>1">
+		    <tr style="background-color:#0db9f0">
+		      <td colspan="4" style="text-align:center">Total</td>
+		      <td>{{getAreaKgStdcellTotal() / (data.stdPercent /100) | number:2}}</td>
+		      <td>{{getAreaKbMemoryTotal() / (data.memPercent /100) | number:2}}</td>
+		      <td>{{getLeakageTotalCurrent() | number:2}}</td>
+		      <td>{{getLeakageTotalStdby() | number:2}}</td>
+		      <td>{{getMacroTotal() | number:2}}</td>
+		    </tr>
+		</tbody>
+		<tbody>
+		    <tr ng-repeat="release in data.pickedReleases track by $index">
+		      <td>
+			<a ng-click="removePickedRelease($index)"><i class="fa fa-trash"></i></a>
+			{{release['project']}}
+		      </td>
+		      <td>{{release['core']}}</td>
+		      <td>
+			{{release['rtl_name']}}
+		      </td>
+		      <td>
+			{{release['release_name']}}
+
+			<a ng-if="release.area_exists" ng-href="#!/{{getRleasePath('area',$index)}}" target="_blank" title="Area info"><i class="fa fa-image"></i></a>
+			<a ng-if="release.leakage_exists" ng-href="#!/{{getRleasePath('leakage',$index)}}" target="_blank" title="Leakage info"><i class="fa fa-tint"></i></a>
+			<a ng-if="data.excelsPath[release.release_name]" href="" ng-click="getExcelPath(data.excelsPath[release.release_name])" title="Excel file"><i class="fa fa-file-excel"></i></a>
+
+		      </td>
+		      <td>{{release.area_release_info.total_std.area / 1000 / (release.area_release_info.G_NAND_EQU_CELL) / (data.stdPercent /100) | number:2}}</td>
+		      <td>{{release.area_release_info.total_memory.KB / (data.memPercent /100) | number:2}}</td>
+		      <td>{{release.leakage_release_info.total_current | number:2}}</td>
+		      <td>{{release.leakage_release_info.total_stdby | number:2}}</td>
+		      <td>{{release.area_release_info.macro.area | number:2}}</td>
+		    </tr>
+		</tbody>
+		<tbody>
+		    <tr>
+		      <td><button type="button" class="btn btn-success" ng-click="data.addReleaseModal = true;">Add</button></td>
+		    </tr>
+		</tbody>
+	      </table>
+	    </div>
+	</div>
+  </div>
+
+<!--
+  <div class="row" ng-if="data.selectedProject">
+	<div class="col-md-12">
+	    <div id="fullChip" class="collapse in" style="width:100%">
+	      <table class="table">
+		<thead>
+		  <tr>
+		    <th colspan="6" style="text-align:center">
+			{{data.selectedProject}} FullChip
+		    </th>
+		  </tr>
+		  <tr>
+		    <th colspan="3" style="text-align:center">
+
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Area
+		    </th>
+		    <th colspan="2" style="text-align:center">
+			Leakage
+		    </th>
+		  </tr>
+		  <tr>
+		    <th>Core</th>
+		    <th>RTL</th>
+		    <th>Synthesis</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total memory size (KB)</th>
+		    <th>Total Stdcell [Kg]</th>
+		    <th>Total stdcell Current  [uA]</th>
+		    <th>Total memory stdby (mode) [uA]</th>
+		  </tr>
+		</thead>
+		<tbody>
+		    <tr style="background-color:#0db9f0">
+		      <td>FullChip</td>
+		      <td></td>
+		      <td></td>
+		      <td>{{getKgStdcellTotal() | number:2}}</td>
+		      <td>{{getKbMemoryTotal() | number:2}}</td>
+		    </tr>
+		</tbody>
+		<tbody ng-repeat="order in data.projectAreaFullchipConfig.order track by $index">
+		    <tr ng-repeat="n in [].constructor(order.count) track by $index">
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].core}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].rtl_name}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].release_name}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].total_std.area / 1000 / (data.projectAreaFullchipCores[$parent.$index].G_NAND_EQU_CELL) | number:2}}</td>
+		      <td>{{data.projectAreaFullchipCores[$parent.$index].total_memory.KB | number:2}}</td>
+		      <td>{{getStdCurrentTotalValue(data.projectLeakageFullchipCores[$parent.$index]) | number:2}}</td>
+		      <td>{{getStdCurrentTotalValue(data.projectLeakageFullchipCores[$parent.$index]) | number:2}}</td>
+		    </tr>
+		</tbody>
+	      </table>
+	    </div>
+	</div>
+  </div>
+-->
+
+</div>

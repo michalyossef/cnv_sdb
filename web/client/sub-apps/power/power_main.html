@@ -1,0 +1,1529 @@
+<div class="power_main_container container-fluid" id="powerContainer">
+
+<!--  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showNewPowerModal" ng-show="data.showNewPowerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showNewPowerModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	  
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showNewPowerModal = false;">Close</button>
+	  <button type="button" class="btn btn-success" ng-click="data.showNewPowerModal = false;createNewPower()">Create</button>
+	</div>
+      </div>
+    </div>
+  </div>-->
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showAddReleaseCompareModal" ng-show="data.showAddReleaseCompareModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showAddReleaseCompareModal = false;" aria-hidden="true">×</button>
+	  <label></label>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+
+      <div style="text-align: center;display:inline-block">
+<!-- 	  <label>Release type</label></br> -->
+	  <select data-width="150px" ng-model="data.releaseTypeAdvancedCompare" ng-change="releaseTypeSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Release type</option>
+	    <option value="unreleased">unreleased</option>
+	    <option value="released">released</option>
+	  </select>
+      </div>
+
+      <div ng-if="data.releaseTypeAdvancedCompare=='unreleased' || data.releaseTypeAdvancedCompare=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Project</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedProjectAdvancedCompare" ng-change="projectSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose project</option>
+	    <option ng-repeat="project in data.projectsAdvancedCompare track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+      <!-- unreleased -->
+
+      <div ng-if="data.releaseTypeAdvancedCompare=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Top</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedUnitAdvancedCompare" ng-change="unitSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose unit</option>
+
+	    <option ng-repeat="unit in data.projectUnitsAdvancedCompare track by $index" ng-value="unit">{{unit}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseTypeAdvancedCompare=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Tag</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedTagAdvancedCompare" ng-change="tagSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose tag</option>
+
+	    <option ng-repeat="tag in data.projectTagsAdvancedCompare track by $index" ng-value="tag">{{tag}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseTypeAdvancedCompare=='unreleased'" data-live-search="true" style="text-align: center;display:inline-block">
+<!-- 	  <label>Run ID</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedRunIdAdvancedCompare">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose run_id</option>
+
+	    <option ng-repeat="runid in data.projectRunIdsAdvancedCompare track by $index" ng-value="runid">{{runid}}</option>
+	  </select>
+      </div>
+
+      <!-- released -->
+
+      <div ng-if="data.releaseTypeAdvancedCompare=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Core</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedCoreAdvancedCompare" ng-change="coreSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose core</option>
+
+	    <option ng-repeat="core in data.projectCoresAdvancedCompare track by $index" ng-value="core">{{core}}</option>
+	  </select>
+      </div>
+
+      <div ng-if="data.releaseTypeAdvancedCompare=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>cluster</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedClusterAdvancedCompare" ng-change="clusterSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose cluster</option>
+
+	    <option ng-repeat="cluster in data.projectClustersAdvancedCompare track by $index" ng-value="cluster">{{cluster}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseTypeAdvancedCompare=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>primitive</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedPrimitiveAdvancedCompare" ng-change="primitiveSelectedAdvancedCompare()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose primitive</option>
+
+	    <option ng-repeat="primitive in data.projectPrimitivesAdvancedCompare track by $index" ng-value="primitive">{{primitive}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseTypeAdvancedCompare=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>releases</label></br> -->
+	  <select data-width="150px" ng-model="data.selectedRTLAdvancedCompare">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose release</option>
+
+	    <option ng-repeat="rtl in data.projectRTLsAdvancedCompare track by $index" ng-value="rtl">{{rtl}}</option>
+	  </select>
+      </div>
+
+
+	  <button type="button" class="btn btn-success" ng-click="addReleaseToAdvancedCompare();">Add</button>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showAddReleaseCompareModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showExportExcelModal" ng-show="data.showExportExcelModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showExportExcelModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	  <h3>Choose the clusters you want to export: </h3>
+	  <div ng-repeat="clusterInfo in data.clusters track by $index">
+	    <input type="checkbox" ng-model="clusterInfo.isExport"><label>{{clusterInfo.cluster}}</label>
+	  </div>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="data.showExportExcelModal = false;exportToExcel();">Export</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showExportExcelModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showCreateReleaseModal" ng-show="data.showCreateReleaseModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCreateReleaseModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	  <h3>Choose the clusters you want to create a new release for them: </h3>
+
+	  <div ng-repeat="clusterInfo in data.clusters track by $index">
+	    <input type="checkbox" ng-model="clusterInfo.isSave"><label style="margin-bottom: 0px;">{{clusterInfo.cluster}}</label> </br>release name: <label style="margin-bottom: 10px;">{{data.prefix}}</label> <input type="text" ng-model="clusterInfo.newRtlName">
+	    <hr>
+	  </div>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="applyChanges();">Create</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showCreateReleaseModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showUnitTargetFullModeModal" ng-show="data.showUnitTargetFullModeModal">
+    <div class="modal-dialog" style="width: 90%;">
+      <div class="modal-content">
+	<div class="modal-header">
+
+	  <button type="button" class="close" ng-click="data.showUnitTargetFullModeModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <script type="text/ng-template" id="units_tree.html">
+	      <ul style="padding-left: 0px;">
+		<li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;">
+
+		    <div style="white-space:nowrap;display:inline-block;">
+		      <div style="display:inline-block; width: 200px; overflow:auto">
+			<span ng-style="getEmptySpace(item.level)">{{item['level']}}) {{item['name']}}</span>
+		      </div>
+		      <div ng-repeat="release in data.unitsTargetReleases track by $index" style="display:inline-block; width: 300px">
+			<div style="display:inline-block; width:150px">
+			    {{data.unitsTargetInfo[release.releaseId][item.instance].calculated_dynamic | number:0}}
+			</div>
+			<div style="display:inline-block; width:150px">
+			    {{data.unitsTargetInfo[release.releaseId][item.instance].target | number:0}}
+			</div>
+		      </div>
+		    </div>
+
+		  <div ng-if="item.children && item.children.length" ng-include="'units_tree.html'"></div>
+		</li>
+	      </ul>
+	    </script>
+
+	    <div id="treeHier" style="overflow: auto;padding:10px;" >
+		
+		<div style="white-space:nowrap;display:inline-block;">
+		  <div style="display:inline-block; width: 150px; overflow:auto">
+		    
+		  </div>
+		  <div ng-repeat="release in data.unitsTargetReleases track by $index" style="margin-right:10px;overflow:auto;display:inline-block; width: 300px">
+		    <label ng-attr-title="{{release.releaseId}}">{{release.primitive}}_{{release.rtl}}</label>
+		  </div>
+		</div>
+		<div style="">
+		  <div style="display:inline-block; width: 150px; overflow:auto">
+		    
+		  </div>
+		  <div ng-repeat="release in data.unitsTargetReleases track by $index" style="margin-right:10px;overflow:auto;display:inline-block; width: 300px">
+		    <div style="display:inline-block; width:49%">
+			<label>Dynamic power (calculated) [uW]</label>
+		    </div>
+		    <div style="display:inline-block; width:49%">
+			<label>Target [uW]</label>
+		    </div>
+		  </div>
+		</div>
+
+		<ul style="padding-left: 0px;">
+		  <li ng-repeat="item in data.unitsChart track by $index" style="white-space:nowrap;list-style-type: none;">
+
+		    <div style="white-space:nowrap;display:inline-block;">
+		      <div style="display:inline-block; width: 200px; overflow:auto">
+			<span ng-style="getEmptySpace(item.level)">{{item['level']}}) {{item['name']}}</span>
+		      </div>
+		      <div ng-repeat="release in data.unitsTargetReleases track by $index" style="display:inline-block; width: 300px">
+
+			<div style="display:inline-block; width:49%">
+			    {{data.unitsTargetInfo[release.releaseId][item.instance].calculated_dynamic | number:0}}
+			</div>
+			<div style="display:inline-block; width:49%">
+			    {{data.unitsTargetInfo[release.releaseId][item.instance].target | number:0}}
+			</div>
+
+		      </div>
+		    </div>
+
+		    <div ng-if="item.children && item.children.length" ng-include="'units_tree.html'"></div>
+		  </li>
+		</ul>
+	    </div>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showUnitTargetFullModeModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showAddUnitTargetModal" ng-show="data.showAddUnitTargetModal">
+    <div class="modal-dialog" style="width: 80%;">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showAddUnitTargetModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	  <div style="text-align: center;display:inline-block">
+    <!-- 	  <label>Project</label></br> -->
+	      <select data-width="150px" ng-model="data.unitTargetSelectedProject" ng-change="unitTargetProjectSelected()">
+    <!-- 	    <option value="" selected="selected">Choose</option> -->
+		<option data-hidden="true" value="">Choose project</option>
+		<option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	      </select>
+	  </div>
+
+	  <div style="text-align: center;display:inline-block">
+	      <select data-width="150px" ng-model="data.unitTargetSelectedCore" ng-change="unitTargetCoreSelected()">
+		<option data-hidden="true" value="">Choose core</option>
+		<option ng-repeat="core in data.unitTargetProjectCores track by $index" ng-value="core">{{core}}</option>
+	      </select>
+	  </div>
+
+	  <div style="text-align: center;display:inline-block">
+	      <select data-width="150px" ng-model="data.unitTargetSelectedCluster" ng-change="unitTargetClusterSelected()">
+		<option data-hidden="true" value="">Choose cluster</option>
+		<option ng-repeat="cluster in data.unitTargetProjectClusters track by $index" ng-value="cluster">{{cluster}}</option>
+	      </select>
+	  </div>
+
+	  <div style="text-align: center;display:inline-block">
+	      <select data-width="150px" ng-model="data.unitTargetSelectedPrimitive" ng-change="unitTargetPrimitiveSelected()">
+		<option data-hidden="true" value="">Choose primitive</option>
+		<option ng-repeat="primitive in data.unitTargetProjectPrimitives track by $index" ng-value="primitive">{{primitive}}</option>
+	      </select>
+	  </div>
+
+	  <div style="text-align: center;display:inline-block">
+	      <select data-width="150px" ng-model="data.unitTargetSelectedRTL">
+		<option data-hidden="true" value="">Choose release</option>
+		<option ng-repeat="rtl in data.unitTargetProjectRTLs track by $index" ng-value="rtl">{{rtl}}</option>
+	      </select>
+	  </div>
+
+	  <button ng-click="addSelectedTargetInfo();">Add</button>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showAddUnitTargetModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showCheckersModal" ng-show="data.showCheckersModal">
+    <div class="modal-dialog" style="width: 80%;">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCheckersModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+	    <table class="table" style="width:100%; table-layout: fixed">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th>instance</th>
+		  <th>Checker type</th>
+		  <th>%pass</th>
+		  <th>%fail</th>
+		  <th>#total</th>
+		</tr>
+	      </thead>
+	      <tbody ng-repeat="checker in data.checkersCluster.checkersInfo.checkers track by $index" ng-if="data.checkerSummaryResult[checker.instance][checker.Checker].total">
+		<tr>
+		  <td><a href="" ng-click="checker.show=!checker.show">{{checker.show ? '(-)' : '(+)'}}</a></td>
+		  <td>{{checker.instance}}</td>
+		  <td>{{checker.Checker}}</td>
+		  <td>{{data.checkerSummaryResult[checker.instance][checker.Checker].passPercent | number :0}}% ({{data.checkerSummaryResult[checker.instance][checker.Checker].pass}})</td>
+		  <td>{{data.checkerSummaryResult[checker.instance][checker.Checker].failPercent | number :0}}% ({{data.checkerSummaryResult[checker.instance][checker.Checker].fail}})</td>
+		  <td>{{data.checkerSummaryResult[checker.instance][checker.Checker].total}}</td>
+		</tr>
+		<tr ng-if="checker.show">
+		  <td colspan="6" style="overflow: auto;">
+
+		    <table class="table table-bordered" style="border: 1px solid black;">
+		      <thead>
+			<tr>
+			  <th style="text-align:center">primitives</th>
+			  <th style="text-align:center" ng-repeat="run in data.checkerSummaryResult[checker.instance][checker.Checker].runs">({{$index+1}})</th>
+			</tr>
+		      </thead>
+		      <tbody>
+			<tr ng-repeat="run in data.checkerSummaryResult[checker.instance][checker.Checker].runs">
+			  <td>
+			     ({{$index+1}}) {{run}} <b>{{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run]['currUnit'].calculated_dynamic | number : 0}}</b>
+			  </td>
+			    <td ng-repeat="otherRun in data.checkerSummaryResult[checker.instance][checker.Checker].runs" ng-style="$parent.$index == $index && {'background-color':'grey'} || data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == 1 && {'background-color':'green'} || data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == -1 && {'background-color':'red'}">
+
+<!--				<span ng-if="$parent.$index == $index">{{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][0].bPrimitive | number: 0}}</span>
+
+				<span ng-if="$parent.$index != $index">{{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].oPrimitive | number: 0}}</span>-->
+				<span></span>
+			    </td>
+			</tr>
+		      </tbody>
+		    </table>
+
+
+<!--			    <td colspan="2">
+				<table style="width:100%"><tr>
+				  <td class="child" style="padding-right: 5px;">
+				      {{run}} ({{$index+1}})
+				  </td>
+				</tr></table>
+			    </td>
+			    <td colspan="2" ng-repeat="otherRun in getCheckerRunResultKeys(data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'], run)" ng-style="data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == 1 && {'background-color':'green'} || data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == -1 && {'background-color':'red'}">
+				<table style="width:100%"><tr>
+				  <td class="child" style="padding-right: 5px;">
+				      {{otherRun}}
+				  </td>
+				  <td class="child">
+				      {{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].oPrimitive | number: 0}}
+				  </td>
+				</tr></table>
+			    </td>
+
+				<td class="child">
+				    {{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][getCheckerRunResultKeys(data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'], run)[0]].bPrimitive | number: 0}}
+				</td>-->
+
+<!--		    <table class="table table-bordered" style="border: 1px solid black;">
+		      <thead>
+			<tr>
+			  <th colspan="2" style="text-align:center">primitives</th>
+			  <th colspan="2" style="text-align:center" ng-repeat="run in data.checkerSummaryResult[checker.instance][checker.Checker].runs" ng-if="$index != data.checkerSummaryResult[checker.instance][checker.Checker].runs.length-1">primitive__release</th>
+			</tr>
+		      </thead>
+		      <tbody>
+			<tr ng-repeat="run in data.checkerSummaryResult[checker.instance][checker.Checker].runs">
+			    <td colspan="2">
+			      <table style="width:100%"><tr>
+				<td class="child" style="padding-right: 5px;">
+				    {{run}}
+				</td>
+				<td class="child">
+				    {{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][getCheckerRunResultKeys(data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'], run)[0]].bPrimitive | number: 0}}
+				</td>
+			      </tr></table>
+			    </td>
+			    <td colspan="2" ng-repeat="otherRun in getCheckerRunResultKeys(data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'], run)" ng-style="data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == 1 && {'background-color':'green'} || data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].status == -1 && {'background-color':'red'}">
+			      <table style="width:100%"><tr>
+				<td class="child" style="padding-right: 5px;">
+				    {{otherRun}}
+				</td>
+				<td class="child">
+				    {{data.checkerSummaryResult[checker.instance][checker.Checker]['checkerResult'][run][otherRun].oPrimitive | number: 0}}
+				</td>
+			      </tr></table>
+			    </td>
+			</tr>
+		      </tbody>
+		    </table>-->
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showCheckersModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showPublishReleaseModal" ng-show="data.showPublishReleaseModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showPublishReleaseModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body" ng-if="data.showPublishReleaseModal">
+	  <h3>Choose release info: </h3>
+	  <label>{{data.fetchSelectedProject}}-{{data.fetchSelectedUnit}}-{{data.fetchSelectedTag}}-{{data.fetchSelectedRunId}}</label>
+	  <label>primitive value:</label> {{getDynamicPowerTotal(data.chart[0])}}
+	  <br>
+
+	<div style="text-align: center;display:inline-block">
+	    <label>Core</label></br>
+	    <select class="powerPublishCoreSelectpicker" data-width="150px" ng-model="data.publishSelectedCore" ng-change="publish_CoreSelected()">
+	      <option value="" selected="selected">Choose</option>
+	      <option ng-repeat="core in data.publishProjectCores track by $index" ng-value="core">{{core}}</option>
+	    </select>
+	</div>
+	<div style="text-align: center;display:inline-block">
+	    <label>Cluster</label></br>
+	    <select class="powerPublishClusterSelectpicker" data-width="150px" ng-model="data.publishSelectedCluster">
+	      <option value="" selected="selected">Choose</option>
+	      <option ng-repeat="cluster in data.publishProjectCluster track by $index" ng-value="cluster">{{cluster}}</option>
+	    </select>
+	</div>
+	<div style="text-align: center;display:inline-block">
+	    <label>Primitive</label></br>
+	    <select class="powerPublishPrimitiveSelectpicker" data-width="150px" ng-model="data.publishSelectedPrimitive">
+	      <option value="" selected="selected">Choose</option>
+	      <option ng-repeat="primitive in data.publishProjectPrimitives track by $index" ng-value="primitive">{{primitive}}</option>
+	    </select>
+	</div>
+
+	<div style="text-align: center;display:inline-block">
+	    <label>release</label></br>
+	    <input type="text" ng-model="data.publishReleaseName"></input>
+	</div>
+
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="publishRelease();">Publish</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showPublishReleaseModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showCompareUnreleasedModal" ng-show="data.showCompareUnreleasedModal">
+    <div class="modal-dialog" style="width: 70%;">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCompareUnreleasedModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	    <div ng-repeat="cRunid in data.compareRunIds track by $index">
+	      <a ng-show="$index!=0" ng-click="deleteCompareUnrelease($index)"><i class="fa fa-trash" aria-hidden="true" title="Remove this tag"></i></a>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Tag</label></br>
+		  <select class="powerCompareTagSelectpicker" data-width="150px" ng-disabled="$index==0" ng-style="$index==0 && {'margin-left': '16px'}" ng-model="cRunid.selectedTag" ng-change="compare_TagSelected($index)">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedTag" selected="selected">{{cRunid.selectedTag}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="tag in data.projectTags track by $index" ng-value="tag">{{tag}}</option>
+		  </select>
+	      </div>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Run ID</label></br>
+		  <select class="powerCompareRunIdsSelectpicker" data-width="150px" ng-disabled="$index==0" ng-model="cRunid.selectedRunid">
+		    <option ng-if="$index==0" ng-value="cRunid.selectedRunid" selected="selected">{{cRunid.selectedRunid}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="runid in cRunid.possibleRunIds track by $index" ng-value="runid">{{runid}}</option>
+		  </select>
+	      </div>
+	    </div>
+	    </br>
+	    <a ng-click="data.compareRunIds.push({})"><i class="fas fa-plus-circle" aria-hidden="true" title="Remove this tag"></i></a>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="activateCompareMode();">Done</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showCompareUnreleasedModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+-->
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showCompareReleasedModal" ng-show="data.showCompareReleasedModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="data.showCompareReleasedModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+
+<!--	    <div ng-repeat="release in data.compareReleases track by $index">
+	      <a ng-show="$index!=0" ng-click="deleteCompareUnrelease($index)"><i class="fa fa-trash" aria-hidden="true" title="Remove this release"></i></a>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Release</label></br>
+		  <select class="powerCompareReleaseSelectpicker" data-width="150px" ng-disabled="$index==0" ng-style="$index==0 && {'margin-left': '16px'}" ng-model="release.selectedRelease">
+		    <option ng-if="$index==0" ng-value="release.selectedRelease" selected="selected">{{release.selectedRelease}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="release in data.projectRTLs track by $index" ng-value="release">{{release}}</option>
+		  </select>
+	      </div>
+	    </div>
+	    </br>
+	    <a ng-click="data.compareReleases.push({})"><i class="fas fa-plus-circle" aria-hidden="true" title="Add new release"></i></a>-->
+
+
+	    <div ng-repeat="release in data.compareReleases track by $index">
+	      <div ng-hide="$index==0">
+		<div style="text-align: center;display:inline-block">
+		    <select data-width="150px" ng-model="release.unitTargetSelectedProject" ng-change="unitTargetProjectSelected(release,release.unitTargetSelectedProject)">
+		      <option data-hidden="true" value="">Choose project</option>
+		      <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+		    </select>
+		</div>
+
+		<div style="text-align: center;display:inline-block">
+		    <select data-width="150px" ng-model="release.unitTargetSelectedCore" ng-change="unitTargetCoreSelected(release,release.unitTargetSelectedProject,release.unitTargetSelectedCore)">
+		      <option data-hidden="true" value="">Choose core</option>
+		      <option ng-repeat="core in release.unitTargetProjectCores track by $index" ng-value="core">{{core}}</option>
+		    </select>
+		</div>
+
+		<div style="text-align: center;display:inline-block">
+		    <select data-width="150px" ng-model="release.unitTargetSelectedCluster" ng-change="unitTargetClusterSelected(release,release.unitTargetSelectedProject,release.unitTargetSelectedCore,release.unitTargetSelectedCluster)">
+		      <option data-hidden="true" value="">Choose cluster</option>
+		      <option ng-repeat="cluster in release.unitTargetProjectClusters track by $index" ng-value="cluster">{{cluster}}</option>
+		    </select>
+		</div>
+
+		<div style="text-align: center;display:inline-block">
+		    <select data-width="150px" ng-model="release.unitTargetSelectedPrimitive" ng-change="unitTargetPrimitiveSelected(release,release.unitTargetSelectedProject,release.unitTargetSelectedCore,release.unitTargetSelectedCluster,release.unitTargetSelectedPrimitive)">
+		      <option data-hidden="true" value="">Choose primitive</option>
+		      <option ng-repeat="primitive in release.unitTargetProjectPrimitives track by $index" ng-value="primitive">{{primitive}}</option>
+		    </select>
+		</div>
+
+		<div style="text-align: center;display:inline-block">
+		    <select data-width="150px" ng-model="release.unitTargetSelectedRTL">
+		      <option data-hidden="true" value="">Choose release</option>
+		      <option ng-repeat="rtl in release.unitTargetProjectRTLs track by $index" ng-value="rtl">{{rtl}}</option>
+		    </select>
+		</div>
+	      </div>
+	    </div>
+	    </br>
+
+	  <a ng-click="data.compareReleases.push({})"><i class="fas fa-plus-circle" aria-hidden="true" title="Add new release"></i></a>
+
+<!-- 	  <button ng-click="activateCompareMode();">Add</button> -->
+
+
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-success" ng-click="activateCompareMode();">Done</button>
+	  <button type="button" class="btn btn-default" ng-click="data.showCompareReleasedModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal app-modal-window" id="area_compare_releases_modal" style="margin:auto;overflow-y:auto;display:block" modal="data.showCompareSummaryModal" ng-show="data.showCompareSummaryModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <h3 style="text-align:center">Comparison table between total power [uW]</h3>
+	  <button type="button" class="close" ng-click="data.showCompareSummaryModal = false;" aria-hidden="true">×</button>
+	  </br>
+	</div>
+	<div class="modal-body">
+	    <button type="button" class="btn btn-info" ng-click="data.showSummaryTotalDetails = !data.showSummaryTotalDetails">Calc details</button>
+
+<!--	  <div ng-repeat="compare in data.summaryCompareData track by $index">-->
+	    <select ng-model="data.summaryCompareInfo.selectedCluster" ng-change="data.summaryCompareInfo.selectedRelease = undefined;">
+	      <option ng-repeat="cluster in data.summaryClusters track by $index" ng-value="cluster">{{cluster.name}}</option>
+	    </select>
+
+	    <select ng-model="data.summaryCompareInfo.selectedRelease" ng-if="data.summaryCompareInfo.selectedCluster">
+	      <option ng-value="release.rtl_name" ng-repeat="release in data.summaryCompareInfo.selectedCluster.releases track by $index">{{release.rtl_name}}</option>
+	    </select>
+<!-- 	  </div> -->
+	  <a ng-click="fetchSummaryDataToCompare(data.summaryCompareInfo)"><i class="fas fa-plus-circle" aria-hidden="true" title="Add to compare"></i></a>
+
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th style="width:300px">Primitives</th>
+		  <th ng-repeat="summary in data.summaryCompareData track by $index">{{summary.cluster.name}}-{{summary.release}}<span><a href="" ng-click="removeSummaryCompare($index)"><i class="fas fa-trash" title="total power [uW]"></i></a></span></th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="primitive in data.summaryPrimitivesList track by $index">
+		  <td>{{primitive}}</td>
+		  <td ng-repeat="summary in data.summaryCompareData track by $index">
+
+
+		      <div style="border: solid;border-width: thin;" ng-style="!summary.primitivesInfo[primitive] && {'background-color':'transparent'} || summary.primitivesInfo[primitive].value + getLeakageValue(summary.cluster) == data.targetsInfo[summary.cluster][primitive] && {'background-color':'rgba(0,255,0,0.3)'} || {'background-color': 'rgba(255,0,0,0.3)'}">
+
+			  <div>
+			      <span><i class="fas fa-plug" title="total power [uW]"></i></span><label title="total power [uW]">{{summary.primitivesInfo[primitive].value + getLeakageValue(summary.cluster) | number: 0}}</label>
+			      <span ng-if="data.showSummaryTotalDetails"><i class="fas fa-equals"></i></span>
+			      <a title="dynamic power [uW]" ng-href="#!/{{jumpToHierarch(primitive,summary.cluster,summary.release)}}" target="_blank" ng-if="summary.primitivesInfo[primitive].isCsv && summary.primitivesInfo[primitive].value && data.showSummaryTotalDetails"><i class="fas fa-battery-three-quarters"></i>{{summary.primitivesInfo[primitive].value | number:0}}</a>
+			      <label title="dynamic power [uW]" ng-if="!summary.primitivesInfo[primitive].isCsv && summary.primitivesInfo[primitive].value && data.showSummaryTotalDetails"><i class="fas fa-battery-three-quarters"></i>{{summary.primitivesInfo[primitive].value | number:0}}</label>
+
+			      <label ng-if="getLeakageValue(summary.cluster) && summary.primitivesInfo[primitive].value && data.showSummaryTotalDetails">+</label>
+
+			      <a ng-if="getLeakageValue(summary.cluster) && data.showSummaryTotalDetails" title="leakage power [uW]" ng-href="#!/{{jumpToLeakageHierarch(summary.cluster)}}" target="_blank"><i class="fas fa-tint"></i>{{getLeakageValue(summary.cluster) | number:0}}</a>
+			  </div>
+
+			  <div ng-if="getTarget(summary.cluster, primitive)"><i class="fas fa-bullseye"></i>{{getTarget(summary.cluster, primitive) | number: 0}}</div>
+
+
+		      </div>
+
+
+		  </td>
+
+		</tr>
+	      </tbody>
+	    </table>
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showCompareSummaryModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal app-modal-window" id="" style="margin:auto;overflow-y:auto;display:block" modal="data.showClusterSummaryModal" ng-show="data.showClusterSummaryModal">
+    <div class="modal-dialog" style="width:90%">
+      <div class="modal-content">
+	<div class="modal-header">
+
+	  <button type="button" class="close" ng-click="data.showClusterSummaryModal = false;" aria-hidden="true">×</button>
+
+	  <label style="font-weight: bold; font-size: 13px;">Units Mode</label>
+	  <div class="ui toggle checkbox" ng-if="!data.compareMode" ng-click="data.clusterSummaryMode=!data.clusterSummaryMode;">
+	    <input type="checkbox" name="public" ng-checked="data.clusterSummaryMode">
+	    <label style="font-weight: bold; font-size: 13px;">Clusters Mode</label>
+	  </div>
+
+
+	  <div>
+	    <a href=""><i class="fas fa-info-circle"></i></a>
+		<label> Process: </label> {{data.projectPowerInfo.process}} </br>
+		<label> Voltage: </label> {{data.projectPowerInfo.voltage}}V </br> 
+		<label> Temperature: </label> {{data.projectPowerInfo.temperature}}C </br>
+	  </div>
+
+
+<!-- 	  <div excel-export export-data="getReleaseToExport()" rows-level="getReleaseRows()" file-name="{{getCoreReleaseName()}}"></div> -->
+
+	  </br>
+	</div>
+	<div class="modal-body" style="width: 100%; overflow: auto;">
+
+
+
+	<table id="primitivesTable" class="table" ng-if="data.clusterSummaryMode" ng-init="data.showTotalDetails = false;">
+	  <thead>
+	    <tr>
+	      <th style="width:300px">Primitives</th>
+	      <th ng-repeat="cluster in data.summaryClusters track by $index" style="width:300px">
+<!-- 		  <a href="" ng-click="showClusterSummary(cluster)" ng-if="cluster.units && cluster.units.length > 0">{{cluster.name}}</a> -->
+		  <label>{{cluster.name}} [uW]</label>
+		  <br></br>
+		  <select ng-model="cluster.selectedRelease" ng-change="fetchPowerPrimitives(cluster)">
+		    <option value="" selected="selected">new</option>
+		    <option ng-repeat="release in cluster.releases track by $index" ng-value="release.rtl_name">{{release.rtl_name}}</option>
+		  </select>
+	      </th>
+	      <th style="border-left: inset;">
+		Total [uW]
+	      </th>
+	      <th>
+		<button type="button" class="btn btn-info" ng-click="toggleTotalSummary()">Calc details</button>
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="primitive in data.summaryPrimitivesList track by $index">
+	      <td>{{primitive}}</td>
+	      <td ng-repeat="cluster in data.summaryClusters track by $index">
+
+		  <div ng-if="cluster.selectedRelease && checkClusterHasPrimitive(cluster,primitive)" style="border: solid;border-width: thin;" ng-style="getLeakageAndDynamic(cluster, primitive) <= getTarget(cluster, primitive) && {'background-color':'transparent'} || !getTarget(cluster, primitive) && {'background-color':'transparent'} || cluster.primitivesInfo[primitive].disableColor && {'background-color':'transparent'} || {'background-color': 'rgba(255,0,0,0.3)'}">
+
+		      <div>
+
+			  <span><i class="fas fa-plug" title="total power [uW]"></i></span>
+			  <label title="total power [uW]">{{cluster.primitivesInfo[primitive].value + getLeakageValue(cluster) | number: 0}}</label>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-equals"></i></span>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-battery-three-quarters"></i></span>
+
+			  <a title="dynamic power [uW]" ng-href="#!/{{jumpToHierarch(primitive,cluster,undefined)}}" target="_blank" ng-if="cluster.primitivesInfo[primitive].isCsv && cluster.primitivesInfo[primitive].value && data.showTotalDetails">{{cluster.primitivesInfo[primitive].value | number:0}}</a>
+			  <label title="dynamic power [uW]" ng-if="!cluster.primitivesInfo[primitive].isCsv && checkPrimitiveExists(cluster, primitive) && data.showTotalDetails">{{cluster.primitivesInfo[primitive].value | number:0}}</label>
+			  <label ng-if="!checkPrimitiveExists(cluster, primitive) && data.showTotalDetails">N/A</label>
+
+			  <label ng-if="data.showTotalDetails">+</label>
+
+			  <a ng-if="checkLeakageExists(cluster) && data.showTotalDetails" title="leakage power [uW]" ng-href="#!/{{jumpToLeakageHierarch(cluster)}}" target="_blank"><i class="fas fa-tint"></i>{{getLeakageValue(cluster) | number:0}}</a>
+			  <label ng-if="!checkLeakageExists(cluster) && data.showTotalDetails"><i class="fas fa-tint"></i>N/A</label>
+
+			  <input type="checkbox" ng-if="cluster.primitivesInfo[primitive] && cluster.primitivesInfo[primitive].value + getLeakageValue(cluster) > getTarget(cluster, primitive)" ng-model="cluster.primitivesInfo[primitive].disableColor" style="float:right"  title="disable coloring,, if waivers for example.."></input>
+
+		      </div>
+
+		      <div>
+			<i class="fas fa-bullseye"></i>
+			<label ng-if="showTargetInfo(cluster, primitive)">
+			  <span ng-if="getTarget(cluster, primitive)">{{getTarget(cluster, primitive)}}</span>
+			  <span ng-if="!getTarget(cluster, primitive)">N/A</span> 
+			</label>
+			<label ng-if="!showTargetInfo(cluster, primitive)">
+			  <span ng-if="data.showTotalDetails && getTarget(cluster, primitive)">{{getTarget(cluster, primitive)}}</span>
+			  <span ng-if="data.showTotalDetails && !getTarget(cluster, primitive)">N/A</span>
+			  <span ng-if="!data.showTotalDetails">N/A</span> 
+			</label>
+		      </div>
+
+		  </div>
+
+		  <div ng-if="cluster.selectedRelease && !checkClusterHasPrimitive(cluster,primitive)" style="border: solid;border-width: thin;" ng-style="getLeakageAndDynamic(cluster, primitive) <= getTarget(cluster, primitive) && {'background-color':'transparent'} || !getTarget(cluster, primitive) && {'background-color':'transparent'} || cluster.primitivesInfo[primitive].disableColor && {'background-color':'transparent'} || {'background-color': 'rgba(255,0,0,0.3)'}">
+		      N/A
+		  </div>
+
+	      </td>
+	      <td style="border-left: inset" ng-init="data.disableColorInSummary = {}">
+		  <div style="border: solid;border-width: thin;" ng-style="getPrimitivesTotal(primitive) + getLeakageTotal() <= getTargetsTotal(primitive) && {'background-color':'transparent'} || data.disableColorInSummary[primitive].disableColor && {'background-color':'transparent'}  || {'background-color': 'rgba(255,0,0,0.3)'}">
+
+		      <div>
+			  <span><i class="fas fa-plug"></i></span><label>{{getPrimitivesTotal(primitive) + getLeakageTotal() | number: 0}}</label>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-equals"></i></span>
+			  <label title="dynamic power [uW]" ng-if="data.showTotalDetails"><i class="fas fa-battery-three-quarters"></i>{{getPrimitivesTotal(primitive) | number:0}}</label>
+			  <label ng-if="data.showTotalDetails">+</label>
+			  <label title="leakage power [uW]" ng-if="data.showTotalDetails"><i class="fas fa-tint"></i>{{getLeakageTotal() | number:0}}</label>
+
+			  <input type="checkbox" ng-if="getPrimitivesTotal(primitive) + getLeakageTotal() > getTargetsTotal(primitive)" ng-model="data.disableColorInSummary[primitive].disableColor" style="float:right"  title="disable coloring,, if waivers for example.."></input>
+		      </div>
+
+		      <div ng-if="getTargetsTotal(primitive)"><i class="fas fa-bullseye"></i>{{getTargetsTotal(primitive) | number: 0}}</div>
+
+		  </div>
+	      </td>
+	    </tr>
+	  </tbody>
+	  <tbody>
+		<tr><td><button type="button" class="btn btn-success" ng-if="data.enableEdit" ng-click="data.showCreateReleaseModal = true;">create</button></td></tr>
+	  </tbody>
+	</table>
+
+
+	  <table id="targetsTable" class="table" ng-if="!data.clusterSummaryMode">
+	    <thead>
+	      <tr>
+		<th>
+		  <select ng-model="data.summaryClusterSelectedRelease" ng-change="summarySelectedRelease()">
+		    <option data-hidden="true" value="">Choose release</option>
+
+		    <option ng-repeat="release in data.summaryCluster.releases track by $index" ng-value="release.rtl_name">{{release.rtl_name}}</option>
+		  </select>
+		</th>
+		<td></td>
+		<th ng-repeat="primitive in data.summaryCluster.primitives track by $index">
+		    {{primitive.name}}
+		</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="unit in data.summaryCluster.units track by $index">
+		<th>
+		    <span ng-style="getEmptySpace(unit.level)">{{unit.level}}){{unit.name}}</span>
+		</th>
+		<th>
+		    <table id="tableid" ng-if="unit.isCluster">
+		      <tr ng-repeat="clusterUnit in unit.cluster.units track by $index">
+			<td><span ng-style="getEmptySpace(unit.level+clusterUnit.level-1)">{{unit.level+clusterUnit.level-1}}){{clusterUnit.name}}</span></td>
+			<td>
+			  <div style="border: solid;border-width: thin; visibility:hidden">
+			      <div>
+				  <span><i class="fas fa-bullseye"></i></span>
+			      </div>
+			      <div>
+				  <span><i class="fas fa-bullseye"></i></span>
+				  <span><i class="fas fa-bullseye"></i></span>
+			      </div>
+			  </div>
+			</td>
+		      </tr>
+		    </table>
+		</th>
+		<td ng-repeat="primitive in data.summaryCluster.primitives track by $index">
+		    <div ng-if="!unit.isCluster" style="border: solid;border-width: thin;" ng-style="data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(unit.instance, primitive) && getUnitTarget(unit.instance, primitive) && data.clusterSummaryData[unit.instance][primitive.name].calculated_dynamic > getUnitTarget(unit.instance, primitive) && {'background-color': 'rgba(255,0,0,0.3)'}">
+			<div>
+			    <span ng-if="data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(unit.instance, primitive)"><i class="fas fa-battery-three-quarters"></i>{{data.clusterSummaryData[unit.instance][primitive.name].calculated_dynamic | number: 0}}</span>
+			    <span ng-if="!(data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(unit.instance, primitive))"><i class="fas fa-battery-three-quarters"></i>N/A</span>
+			</div>
+			<div>
+			    <span ng-if="getUnitTarget(unit, primitive)"><i class="fas fa-bullseye"></i>{{getUnitTarget(unit, primitive) | number: 0}}</span>
+			    <span ng-if="!(getUnitTarget(unit, primitive))"><i class="fas fa-bullseye"></i>N/A</span>
+			</div>
+		    </div>
+		    <table id="tableid" ng-if="unit.isCluster">
+		      <tr ng-repeat="clusterUnit in unit.cluster.units track by $index">
+			<td>
+			  <div style="border: solid;border-width: thin;" ng-style="data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(unit, primitive) && getUnitTarget(unit, primitive) && data.clusterSummaryData[unit.instance][primitive.name].calculated_dynamic > getUnitTarget(unit, primitive) && {'background-color': 'rgba(255,0,0,0.3)'}">
+			      <div>
+				  <span ng-if="data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(clusterUnit.coreInstance, primitive)"><i class="fas fa-battery-three-quarters"></i>{{data.clusterSummaryData[clusterUnit.coreInstance][primitive.name].calculated_dynamic | number: 0}}</span>
+				  <span ng-if="!(data.summaryClusterSelectedRelease && checkIfUnitPrimitiveExists(clusterUnit.coreInstance, primitive))"><i class="fas fa-battery-three-quarters"></i>N/A</span>
+			      </div>
+			      <div>
+
+				<span ng-if="getClusterUnitTarget(unit.cluster, clusterUnit, primitive)"><i class="fas fa-bullseye"></i>{{getClusterUnitTarget(unit.cluster, clusterUnit, primitive) | number: 0}}</span>
+				<span ng-if="!(getClusterUnitTarget(unit.cluster, clusterUnit, primitive))"><i class="fas fa-bullseye"></i>N/A</span>
+
+			      </div>
+			  </div>
+			</td>
+		      </tr>
+		    </table>
+		</td>
+	      </tr>
+	    </tbody>
+	  </table>
+
+<!--	    <div ng-repeat="release in data.compareReleases track by $index">
+	      <a ng-show="$index!=0" ng-click="deleteCompareUnrelease($index)"><i class="fa fa-trash" aria-hidden="true" title="Remove this release"></i></a>
+	      <div style="text-align: center;display:inline-block">
+		  <label ng-if="$index==0">Release</label></br>
+		  <select class="powerCompareReleaseSelectpicker" data-width="150px" ng-disabled="$index==0" ng-style="$index==0 && {'margin-left': '16px'}" ng-model="release.selectedRelease">
+		    <option ng-if="$index==0" ng-value="release.selectedRelease" selected="selected">{{release.selectedRelease}}</option>
+		    <option value="" selected="selected">Choose</option>
+		    <option ng-repeat="release in data.projectRTLs track by $index" ng-value="release">{{release}}</option>
+		  </select>
+	      </div>
+	    </div>
+	    </br>
+	    <a ng-click="data.compareReleases.push({})"><i class="fas fa-plus-circle" aria-hidden="true" title="Add new release"></i></a>-->
+
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" ng-click="data.showClusterSummaryModal = false;">Close</button>
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <div ng-if="data.showPrimitivesTable || data.showPrimitiveInfo" style="display:inline-block; float: left">
+	<a href=""><i class="fas fa-info-circle"></i></a>
+	    <label> Process: </label> {{data.projectPowerInfo.process}} </br>
+	    <label> Voltage: </label> {{data.projectPowerInfo.voltage}}V </br> 
+	    <label> Temperature: </label> {{data.projectPowerInfo.temperature}}C </br>
+      </div>
+
+      <div style="text-align: center;display:inline-block">
+<!-- 	  <label>Release type</label></br> -->
+	  <select class="powerSelectpicker" data-width="150px" ng-model="data.releaseType" ng-change="releaseTypeSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Release type</option>
+	    <option value="unreleased">unreleased</option>
+	    <option value="released">released</option>
+	  </select>
+      </div>
+
+      <div ng-if="data.releaseType=='unreleased' || data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Project</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedProject" ng-change="projectSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose project</option>
+	    <option ng-repeat="project in data.projects track by $index" ng-value="project">{{project}}</option>
+	  </select>
+      </div>
+      <!-- unreleased -->
+
+      <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Top</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedUnit" ng-change="unitSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose unit</option>
+
+	    <option ng-repeat="unit in data.projectUnits track by $index" ng-value="unit">{{unit}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseType=='unreleased'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Tag</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedTag" ng-change="tagSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose tag</option>
+
+	    <option ng-repeat="tag in data.projectTags track by $index" ng-value="tag">{{tag}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseType=='unreleased'" data-live-search="true" style="text-align: center;display:inline-block">
+<!-- 	  <label>Run ID</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedRunId"  ng-change="fetchPowerHierarchy()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose run_id</option>
+
+	    <option ng-repeat="runid in data.projectRunIds track by $index" ng-value="runid">{{runid}}</option>
+	  </select>
+      </div>
+
+      <!-- released -->
+
+      <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>Core</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedCore" ng-change="coreSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose core</option>
+
+	    <option ng-repeat="core in data.projectCores track by $index" ng-value="core">{{core}}</option>
+	  </select>
+      </div>
+
+      <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>cluster</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedCluster" ng-change="clusterSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose cluster</option>
+
+	    <option ng-repeat="cluster in data.projectClusters track by $index" ng-value="cluster">{{cluster}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>primitive</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedPrimitive" ng-change="primitiveSelected()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose primitive</option>
+
+	    <option ng-repeat="primitive in data.projectPrimitives track by $index" ng-value="primitive">{{primitive}}</option>
+	  </select>
+      </div>
+      <div ng-if="data.releaseType=='released'" style="text-align: center;display:inline-block">
+<!-- 	  <label>releases</label></br> -->
+	  <select class="powerSelectpicker" data-live-search="true" data-width="150px" ng-model="data.selectedRTL" ng-change="fetchPowerHierarchy()">
+<!-- 	    <option value="" selected="selected">Choose</option> -->
+	    <option data-hidden="true" value="">Choose release</option>
+
+	    <option ng-repeat="rtl in data.projectRTLs track by $index" ng-value="rtl">{{rtl}}</option>
+	  </select>
+      </div>
+
+<a href="" ng-click="copyReleasePath()" title="Copy release url"><i class="far fa-copy"></i></a>
+
+<!--       <button ng-if="data.selectedRtl=='new'" type="button" class="btn btn-primary" ng-click="createPower()">Create</button> -->
+      <button ng-if="data.showPrimitivesTable" type="button" class="btn btn-primary" ng-click="fetchPowerHierarchy()">Show</button>
+
+      <button ng-if="data.releaseType=='released' && data.selectedProject && data.selectedCore && data.selectedCluster" type="button" class="btn btn-warning" ng-click="fetchClusterSummary()">Summary</button>
+      <button ng-if="data.releaseType=='released' && data.selectedProject && data.selectedCore && data.selectedCluster" type="button" class="btn btn-info" ng-click="openCheckersModal()">Checkers</button>
+
+<!--       <button ng-if="data.releaseType=='released' && data.selectedProject && data.selectedCore" type="button" class="btn btn-info" ng-click="fetchPower()">Summary</button> -->
+      <button ng-if="isAdmin && data.releaseType=='unreleased' && data.selectedProject && data.selectedUnit && data.selectedTag && data.selectedRunId && data.showPrimitiveInfo" type="button" class="btn btn-success" ng-click="showPublishRelease()">Publish</button>
+
+      <button ng-if="isAdmin && (data.releaseType=='unreleased' || data.releaseType=='released')" type="button" class="btn btn-danger" ng-click="deleteProject()">DELETE</button>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="row" ng-if="data.showPrimitivesTable">
+    <div class="col-md-10">
+
+	<table id="primitivesTable" class="table" ng-init="data.showTotalDetails = false;">
+	  <thead>
+	    <tr>
+	      <th style="width:300px">Primitives</th>
+	      <th ng-repeat="cluster in data.summaryClusters track by $index" style="width:300px">
+		  <a href="" ng-click="showClusterSummary(cluster)" ng-if="cluster.units && cluster.units.length > 0">{{cluster.name}}</a>
+		  <label ng-if="!cluster.units || cluster.units.length == 0">{{cluster.name}}</label>
+		  <br></br>
+		  <select ng-model="cluster.selectedRelease" ng-change="fetchPowerPrimitives(cluster)">
+		    <option value="" selected="selected">new</option>
+		    <option ng-repeat="release in cluster.releases track by $index" ng-value="release.rtl_name">{{release.rtl_name}}</option>
+		  </select>
+	      </th>
+	      <th style="border-left: inset;">
+		Total
+	      </th>
+	      <th>
+		<button type="button" class="btn btn-primary" ng-click="data.showExportExcelModal=true;">Export</button>
+		<button type="button" class="btn btn-info" ng-if="data.enableEdit" ng-click="triggetUploadFile()">Import</button>
+		<button type="button" class="btn btn-warning" ng-click="showSummaryCompare();">Compare</button>
+		<button type="button" class="btn btn-info" ng-click="toggleTotalSummary()">Calc details</button>
+	      </th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="primitive in data.summaryPrimitivesList track by $index">
+	      <td>{{primitive}}</td>
+	      <td ng-repeat="cluster in data.summaryClusters track by $index">
+
+		  <div ng-if="cluster.selectedRelease && checkClusterHasPrimitive(cluster,primitive)" style="border: solid;border-width: thin;" ng-style="getLeakageAndDynamic(cluster, primitive) <= getTarget(cluster, primitive) && {'background-color':'transparent'} || !getTarget(cluster, primitive) && {'background-color':'transparent'} || cluster.primitivesInfo[primitive].disableColor && {'background-color':'transparent'} || {'background-color': 'rgba(255,0,0,0.3)'}">
+
+		      <div>
+
+			  <span><i class="fas fa-plug" title="total power [uW]"></i></span>
+			  <label title="total power [uW]">{{cluster.primitivesInfo[primitive].value + getLeakageValue(cluster) | number: 0}}</label>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-equals"></i></span>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-battery-three-quarters"></i></span>
+
+			  <a title="dynamic power [uW]" ng-href="#!/{{jumpToHierarch(primitive,cluster,undefined)}}" target="_blank" ng-if="cluster.primitivesInfo[primitive].isCsv && cluster.primitivesInfo[primitive].value && data.showTotalDetails">{{cluster.primitivesInfo[primitive].value | number:0}}</a>
+			  <label title="dynamic power [uW]" ng-if="!cluster.primitivesInfo[primitive].isCsv && checkPrimitiveExists(cluster, primitive) && data.showTotalDetails">{{cluster.primitivesInfo[primitive].value | number:0}}</label>
+			  <label ng-if="!checkPrimitiveExists(cluster, primitive) && data.showTotalDetails">N/A</label>
+
+			  <label ng-if="data.showTotalDetails">+</label>
+
+			  <a ng-if="checkLeakageExists(cluster) && data.showTotalDetails" title="leakage power [uW]" ng-href="#!/{{jumpToLeakageHierarch(cluster)}}" target="_blank"><i class="fas fa-tint"></i>{{getLeakageValue(cluster) | number:0}}</a>
+			  <label ng-if="!checkLeakageExists(cluster) && data.showTotalDetails"><i class="fas fa-tint"></i>N/A</label>
+
+			  <input type="checkbox" ng-if="cluster.primitivesInfo[primitive] && cluster.primitivesInfo[primitive].value + getLeakageValue(cluster) > getTarget(cluster, primitive)" ng-model="cluster.primitivesInfo[primitive].disableColor" style="float:right"  title="disable coloring,, if waivers for example.."></input>
+
+		      </div>
+
+		      <div>
+			<i class="fas fa-bullseye"></i>
+			<label ng-if="showTargetInfo(cluster, primitive)">
+			  <span ng-if="getTarget(cluster, primitive)">{{getTarget(cluster, primitive)}}</span>
+			  <span ng-if="!getTarget(cluster, primitive)">N/A</span> 
+			</label>
+			<label ng-if="!showTargetInfo(cluster, primitive)">
+			  <span ng-if="data.showTotalDetails && getTarget(cluster, primitive)">{{getTarget(cluster, primitive)}}</span>
+			  <span ng-if="data.showTotalDetails && !getTarget(cluster, primitive)">N/A</span>
+			  <span ng-if="!data.showTotalDetails">N/A</span> 
+			</label>
+		      </div>
+
+		  </div>
+
+		  <div ng-if="cluster.selectedRelease && !checkClusterHasPrimitive(cluster,primitive)" style="border: solid;border-width: thin;" ng-style="getLeakageAndDynamic(cluster, primitive) <= getTarget(cluster, primitive) && {'background-color':'transparent'} || !getTarget(cluster, primitive) && {'background-color':'transparent'} || cluster.primitivesInfo[primitive].disableColor && {'background-color':'transparent'} || {'background-color': 'rgba(255,0,0,0.3)'}">
+		      N/A
+		  </div>
+
+<!--		  <div ng-if="data.enableEdit">
+		    <input type="number"  ng-value="cluster.primitivesInfo[primitive].value" ng-model="cluster.primitivesInfo[primitive].value"></input>
+		  </div>-->
+
+	      </td>
+	      <td style="border-left: inset" ng-init="data.disableColorInSummary = {}">
+		  <div style="border: solid;border-width: thin;" ng-style="getPrimitivesTotal(primitive) + getLeakageTotal() <= getTargetsTotal(primitive) && {'background-color':'transparent'} || data.disableColorInSummary[primitive].disableColor && {'background-color':'transparent'}  || {'background-color': 'rgba(255,0,0,0.3)'}">
+
+		      <div>
+			  <span><i class="fas fa-plug"></i></span><label>{{getPrimitivesTotal(primitive) + getLeakageTotal() | number: 0}}</label>
+			  <span ng-if="data.showTotalDetails"><i class="fas fa-equals"></i></span>
+			  <label title="dynamic power [uW]" ng-if="data.showTotalDetails"><i class="fas fa-battery-three-quarters"></i>{{getPrimitivesTotal(primitive) | number:0}}</label>
+			  <label ng-if="data.showTotalDetails">+</label>
+			  <label title="leakage power [uW]" ng-if="data.showTotalDetails"><i class="fas fa-tint"></i>{{getLeakageTotal() | number:0}}</label>
+
+			  <input type="checkbox" ng-if="getPrimitivesTotal(primitive) + getLeakageTotal() > getTargetsTotal(primitive)" ng-model="data.disableColorInSummary[primitive].disableColor" style="float:right"  title="disable coloring,, if waivers for example.."></input>
+		      </div>
+
+		      <div ng-if="getTargetsTotal(primitive)"><i class="fas fa-bullseye"></i>{{getTargetsTotal(primitive) | number: 0}}</div>
+
+		  </div>
+	      </td>
+	    </tr>
+	  </tbody>
+	  <tbody>
+		<tr><td><button type="button" class="btn btn-success" ng-if="data.enableEdit" ng-click="data.showCreateReleaseModal = true;">create</button></td></tr>
+	  </tbody>
+	</table>
+    </div>
+  </div>
+
+
+
+
+  <div class="row" ng-if="data.showPrimitiveInfo">
+	<div class="col-md-3" id="primitive-scrollable-dropdown-menu" ng-if="!hideTree">
+	    <input type="text" ng-model="data.searchSuggestion"  placeholder="Type cell name" typeahead-on-select="onSelectInstance($item, $model, $label)" uib-typeahead="cell.instance for cell in getInstanceSuggesions($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+	    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+	    <div ng-show="noResults">
+	      <i class="glyphicon glyphicon-remove"></i> No Results Found
+	    </div>
+	</div>
+  </div>
+
+
+
+  <div class="row" ng-if="data.showPrimitiveInfo && !data.powerModeOnTarget">
+      <div>
+	<button ng-if="hideTree" class="circular_button" ng-click="toggleTreeVisibility(false);">></button>
+      </div>
+
+
+      <script type="text/ng-template" id="menu.html">
+	<ul style="padding-left: 0px;">
+	  <li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+
+	    <div class="progress" style="display:inline-block;margin-bottom:0px;width:80px;height:15px">
+	      <div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" role="progressbar" ng-style="getPowerPercentage(item)['style']">
+		<font color="black">{{getPowerPercentage(item)['value']}}%</font>
+	      </div>
+	    </div>
+
+
+	    <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		<i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		<i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		<i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		<span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	    </div>
+
+	    <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+	  </li>
+	</ul>
+      </script>
+
+      <div id="treeHier" class="col-md-3" style="overflow: auto;padding:10px; height:800px" ng-if="!hideTree">
+	  <div style="float: right;margin-top: 50%;">
+	    <button class="circular_button" ng-click="toggleTreeVisibility(true);"><</button>
+	  </div>
+
+	  <ul style="padding-left: 0px;">
+	    <li ng-repeat="item in data.chart track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+	      <div class="progress" style="display:inline-block;margin-bottom:0px;width:80px;height:15px">
+		<div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" role="progressbar" ng-style="getPowerPercentage(item)['style']">
+		  <font color="black">{{getPowerPercentage(item)['value']}}%</font>
+		</div>
+	      </div>
+
+
+	      <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		  <i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		  <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		  <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		  <span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	      </div>
+
+	      <div ng-if="item.children && item.children.length && item.show" ng-include="'menu.html'"></div>
+	    </li>
+	  </ul>
+      </div>
+
+
+
+      <div id="content" class="col-md-7" ng-if="data.selectedNode && !data.compareMode">
+	<div class="container-fluid">
+
+	    <a ng-if="data.releaseInfo.single_test_run_command" href="" ng-click="getSystemFile(data.releaseInfo.single_test_run_command)" title="run command"><i class="fas fa-caret-square-right"></i></a>
+	    <a ng-if="data.releaseInfo.sys_param_update" href="" ng-click="getSystemFile(data.releaseInfo.sys_param_update)" title="sysm param update"><i class="fas fa-file-export"></i></a>
+	    <a ng-if="data.releaseInfo.frame_config" href="" ng-click="getSystemFile(data.releaseInfo.frame_config)" title="frame config"><i class="fas fa-edit"></i></a>
+	    </br>
+	    <label>Total power:</label> {{getLeakagePowerTotal(data.selectedNode) + getDynamicPowerTotal(data.selectedNode) | number:0}} </br>
+
+	  <div class="col-md-4">
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th>Type</th>
+		  <th>Dynamic Power [uW]</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="dynamic in data.selectedNode['dynamic'] track by $index">
+		  <th scope="row" class="text-capitalize">{{dynamic.type}}</th>
+		  <td>{{dynamic.value | number:0}}</td>
+		</tr>
+	      </tbody>
+	      <tfoot>
+		<tr>
+		  <th>Total Dynamic</th>
+		  <th>{{getDynamicPowerTotal(data.selectedNode) | number:0}}</th>
+		</tr>
+	      </tfoot>
+	    </table>
+
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th>Type</th>
+		  <th>
+		      
+		      <a title="Leakage Power [uW]" ng-href="#!/{{jumpToLeakageHierarch(undefined, data.selectedNode['leakageInfo']['release_id'])}}" target="_blank">Leakage Power [uW]</a>
+
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="leakage in data.selectedNode['leakageInfo']['stdcell']['current'] track by $index">
+		  <th scope="row" class="text-capitalize">{{leakage.type}}</th>
+		  <td>{{leakage.value | number:0}}</td>
+		</tr>
+	      </tbody>
+	      <tfoot>
+		<tr>
+		  <th>Total Leakage</th>
+		  <th>{{getLeakagePowerTotal(data.selectedNode) | number:0}}</th>
+		</tr>
+	      </tfoot>
+	    </table>
+	  </div>
+
+	  <div class="col-md-6">
+	    <canvas id="chart-pie" class="chart chart-pie"
+	      chart-data="data.pieValues" chart-labels="data.pieLabels" chart-options="data.pieOptions">
+	    </canvas>
+	  </div>
+	</div>
+
+
+	<div class="row">
+	  <div class="col-md-12">
+	    <table class="table">
+	      <thead>
+		<tr>
+		  <th>
+		    level
+		  </th>
+		  <th>
+		    name
+		  </th>
+		  <th>
+		    dynamic total power [uW]
+		  </th>
+		  <th>
+		    leakage total power [uW]
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		  <tr ng-repeat="node in data.selectedNode.currentHierarchy track by $index" ng-style="node._id == data.selectedNode._id && {'background-color':'#0071c599'}">
+		      <td>{{node['level']}}</td>
+		      <td><span ng-style="getEmptySpace(node.level)">{{node['name']}}</span></td>
+		      <td>{{getDynamicPowerTotal(node) | number:0}}</td>
+		      <td>{{getLeakagePowerTotal(node) | number:0}}</td>
+		  </tr>
+	      </tbody>
+	    </table>
+	  </div>
+	</div>
+
+      </div>
+
+
+
+      <div ng-if="data.selectedNode && data.compareMode">
+	<button ng-if="data.showPrimitiveInfo" type="button" class="btn btn-danger" ng-click="disableCompare()" style="float:right">Disable compare</button>
+      </div>
+
+      <div ng-if="data.selectedNode && data.compareMode">
+	<button ng-if="data.showPrimitiveInfo" ng-click="showAdvancedCompareModal();">Add release</button>
+      </div>
+
+
+      <div class="ui toggle checkbox" ng-if="!data.compareMode" ng-click="data.powerModeOnTarget=!data.powerModeOnTarget; toggleToTargetInfo();">
+	<input type="checkbox" name="public" ng-checked="data.powerModeOnTarget">
+	<label style="font-weight: bold; font-size: 13px;">{{data.powerModeOnTarget ? 'Default Mode': 'Calculated Mode'}}</label>
+      </div>
+
+
+      <div class="col-md-1" ng-if="data.selectedNode && !data.compareMode">
+	<button ng-if="data.showPrimitiveInfo" type="button" class="btn btn-primary" ng-click="showCompareModal()">Enable compare</button>
+      </div>
+
+
+      <div id="content" class="col-md-9" ng-if="data.selectedNode && data.compareMode">
+	<div class="container-fluid">
+
+	  <div style="overflow:auto">
+
+	    <table class="table table-bordered">
+	      <thead>
+		<tr>
+		  <th style="max-width:100px;"></th>
+		  <th ng-repeat="cRunid in data.compareRunIds track by $index" style="max-width:300px;overflow-x: auto;">
+		      {{cRunid.releaseId}} [uW] </br>
+
+		      <a ng-if="data.advancedCompareReleasesInfo[cRunid.releaseId].single_test_run_command" href="" ng-click="getSystemFile(data.advancedCompareReleasesInfo[cRunid.releaseId].single_test_run_command)" title="run command"><i class="fas fa-caret-square-right"></i></a>
+		      <a ng-if="data.advancedCompareReleasesInfo[cRunid.releaseId].sys_param_update" href="" ng-click="getSystemFile(data.advancedCompareReleasesInfo[cRunid.releaseId].sys_param_update)" title="sysm param update"><i class="fas fa-file-export"></i></a>
+		      <a ng-if="data.advancedCompareReleasesInfo[cRunid.releaseId].frame_config" href="" ng-click="getSystemFile(data.advancedCompareReleasesInfo[cRunid.releaseId].frame_config)" title="frame config"><i class="fas fa-edit"></i></a>
+
+<!--
+		      <a ng-if="data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].single_test_run_command" href="" ng-click="getSystemFile(data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].single_test_run_command)" title="run command"><i class="fas fa-caret-square-right"></i></a>
+		      <a ng-if="data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].sys_param_update" href="" ng-click="getSystemFile(data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].sys_param_update)" title="sysm param update"><i class="fas fa-file-export"></i></a>
+		      <a ng-if="data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].frame_config" href="" ng-click="getSystemFile(data.compareReleasesInfo[cRunid.selectedTag+cRunid.selectedRunid].frame_config)" title="frame config"><i class="fas fa-edit"></i></a>
+-->
+		      
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row">{{data.selectedNode.name}}</th>
+		  <td ng-repeat="cRunid in data.compareRunIds track by $index" ng-style="getNodeCompareColor(data.selectedNode,cRunid)">
+		      {{getNodeCompareTotal(data.selectedNode,cRunid) | number: 0}}
+		      <span ng-if="$index != 0" ng-style="getNodePercantageCompare(data.selectedNode, cRunid , data.compareRunIds[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getNodePercantageCompare(data.selectedNode, cRunid , data.compareRunIds[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			<b>{{getNodePercantageCompare(data.selectedNode, cRunid , data.compareRunIds[0])['str']}}</b>
+		      </span>
+		  </td>
+		</tr>
+		<tr ng-repeat="node in data.selectedNode.children track by $index">
+		  <th scope="row">{{node.name}}</th>
+		  <td ng-repeat="cRunid in data.compareRunIds track by $index" ng-style="$index == 0 && getNodeCompareColor(node,cRunid)">
+		      {{getNodeCompareTotal(node,cRunid) | number: 0}}
+		      <span ng-if="$index != 0" ng-style="getNodePercantageCompare(node, cRunid , data.compareRunIds[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getNodePercantageCompare(node, cRunid , data.compareRunIds[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			<b>{{getNodePercantageCompare(node, cRunid , data.compareRunIds[0])['str']}}</b>
+		      </span>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	  </div>
+	</div>
+      </div>
+
+
+<!--
+      <div id="content" class="col-md-9" ng-if="data.selectedNode && data.compareMode && data.fetchReleaseType == 'released'">
+	<div class="container-fluid">
+
+	  <div style="overflow:auto">
+
+	    <table class="table table-bordered">
+	      <thead>
+		<tr>
+		  <th></th>
+		  <th ng-repeat="release in data.compareReleases track by $index">{{release.selectedRelease}} [uW]</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr>
+		  <th scope="row">{{data.selectedNode.name}}</th>
+
+		  <td ng-repeat="cRunid in data.compareReleases track by $index" ng-style="getNodeCompareColor(data.selectedNode,cRunid)">
+		      {{getNodeCompareTotal(data.selectedNode,cRunid) | number: 0}}
+		      <span ng-if="$index != 0" ng-style="getNodePercantageCompare(data.selectedNode, cRunid , data.compareReleases[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getNodePercantageCompare(data.selectedNode, cRunid , data.compareReleases[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			<b>{{getNodePercantageCompare(data.selectedNode, cRunid , data.compareReleases[0])['str']}}</b>
+		      </span>
+		  </td>
+
+
+		</tr>
+		<tr ng-repeat="node in data.selectedNode.children track by $index">
+		  <th scope="row">{{node.name}}</th>
+
+		  <td ng-repeat="cRunid in data.compareReleases track by $index" ng-style="$index == 0 && getNodeCompareColor(node,cRunid)">
+		      {{getNodeCompareTotal(node,cRunid) | number: 0}}
+		      <span ng-if="$index != 0" ng-style="getNodePercantageCompare(node, cRunid , data.compareReleases[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getNodePercantageCompare(node, cRunid , data.compareReleases[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			<b>{{getNodePercantageCompare(node, cRunid , data.compareReleases[0])['str']}}</b>
+		      </span>
+		  </td>
+
+		</tr>
+	      </tbody>
+	    </table>
+
+	  </div>
+	</div>
+      </div>
+-->
+    </div>
+
+
+
+  <div class="row" ng-if="data.showPrimitiveInfo && data.powerModeOnTarget">
+
+      <script type="text/ng-template" id="unit_menu.html">
+	<ul style="padding-left: 0px;">
+	  <li ng-repeat="item in item.children track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+	    <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		<i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		<i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		<i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		<span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	    </div>
+
+	    <div ng-if="item.children && item.children.length && item.show" ng-include="'unit_menu.html'"></div>
+	  </li>
+	</ul>
+      </script>
+
+      <div id="treeHier" class="col-md-3" style="overflow: auto;padding:10px; height:800px" ng-if="!hideTree">
+	  <div style="float: right;margin-top: 50%;">
+	    <button class="circular_button" ng-click="toggleTreeVisibility(true);"><</button>
+	  </div>
+
+	  <ul style="padding-left: 0px;">
+	    <li ng-repeat="item in data.unitsChart track by $index" style="white-space:nowrap;list-style-type: none;padding-left: 15px;">
+
+
+	      <div ng-attr-id="{{'block-' +item._id}}" style="white-space:nowrap;display:inline-block">
+		  <i ng-if="(item.hasChild && !item.show) || (item.children && item.children.length && !item.show)" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">►</i>
+		  <i ng-if="item.children && item.children.length && item.show" style="margin-right:7px;cursor: pointer;" aria-hidden="true" ng-click="treeSelectNode(item,true);">▼</i>
+		  <i ng-if="!item.hasChild" style="margin-right:17px"> &nbsp; </i>
+		  <span ng-click="changeSelectedNode(item,false)" ng-style="item._id == data.selectedNode._id && {'background-color':'#97BDD6'}" style="cursor: pointer;">{{item['name']}}</span>
+	      </div>
+
+	      <div ng-if="item.children && item.children.length && item.show" ng-include="'unit_menu.html'"></div>
+	    </li>
+	  </ul>
+      </div>
+
+      <div id="content" class="col-md-7" ng-if="data.selectedNode && !data.compareMode && data.powerModeOnTarget">
+	  <button ng-click="data.showAddUnitTargetModal = true;"> Add release </button>
+
+	  <div excel-export export-data="exportTargetInfo()" rows-merge="getRowsToMerge()" file-name="{{getTargetFileName()}}"></div>
+
+	  <div style="overflow:auto">
+	    <table class="table table-bordered">
+	      <thead>
+		<tr>
+		  <th>level</th>
+		  <th>name</th>
+		  <th ng-repeat="release in data.unitsTargetReleases track by $index" style="text-align: center;">
+		      <div style="width:100%">{{release.primitive}}_{{release.rtl}}</div>
+		      <div style="display:inline-block; width:49%;">Dynamic [uW]</div>
+		      <div ng-if="data.unitsTargetReleases.length <= 1" style="display:inline-block; width:49%;  border-left: 1px; border-left-color: #ddd; border-left-style: solid;">Target [uW]</div>
+		  </th>
+		</tr>
+	      </thead>
+	      <tbody>
+		<tr ng-repeat="node in data.selectedNode.allChildren track by $index">
+		  <th>{{node.level}}</th>
+		  <th><span ng-style="getEmptySpace(node.level)">{{node.name}}</th>
+		  <td ng-repeat="release in data.unitsTargetReleases track by $index" style="text-align: center;" ng-style="$index == 0 && getUnitNodeCompareColor(node,release.releaseId)">
+		      <div style="display:inline-block; width:49%;">
+			{{data.unitsTargetInfo[release.releaseId][node.instance].calculated_dynamic | number:0}}
+
+			<span ng-if="$index != 0" ng-style="getUnitNodePercantageCompare(node, release , data.unitsTargetReleases[0])['sign'] == '-' && {'color': '#093', 'font-size': '12px'} || getUnitNodePercantageCompare(node, release , data.unitsTargetReleases[0])['sign'] == '+' && {'color': '#ff333a', 'font-size': '12px'}">
+			  <b>{{getUnitNodePercantageCompare(node, release , data.unitsTargetReleases[0])['str']}}</b>
+			</span>
+
+		      </div>
+		      <div  ng-if="data.unitsTargetReleases.length <= 1" ng-if="node.level != 1" style="display:inline-block; width:49%;  border-left: 1px; border-left-color: #ddd; border-left-style: solid;">
+			{{data.unitsTargetInfo[release.releaseId][node.instance].target ? data.unitsTargetInfo[release.releaseId][node.instance].target : 'N/A'  | number:0}}
+		      </div>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </div>
+      </div>
+
+
+
+      <div class="ui toggle checkbox" ng-if="!data.compareMode" ng-click="data.powerModeOnTarget=!data.powerModeOnTarget; toggleToTargetInfo();">
+	<input type="checkbox" name="public" ng-checked="data.powerModeOnTarget">
+	<label style="font-weight: bold; font-size: 13px;">{{data.powerModeOnTarget ? 'Default Mode': 'Calculated Mode'}}</label>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+</div>

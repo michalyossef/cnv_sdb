@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>cnv_project</title>
+
+
+<link rel="icon" 
+      type="image/png" 
+      href="client/assets/cpu-intel-icon.png">
+
+	<link rel="stylesheet" type="text/css" href="client/libs/angular/angular-material.min.css"/>
+
+	
+	<script type="text/javascript" src="client/libs/underscore/underscore-min.js"></script>
+
+
+	<script type="text/javascript" src="client/libs/angular/angular.min.js"></script>
+
+	<script type="text/javascript" src="client/libs/jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="client/libs/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.3.5/split.min.js"></script>
+
+
+<!--<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+
+
+<style>
+.split {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;overflow-y: auto;overflow-x: hidden;}
+.gutter {background-color: transparent;background-repeat: no-repeat;background-position: 50%;}
+.gutter.gutter-horizontal {cursor: col-resize;background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg=='); }
+.gutter.gutter-vertical {cursor: row-resize;background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII='); }
+.split.split-horizontal, .gutter.gutter-horizontal { height: 100%;float: left;}
+</style>
+
+
+
+	<script type="text/javascript" src="client/libs/angular/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="client/libs/angular/angular-route.min.js"></script>
+	<script type="text/javascript" src="client/libs/angular/angular-animate.min.js"></script>
+	<script type="text/javascript" src="client/libs/angular/angular-ui-router.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="client/libs/semantic/semantic.min.css">
+	<script src="client/libs/semantic/semantic.min.js"></script>
+
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.full.min.js">
+</script>
+
+<script src="https://unpkg.com/panzoom@7.1.2/dist/panzoom.min.js"></script>
+
+
+	<script type="text/javascript" src="client/libs/angular/angular-toastr.tpls.js"></script>
+
+	<script type="text/javascript" src="client/libs/angular/angular-material.min.js"></script>
+
+	<script type="text/javascript" src="client/libs/bootstrap/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="client/libs/bootstrap/ui-bootstrap-tpls.min.js"></script>
+			
+				
+	
+	<link rel="stylesheet" type="text/css" href="client/libs/angular/angular-toastr.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="client/libs/bootstrap/bootstrap.min.css"/>
+	<link href="client/libs/bootstrap/all.css" rel="stylesheet">
+
+
+	<link href="client/libs/bootstrap/font-awesome.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="client/libs/javascript/coloring.js"></script>
+
+
+	<script type="text/javascript" src="client/libs/javascript/Chart.min.js"></script>
+	<script type="text/javascript" src="client/libs/angular/angular-chart.min.js"></script>
+
+
+	<link href="client/libs/angular/rzslider.min.css" rel="stylesheet">
+	<script type="text/javascript" src="client/libs/angular/rzslider.min.js"></script>
+
+
+
+
+	<link rel="stylesheet" type="text/css" href="client/libs/ui-grid/ui-grid.min.css">
+	<script type="text/javascript" src="client/libs/ui-grid/ui-grid.min.js"></script>
+
+
+	<script type="text/javascript" src="client/libs/javascript/async.js"></script>
+
+	<link rel="stylesheet" href="client/libs/bootstrap/bootstrap-select.min.css">
+	<script src="client/libs/bootstrap/bootstrap-select.min.js"></script>
+	
+	
+	<script defer src="client/libs/bootstrap/all.js"></script>
+
+	<script type="text/javascript" src="client/app.js"></script>
+
+	<script type="text/javascript" src="client/config.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="client/app.css"/>
+	
+	<script type="text/javascript" src="client/sub-apps/home/home_controller.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/home/home_style.css"/>
+
+
+	<script type="text/javascript" src="client/sub-apps/project/project_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/project/project_style.css"/>
+
+
+	<script type="text/javascript" src="client/sub-apps/area/area_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/area/area_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/leakage/leakage_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/leakage/leakage_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/custom-chip/custom-chip_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/custom-chip/custom-chip_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/power/power_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/power/power_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/timing/timing_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/timing/timing_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/summary/summary_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/summary/summary_style.css"/>
+
+
+	<script type="text/javascript" src="client/sub-apps/admin/admin_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/admin/admin_style.css"/>
+
+
+	<script type="text/javascript" src="client/sub-apps/synthizes/synthizes_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/synthizes/synthizes_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/floorplan/floorplan_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/floorplan/floorplan_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/user/user_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/user/user_style.css"/>
+
+	<script type="text/javascript" src="client/sub-apps/congestion/congestion_controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="client/sub-apps/congestion/congestion_style.css"/>
+
+
+</head>
+    <body ng-app="appTest">
+
+		<div ui-view="header"></div>
+    
+        <div class="{{mainClass}} ui-view-container" ng-class="{'ui-view-container-loading' : loadingState}"  >
+            <div ui-view="content" class="slide"></div>
+        </div>
+		
+        <div ng-if="loadingState" class="animationload" style="z-index: 9999;">
+            <div class="osahanloading"></div>
+        </div>
+
+		<!--<div  class="loader"></div>-->
+
+        <!--<div ng-if="loadingState" ng-include="'client/libs/bootstrap/spinner/spinner.html'" style="z-index: 9999;"> </div>-->
+    </body>
+
+</html>

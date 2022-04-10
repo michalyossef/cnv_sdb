@@ -1,0 +1,106 @@
+// Date:   11/2021
+// Author: Michal Danieli (Yossef)
+
+
+############################################################
+# How to run Website locally: (from Windows- Visual Studio)
+############################################################
+
+
+# Setup Visual Studio Env for first time
+1. Make sure you have installed node v10.18.1 & npm 6.5.0 
+(download from Internet. For checking version, from Win cmd type: node --version. for updating npm version: npm install -g npm@6.5.0)
+2. Open Visual Studio --> Clone a Repository --> clone to this repository (https://gitlab.devtools.intel.com/cnv-silicon-infra/cnv-silicon-site.git)
+3. Install Node packages for server side (This needs to be done also whenever there is any change in package.json):
+  - right click on "server" dir -> "Open Developer Command Prompt"
+  - Type: node install package.json   (Packages will be downloaded/updated to dir: node_modules)
+4. right click on 'server/server.js' -> "Set as Startup Item"
+
+
+#####################################
+# Run Server (http://localhost:1337)
+#####################################
+1. Just press the Play button (This actually run: node server/server.js)
+For checking if server run correct, try access:  http://localhost:1337/synthizes/init_info?releaseType=released
+
+
+#####################################
+# Run Client (http://localhost:5000)
+#####################################
+
+1. right click on "web" dir -> "Open Developer Command Prompt"   
+2. Type: run_static_server_on_current_dir.py
+3. open Chrome Browser:   
+   http://localhost:5000
+
+OR:
+   cd C:/Users/myossef1/source/repos/cnv_sdb/web
+   python -m http.server 5000
+
+###########################################
+# How to upload Website to Cloud Foundry:
+###########################################
+
+Setup 2 machines: server + client  (should be done only once)
+#############################################################
+should be done only once. 
+Whenever setting new server+client machines, need to update '$rootScope.serverUrl' in file: web/client/config.js, to updated server+client URLs.
+
+Server
+-------
+Instances:  3
+Disk(MB):   512
+Memory(MB): 2048
+Builpack:   https://github.com/cloudfoundry/nodejs-buildpack.git#v1.7.16 (can be changed after App is created)
+Stack:      cflinuxfs3-Cloud Foundry Linux-based filesystem (Ubuntu 18.04)
+Variables:  {NODE_ENV:*** HIDDEN ***}
+
+Client
+-------
+Instances:  3
+Disk(MB):   512
+Memory(MB): 512
+Builpack:   staticfile_buildpack (v1.5.25)
+Stack:      cflinuxfs3-Cloud Foundry Linux-based filesystem (Ubuntu 18.04)
+Variables:  {NODE_ENV:*** HIDDEN ***}
+
+
+Upload Server+Client to Cloud Foundry:
+######################################
+Server
+-------
+1. In Files Broswer go to 'server' dir
+2. Select all, except 'node_modules' dir --> Zip
+3. Upload this Zip to server 
+
+Client
+-------
+1. In Files Broswer go to 'web' dir
+2. Select all --> Zip
+3. Upload this Zip to client 
+
+
+######## Appendixes  ##################
+
+Available node version in latest node buildpack (not the one that we use!): 
+[12.22.5 12.22.6 14.17.6 14.18.0 15.13.0 15.14.0 16.8.0 16.10.0]
+"npm": "6.14.14"
+
+check version version:
+npm view xxx version
+
+Cancel fund msgs:
+npm config set fund false
+
+
+update to new node version
+1. Navigate to %USERPROFILE%\AppData\Roaming\
+2. Remove any cache that may be there by typing Run npm clean cache —force
+3. Remove the NPM Folder
+4. Re-install the Node.js and make sure to include NPM during the installation of Node.js
+
+update to new node version
+npm install -g npm@6.5.0
+
+Download older node versions:
+https://nodejs.org/en/download/releases/

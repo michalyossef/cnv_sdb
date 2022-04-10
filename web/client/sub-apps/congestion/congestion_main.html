@@ -1,0 +1,38 @@
+<div class="congestion_main_container container-fluid" id="congestionContainer">
+
+
+  <div class="row" ng-if="data.noDataInfo">
+      <div class="col-md-12">
+	  <label>No data found !</label>
+      </div>
+  </div>
+
+
+
+
+  <div class="row" ng-if="!data.noDataInfo">
+
+    </br>
+    <div id="content" class="col-md-12">
+      <div class="container-fluid">
+
+
+	<div class="row">
+
+	  <div class="col-md-1">
+	      <div ng-repeat="map in data.maps">
+		<button type="button" class="btn btn-info" ng-click="data.selectedMap = map;" style="margin:5px">{{map.map_type}}</button>
+	      </div>
+	  </div>
+
+	  <div class="col-md-11" ng-if="data.selectedMap">
+	      <label>{{data.selectedMap.map_type}}</label>
+	      <img ng-src="{{getImageFile(data.selectedMap.fileId)}}" style="width:100%"></img>
+	</div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

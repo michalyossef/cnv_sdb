@@ -1,0 +1,116 @@
+.leakage-main-window {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+/*     overflow: hidden; */
+/*     overflow: auto; */
+}
+
+
+/*.leakage_main_container{
+  overflow-y: auto;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  background-color:#eeeeee;
+  padding:15px;
+  border: 1px solid #a1a1a1;
+  border-radius: 10px;
+}*/
+
+
+.circular_button {
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+
+}
+
+
+#leakage-scrollable-dropdown-menu .dropdown-menu {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+
+#leakage_compare_releases_modal .modal-dialog{
+      width: 80%;
+}
+
+
+
+#leakage_mem_details_modal .modal-dialog{
+      width: 80%;
+}
+
+
+
+.leakage-compare-checkbox label{
+	position: relative;
+	cursor: pointer;
+	color: #666;
+}
+
+.leakage-compare-checkbox input[type="checkbox"]{
+	position: absolute;
+	right: 9000px;
+}
+
+/*Check box*/
+.leakage-compare-checkbox input[type="checkbox"] + .label-text:before{
+	font-family: FontAwesome;
+	content: "\f096";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing:antialiased;
+	width: 1em;
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.leakage-compare-checkbox input[type="checkbox"]:checked + .label-text:before{
+	content: "\f14a";
+	color: #2980b9;
+	animation: leakage-checkbox-compare-effect 250ms ease-in;
+}
+
+.leakage-compare-checkbox input[type="checkbox"]:disabled + .label-text{
+	color: #aaa;
+}
+
+.leakage-compare-checkbox input[type="checkbox"]:disabled + .label-text:before{
+	content: "\f0c8";
+	color: #ccc;
+}
+
+@keyframes leakage-checkbox-compare-effect{
+	0%{transform: scale(0);}
+	25%{transform: scale(1.3);}
+	75%{transform: scale(1.4);}
+	100%{transform: scale(1);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
